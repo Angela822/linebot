@@ -12,7 +12,7 @@ const app = express();
 const linebotParser = bot.parser();
 
 app.get('/',function(req,res){
-    res.send('Hello World!');
+    res.send('Succeed!');
 });
 
 app.post('/linewebhook', linebotParser);

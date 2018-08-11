@@ -1,6 +1,5 @@
 const linebot = require('linebot');
 const express = require('express');
-const line = require('@line/bot-sdk');
 
 const bot = linebot({
 	channelId: process.env.CHANNEL_ID,
@@ -8,26 +7,20 @@ const bot = linebot({
 	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
+const message = {
+	type: 'text',
+	text: 'Hello World!'
+};
+
 const app = express();
-app.post('/linewebhook', linebotParser);
 
 const linebotParser = bot.parser();
 
-const message = {
-	type: 'text',
-	text: 'Hello World!'
-};
-
-/*
 app.get('/',function(req,res){
     res.send('Succeed!');
 });
-*/
 
-const message = {
-	type: 'text',
-	text: 'Hello World!'
-};
+app.post('/linewebhook', linebotParser);
 
 reply_token = params['events'][0]['replyToken']
 

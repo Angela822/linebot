@@ -8,10 +8,6 @@ const bot = linebot({
 	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
-const client = new line.Client({
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
-  });
-
 const app = express();
 
 const linebotParser = bot.parser();
@@ -29,7 +25,7 @@ const message = {
 
 reply_token = params['events'][0]['replyToken']
 
-client.replyMessage(reply_token, message)
+bot.replyMessage(reply_token, message)
   .then(() => {
     console.log('Success');
 })

@@ -9,14 +9,20 @@ const bot = linebot({
 });
 
 const app = express();
+app.post('/linewebhook', linebotParser);
 
 const linebotParser = bot.parser();
 
+const message = {
+	type: 'text',
+	text: 'Hello World!'
+};
+
+/*
 app.get('/',function(req,res){
     res.send('Succeed!');
 });
-
-app.post('/linewebhook', linebotParser);
+*/
 
 const message = {
 	type: 'text',

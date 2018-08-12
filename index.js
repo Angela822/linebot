@@ -1,30 +1,49 @@
-const linebot = require('linebot');
+'use strict';
+
+const line = require('@line/bot-sdk');
 const express = require('express');
 
-const bot = linebot({
-	channelId: process.env.CHANNEL_ID,
-	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
-});
+// create LINE SDK config from env variables
+const config = {
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.CHANNEL_SECRET,
+};
 
+// create LINE SDK client
+const client = new line.Client(config);
+
+// create Express app
+// about Express itself: https://expressjs.com/
 const app = express();
 
-const linebotParser = bot.parser();
-
-app.get('/',function(req,res){
-    res.send('Succeed!');
+// register a webhook handler with middleware
+// about the middleware, please refer to doc
+app.post('/callback', line.middleware(config), (req, res) => {
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    });
 });
 
-app.post('/linewebhook', linebotParser);
+// event handler
+function handleEvent(event) {
+  if (event.type !== 'message' || event.message.type !== 'text') {
+    // ignore non-text-message event
+    return Promise.resolve(null);
+  }
 
-bot.on('message', function (event) {
-	event.reply(event.message.text).then(function (data) {
-		console.log('Success', data);
-	}).catch(function (error) {
-		console.log('Error', error);
-	});
-});
+  // create a echoing text message
+  const echo = { type: 'text', text: event.message.text };
 
-app.listen(process.env.PORT || 80, function () {
-	console.log('LineBot is running.');
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
+}
+
+// listen on port
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`listening on ${port}`);
 });

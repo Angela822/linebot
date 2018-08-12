@@ -82,18 +82,13 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Buy",
+                      "label": "Like",
                       "data": "action=buy&itemid=111"
-                  },
-                  {
-                      "type": "postback",
-                      "label": "Add to cart",
-                      "data": "action=add&itemid=111"
                   },
                   {
                       "type": "uri",
                       "label": "View detail",
-                      "uri": "http://example.com/page/111"
+                      "uri": "http://www.books.com.tw/products/0010792988?loc=P_002_012"
                   }
               ]
             },
@@ -105,18 +100,13 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://example.com/page/222"
+                  "uri": "http://www.books.com.tw/products/0010779366?loc=P_002_001"
               },
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Buy",
+                      "label": "Like",
                       "data": "action=buy&itemid=222"
-                  },
-                  {
-                      "type": "postback",
-                      "label": "Add to cart",
-                      "data": "action=add&itemid=222"
                   },
                   {
                       "type": "uri",

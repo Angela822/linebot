@@ -65,43 +65,38 @@ function handleEvent(event) {
 
   const imageMessage = {
     "type": "template",
-    "altText": "this is a carousel template",
+    "altText": "推薦給您...",
     "template": {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+              "thumbnailImageUrl": "//im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348",
               "imageBackgroundColor": "#FFFFFF",
-              "title": "this is menu",
-              "text": "description",
+              "title": "<<没問題，我可以搞定>>",
+              "text": "I can Hadle it",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://example.com/page/123"
+                  "uri": "https://linebot-takebook.herokuapp.com/"
               },
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Buy",
+                      "label": "Like",
                       "data": "action=buy&itemid=111"
-                  },
-                  {
-                      "type": "postback",
-                      "label": "Add to cart",
-                      "data": "action=add&itemid=111"
                   },
                   {
                       "type": "uri",
                       "label": "View detail",
-                      "uri": "http://example.com/page/111"
+                      "uri": "https://linebot-takebook.herokuapp.com/"
                   }
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "//im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348",
               "imageBackgroundColor": "#000000",
-              "title": "this is menu",
-              "text": "description",
+              "title": "<<讓男人追著妳跑>>",
+              "text": "男には「愛の首輪」をつけなさい",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
@@ -110,13 +105,8 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Buy",
+                      "label": "Like",
                       "data": "action=buy&itemid=222"
-                  },
-                  {
-                      "type": "postback",
-                      "label": "Add to cart",
-                      "data": "action=add&itemid=222"
                   },
                   {
                       "type": "uri",

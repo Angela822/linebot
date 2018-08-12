@@ -47,7 +47,7 @@ function handleEvent(event) {
     "altText": "This is a confirm template",
     "template": {
       "type": "confirm",
-      "text": "Are you sure?",
+      "text": "喜歡這本書嗎?",//提示字，會出現在選項的上面
       "actions": [
         {
           "type": "message",

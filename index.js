@@ -1,52 +1,32 @@
-'use strict';
-
-const line = require('@line/bot-sdk');
+const linebot = require('linebot');
 const express = require('express');
 
-// create LINE SDK config from env variables
-const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.CHANNEL_SECRET,
-};
-
-// create LINE SDK client
-const client = new line.Client(config);
-
-// create Express app
-// about Express itself: https://expressjs.com/
-const app = express();
-
-// register a webhook handler with middleware
-// about the middleware, please refer to doc
-app.post('/linewebhook', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).end();
-    });
+const bot = linebot({
+	channelId: process.env.CHANNEL_ID,
+	channelSecret: process.env.CHANNEL_SECRET,
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
-// event handler
-function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
-    return Promise.resolve(null);
-  }
+const app = express();
 
-  // create a echoing text message
-  const echo = { 
-		type: 'text', 
-		text: 'Hello World!'//event.message.text 
-	};
+const linebotParser = bot.parser();
 
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
-}
+app.get('/',function(req,res){
+    res.send('Succeed!');
+});
 
-// listen on port
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`listening on ${port}`);
+app.post('/linewebhook', linebotParser);
+
+//-------------------------------------------
+bot.on('message', function (event) {
+	event.reply('收到!').then(function (data) {
+		console.log('Success', data);
+	}).catch(function (error) {
+		console.log('Error', error);
+	});
+});
+//-------------------------------------------
+
+app.listen(process.env.PORT || 80, function () {
+	console.log('LineBot is running.');
 });

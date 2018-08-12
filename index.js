@@ -70,7 +70,7 @@ function handleEvent(event) {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348",
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
               "text": "I can Hadle it",
@@ -98,7 +98,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348",
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<讓男人追著妳跑>>",
               "text": "男には「愛の首輪」をつけなさい",

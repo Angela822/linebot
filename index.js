@@ -73,11 +73,11 @@ function handleEvent(event) {
               "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
-              "text": "I can Hadle it",
+              "text": "類別：生活教育",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://example.com/page/123"
+                  "uri": "http://takebook107511.herokuapp.com/"
               },
               "actions": [
                   {
@@ -87,7 +87,7 @@ function handleEvent(event) {
                   },
                   {
                       "type": "uri",
-                      "label": "View detail",
+                      "label": "看更多...",
                       "uri": "http://www.books.com.tw/products/0010792988?loc=P_002_012"
                   }
               ]
@@ -96,11 +96,11 @@ function handleEvent(event) {
               "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<讓男人追著妳跑>>",
-              "text": "男には「愛の首輪」をつけなさい",
+              "text": "類別：心理勵志",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://www.books.com.tw/products/0010779366?loc=P_002_001"
+                  "uri": "http://takebook107511.herokuapp.com/"
               },
               "actions": [
                   {
@@ -110,8 +110,31 @@ function handleEvent(event) {
                   },
                   {
                       "type": "uri",
-                      "label": "View detail",
-                      "uri": "http://example.com/page/222"
+                      "label": "看更多...",
+                      "uri": "http://www.books.com.tw/products/0010779366?loc=P_002_001"
+                  }
+              ]
+            },
+            {
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "imageBackgroundColor": "#000000",
+              "title": "<<跟著阿滴滴妹說出溜英文>",
+              "text": "類別：語言／字辭典",
+              "defaultAction": {
+                  "type": "uri",
+                  "label": "View detail",
+                  "uri": "http://takebook107511.herokuapp.com/"
+              },
+              "actions": [
+                  {
+                      "type": "postback",
+                      "label": "Like",
+                      "data": "action=buy&itemid=222"
+                  },
+                  {
+                      "type": "uri",
+                      "label": "看更多...",
+                      "uri": "http://www.books.com.tw/products/0010790130?loc=P_002_017"
                   }
               ]
             }

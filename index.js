@@ -65,32 +65,71 @@ function handleEvent(event) {
 
   const imageMessage = {
     "type": "template",
-    "altText": "image Message",
-    "template": {
+  "altText": "this is a carousel template",
+  "template": {
       "type": "carousel",
       "columns": [
-        {
-          "text": "推薦給您",
-          "actions": [
-            {
-              "type": "message",
-              "label": "讓男人追著妳跑",
-              "text": "book01"
-            }
-          ]
-        },
-        {
-          "text": "生活教育",
-          "actions": [
-            {
-              "type": "message",
-              "label": "没問題，我可以搞定",
-              "text": "book02"
-            }
-          ]
-        }
-      ]
-    }
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+            "imageBackgroundColor": "#FFFFFF",
+            "title": "this is menu",
+            "text": "description",
+            "defaultAction": {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/123"
+            },
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=111"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=111"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/111"
+                }
+            ]
+          },
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+            "imageBackgroundColor": "#000000",
+            "title": "this is menu",
+            "text": "description",
+            "defaultAction": {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/222"
+            },
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=222"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=222"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/222"
+                }
+            ]
+          }
+      ],
+      "imageAspectRatio": "rectangle",
+      "imageSize": "cover"
+  }
+}
   }
 
   if(event.message.text == '你會做什麼'){

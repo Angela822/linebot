@@ -70,14 +70,14 @@ function handleEvent(event) {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "//im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348",
+              "thumbnailImageUrl": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
               "text": "I can Hadle it",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "https://linebot-takebook.herokuapp.com/"
+                  "uri": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348"
               },
               "actions": [
                   {
@@ -93,14 +93,14 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "//im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348",
+              "thumbnailImageUrl": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348",
               "imageBackgroundColor": "#000000",
               "title": "<<讓男人追著妳跑>>",
               "text": "男には「愛の首輪」をつけなさい",
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://example.com/page/222"
+                  "uri": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348"
               },
               "actions": [
                   {

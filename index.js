@@ -64,14 +64,14 @@ function handleEvent(event) {
     }
   };
 
-  const imageMessage = {
+  const recommend = {
     "type": "template",
     "altText": "推薦給您...",
     "template": {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "https://www.google.com.tw/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiVofGK3efcAhXHf7wKHcixBb4QjRx6BAgBEAU&url=http%3A%2F%2Fwww.books.com.tw%2Fproducts%2F0010792988&psig=AOvVaw2m7xPaMmWdUhERuagQASp1&ust=1534170624052790",
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
               "text": "類別：生活教育",
@@ -145,47 +145,56 @@ function handleEvent(event) {
     }
   }
 
-  const image = {
+  const button = {
     "type": "template",
-    "altText": "this is a image carousel template",
+    "altText": "This is a buttons template",
     "template": {
-        "type": "image_carousel",
-        "columns": [
+        "type": "buttons",
+        "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+        "imageAspectRatio": "rectangle",
+        "imageSize": "cover",
+        "imageBackgroundColor": "#FFFFFF",
+        "title": "我會做這些事",
+        "text": "Please select",
+        "defaultAction": {
+            "type": "uri",
+            "label": "View detail",
+            "uri": "http://example.com/page/123"
+        },
+        "actions": [
             {
-              "imageUrl": "https://example.com/bot/images/item1.jpg",
-              "action": {
-                "type": "postback",
-                "label": "Buy",
-                "data": "action=buy&itemid=111"
-              }
+              "type": "postback",
+              "label": "查詢",
+              "data": "action=buy&itemid=123"
             },
             {
-              "imageUrl": "https://example.com/bot/images/item2.jpg",
-              "action": {
-                "type": "message",
-                "label": "Yes",
-                "text": "yes"
-              }
+              "type": "postback",
+              "label": "推薦書本",
+              "data": "action=buy&itemid=123"
             },
             {
-              "imageUrl": "https://example.com/bot/images/item3.jpg",
-              "action": {
-                "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/222"
-              }
+              "type": "postback",
+              "label": "表單分析",
+              "data": "action=add&itemid=123"
+            },
+            {
+              "type": "uri",
+              "label": "瀏覽Take Book網站",
+              "uri": "http://takebook107511.herokuapp.com/"
             }
         ]
     }
   }
 
+  //----------關鍵字---------------
   if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, habit);
   }else if(event.message.text == '推薦什麼'){
-    return client.replyMessage(event.replyToken, imageMessage);
-  }else if(event.message.text == '書'){
-    return client.replyMessage(event.replyToken, image);
+    return client.replyMessage(event.replyToken, recommend);
+  }else if(event.message.text == '選單'){
+    return client.replyMessage(event.replyToken, button);
   }
+  //-------------------------------
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);

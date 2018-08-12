@@ -27,6 +27,7 @@ app.post('/linewebhook', line.middleware(config), (req, res) => {
       res.status(500).end();
     });
 });
+//--------------Main---------------------
 
 // event handler
 function handleEvent(event) {
@@ -40,18 +41,38 @@ function handleEvent(event) {
 		type: 'text', 
 		text: '收到!'//event.message.text 
   };
-  
-  const message = { 
-		type: 'text', 
-		text: 'push!'//event.message.text 
+
+  const message ={
+    "type": "template",
+    "altText": "This is a confirm template",
+    "template": {
+      "type": "confirm",
+      "text": "Are you sure?",
+      "actions": [
+        {
+          "type": "message",
+          "label": "Like",
+          "text": "like"
+        },
+        {
+          "type": "message",
+          "label": "Dislike",
+          "text": "dislike"
+        }
+      ]
+    }
   };
+
+  if(event.message.text == '你會做什麼'){
+    return client.replyMessage(event.replyToken, message);
+  }
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
 
-  //push message
-  return client.pushMessage(event.source.userId, message);
 }
+
+//--------------Main---------------------
 
 // listen on port
 const port = process.env.PORT || 3000;

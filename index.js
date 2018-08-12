@@ -183,6 +183,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, habit);
   }else if(event.message.text == '推薦什麼'){
     return client.replyMessage(event.replyToken, imageMessage);
+  }else if(event.message.text == '書'){
+    return client.replyMessage(event.replyToken, image);
   }
 
   // use reply API

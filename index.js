@@ -71,7 +71,7 @@ function handleEvent(event) {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://www.google.com.tw/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiVofGK3efcAhXHf7wKHcixBb4QjRx6BAgBEAU&url=http%3A%2F%2Fwww.books.com.tw%2Fproducts%2F0010792988&psig=AOvVaw2m7xPaMmWdUhERuagQASp1&ust=1534170624052790",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
               "text": "類別：生活教育",

@@ -42,7 +42,7 @@ function handleEvent(event) {
 		text: '收到!'//event.message.text 
   };
 
-  const message ={
+  const habit = {
     "type": "template",
     "altText": "This is a confirm template",
     "template": {
@@ -63,8 +63,40 @@ function handleEvent(event) {
     }
   };
 
+  const imageMessage = {
+    "type": "template",
+    "altText": "image Message",
+    "template": {
+      "type": "carousel",
+      "columns": [
+        {
+          "text": "推薦給您",
+          "actions": [
+            {
+              "type": "message",
+              "label": "讓男人追著妳跑",
+              "text": "book01"
+            }
+          ]
+        },
+        {
+          "text": "生活教育",
+          "actions": [
+            {
+              "type": "message",
+              "label": "没問題，我可以搞定",
+              "text": "book02"
+            }
+          ]
+        }
+      ]
+    }
+  }
+
   if(event.message.text == '你會做什麼'){
-    return client.replyMessage(event.replyToken, message);
+    return client.replyMessage(event.replyToken, habit);
+  }else if(event.message.text == '推薦什麼'){
+    return client.replyMessage(event.replyToken, imageMessage);
   }
 
   // use reply API

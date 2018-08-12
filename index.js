@@ -77,18 +77,23 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/079/29/0010792988.jpg&v=5b446ea1&w=348&h=348"
+                  "uri": "http://example.com/page/123"
               },
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Like",
+                      "label": "Buy",
                       "data": "action=buy&itemid=111"
+                  },
+                  {
+                      "type": "postback",
+                      "label": "Add to cart",
+                      "data": "action=add&itemid=111"
                   },
                   {
                       "type": "uri",
                       "label": "View detail",
-                      "uri": "https://linebot-takebook.herokuapp.com/"
+                      "uri": "http://example.com/page/111"
                   }
               ]
             },
@@ -100,13 +105,18 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/93/0010779366.jpg&v=5a7c42c9&w=348&h=348"
+                  "uri": "http://example.com/page/222"
               },
               "actions": [
                   {
                       "type": "postback",
-                      "label": "Like",
+                      "label": "Buy",
                       "data": "action=buy&itemid=222"
+                  },
+                  {
+                      "type": "postback",
+                      "label": "Add to cart",
+                      "data": "action=add&itemid=222"
                   },
                   {
                       "type": "uri",

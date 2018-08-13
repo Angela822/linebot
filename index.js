@@ -64,6 +64,7 @@ function handleEvent(event) {
     }
   };
 
+  //推薦書本
   const recommend = {
     "type": "template",
     "altText": "推薦給您...",
@@ -145,9 +146,10 @@ function handleEvent(event) {
     }
   }
 
+  //Things what linebot can do
   const button = {
     "type": "template",
-    "altText": "This is a buttons template",
+    "altText": "我會做這些事...",
     "template": {
         "type": "buttons",
         "title": "我會做這些事",
@@ -177,7 +179,7 @@ function handleEvent(event) {
     }
   }
 
-  //----------關鍵字---------------
+  //----------關鍵字回覆---------------
   if(event.message.text == 'like'){
     return client.replyMessage(event.replyToken, habit);
   }else if(event.message.text == '推薦什麼'){

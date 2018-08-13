@@ -147,15 +147,16 @@ function handleEvent(event) {
 
   const button = {
     "type": "template",
-    "altText": "我會做這些事...",
+    "altText": "This is a buttons template",
     "template": {
         "type": "buttons",
-        "title": "我會做這些事...",
+        "title": "我會做這些事",
+        "text": "Please select",
         "defaultAction": {
-          "type": "uri",
-          "label": "View detail",
-          "uri": "http://example.com/page/123"
-      },
+            "type": "uri",
+            "label": "View detail",
+            "uri": "http://example.com/page/123"
+        },
         "actions": [
             {
               "type": "postback",

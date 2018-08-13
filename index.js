@@ -147,16 +147,10 @@ function handleEvent(event) {
 
   const button = {
     "type": "template",
-    "altText": "This is a buttons template",
+    "altText": "我會做這些事...",
     "template": {
         "type": "buttons",
-        "title": "我會做這些事",
-        "text": "Please select",
-        "defaultAction": {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/123"
-        },
+        "title": "我會做這些事...",
         "actions": [
             {
               "type": "postback",
@@ -183,11 +177,11 @@ function handleEvent(event) {
   }
 
   //----------關鍵字---------------
-  if(event.message.text == '你會做什麼'){
+  if(event.message.text == 'like'){
     return client.replyMessage(event.replyToken, habit);
   }else if(event.message.text == '推薦什麼'){
     return client.replyMessage(event.replyToken, recommend);
-  }else if(event.message.text == '選單'){
+  }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, button);
   }
   //-------------------------------

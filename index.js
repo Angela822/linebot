@@ -151,12 +151,7 @@ function handleEvent(event) {
     "template": {
         "type": "buttons",
         "title": "我會做這些事",
-        "text": "Please select",
-        "defaultAction": {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/123"
-        },
+        "text": "請選擇",
         "actions": [
             {
               "type": "postback",

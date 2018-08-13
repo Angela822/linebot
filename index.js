@@ -151,6 +151,11 @@ function handleEvent(event) {
     "template": {
         "type": "buttons",
         "title": "我會做這些事...",
+        "defaultAction": {
+          "type": "postback",
+          "label": "do things",
+          "data": "action=buy&itemid=123"
+      },
         "actions": [
             {
               "type": "postback",

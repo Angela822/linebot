@@ -182,7 +182,7 @@ function handleEvent(event) {
   //----------關鍵字回覆---------------
   if(event.message.text == 'like'){
     return client.replyMessage(event.replyToken, habit);
-  }else if(event.message.text == '推薦什麼'){
+  }else if(event.message.text == '推薦書本'){
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, button);

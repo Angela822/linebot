@@ -150,10 +150,6 @@ function handleEvent(event) {
     "altText": "This is a buttons template",
     "template": {
         "type": "buttons",
-        "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-        "imageAspectRatio": "rectangle",
-        "imageSize": "cover",
-        "imageBackgroundColor": "#FFFFFF",
         "title": "我會做這些事",
         "text": "Please select",
         "defaultAction": {

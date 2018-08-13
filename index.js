@@ -151,6 +151,7 @@ function handleEvent(event) {
     "template": {
         "type": "buttons",
         "title": "我會做這些事...",
+        "text": "",
         "defaultAction": {
           "type": "postback",
           "label": "do things",

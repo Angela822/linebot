@@ -208,7 +208,7 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, button);
-  }else if(event.message.text == 'quick'){
+  }else if(event.message.text == 'q'){
     return client.replyMessage(event.replyToken, quickReply);
   }
   //-------------------------------

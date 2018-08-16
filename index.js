@@ -146,7 +146,7 @@ function handleEvent(event) {
     }
   }
 
-  //Things what linebot can do
+  //takebook機器人功能選單
   const button = {
     "type": "template",
     "altText": "我會做這些事...",
@@ -179,6 +179,28 @@ function handleEvent(event) {
     }
   }
 
+  //quick reply
+  const quickReply = {
+    "quickReply": {
+      "items": [
+        {
+          "type": "action",
+          "action": {
+            "type": "cameraRoll",
+            "label": "Send photo"
+          }
+        },
+        {
+          "type": "action",
+          "action": {
+            "type": "camera",
+            "label": "Open camera"
+          }
+        }
+      ]
+    }
+  }
+
   //----------關鍵字回覆---------------
   if(event.message.text == 'like'){
     return client.replyMessage(event.replyToken, habit);
@@ -186,6 +208,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, button);
+  }else if(event.message.text == 'quick'){
+    return client.replyMessage(event.replyToken, quickReply);
   }
   //-------------------------------
 

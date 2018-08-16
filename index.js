@@ -168,7 +168,7 @@ function handleEvent(event) {
             {
               "type": "uri",
               "label": "表單分析",
-              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1"
+              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向
             },
             {
               "type": "uri",

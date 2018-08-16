@@ -146,7 +146,7 @@ function handleEvent(event) {
     }
   }
 
-  //Things what linebot can do
+  //takebook機器人功能選單
   const button = {
     "type": "template",
     "altText": "我會做這些事...",
@@ -176,6 +176,28 @@ function handleEvent(event) {
               "uri": "http://takebook107511.herokuapp.com/"
             }
         ]
+    }
+  }
+
+  //quick reply
+  const quickReply = {
+    "quickReply": {
+      "items": [
+        {
+          "type": "action",
+          "action": {
+            "type": "cameraRoll",
+            "label": "Send photo"
+          }
+        },
+        {
+          "type": "action",
+          "action": {
+            "type": "camera",
+            "label": "Open camera"
+          }
+        }
+      ]
     }
   }
 

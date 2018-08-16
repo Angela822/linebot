@@ -147,7 +147,7 @@ function handleEvent(event) {
   }
 
   //takebook機器人功能選單
-  const button = {
+  const botMenu = {
     "type": "template",
     "altText": "我會做這些事...",
     "template": {
@@ -185,7 +185,7 @@ function handleEvent(event) {
   }else if(event.message.text == '推薦書本'){
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
-    return client.replyMessage(event.replyToken, button);
+    return client.replyMessage(event.replyToken, botMenu);
   }
   //-------------------------------
 

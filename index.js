@@ -166,9 +166,9 @@ function handleEvent(event) {
               "data": "action=buy&itemid=123"
             },
             {
-              "type": "postback",
+              "type": "uri",
               "label": "表單分析",
-              "data": "action=add&itemid=123"
+              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1"
             },
             {
               "type": "uri",
@@ -179,28 +179,6 @@ function handleEvent(event) {
     }
   }
 
-  //quick reply
-  const quickReply = {
-    "quickReply": {
-      "items": [
-        {
-          "type": "action",
-          "action": {
-            "type": "cameraRoll",
-            "label": "Send photo"
-          }
-        },
-        {
-          "type": "action",
-          "action": {
-            "type": "camera",
-            "label": "Open camera"
-          }
-        }
-      ]
-    }
-  }
-
   //----------關鍵字回覆---------------
   if(event.message.text == 'like'){
     return client.replyMessage(event.replyToken, habit);
@@ -208,8 +186,6 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, button);
-  }else if(event.message.text == 'q'){
-    return client.replyMessage(event.replyToken, quickReply);
   }
   //-------------------------------
 

@@ -38,8 +38,21 @@ function handleEvent(event) {
 
   // create a echoing text message
   const echo = { 
-		type: 'text', 
-		text: '收到!'//event.message.text 
+		"type": 'template', 
+    //text: '你可以試著打"你會做什麼"'//event.message.text 
+    "altText": "你可以試著打'你會做什麼'",
+    "template": {
+        "type": "buttons",
+        "title": "你會做什麼",
+        "text": "請選擇",
+        "actions": [
+            {
+              "type": "message",
+              "label": "你會做什麼",
+              "text": "你會做什麼"
+            }
+        ]
+    }
   };
 　
   //收集使用者的喜好

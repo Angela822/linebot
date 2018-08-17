@@ -201,11 +201,6 @@ function handleEvent(event) {
               "text": "找書"
             },
             {
-              "type": "message",
-              "label": "推薦書本",
-              "text": "推薦書本"
-            },
-            {
               "type": "uri",
               "label": "表單分析",
               "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向

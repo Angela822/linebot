@@ -174,9 +174,9 @@ function handleEvent(event) {
               "data": "action=buy&itemid=123"
             },
             {
-              "type": "postback",
+              "type": "message",
               "label": "推薦書本",
-              "data": "action=buy&itemid=123"
+              "text": "推薦書本"
             },
             {
               "type": "uri",

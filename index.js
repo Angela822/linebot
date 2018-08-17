@@ -119,8 +119,8 @@ function handleEvent(event) {
             },
             {
               "type": "message",
-              "label": "推薦書本",
-              "text": "推薦書本"
+              "label": "TakeBook推薦書本",
+              "text": "TakeBook推薦書本"
             }
         ]
     }

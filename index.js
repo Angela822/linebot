@@ -54,6 +54,44 @@ function handleEvent(event) {
         ]
     }
   };
+
+  //takebook機器人功能選單
+  const botMenu = {
+    "type": "template",
+    "altText": "我會做這些事...",
+    "template": {
+        "type": "buttons",
+        "title": "我會做這些事",
+        "text": "請選擇",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "查詢",
+              "data": "action=buy&itemid=123"
+            },
+            {
+              "type": "message",
+              "label": "找書",
+              "text": "找書"
+            },
+            {
+              "type": "message",
+              "label": "推薦書本",
+              "text": "推薦書本"
+            },
+            {
+              "type": "uri",
+              "label": "表單分析",
+              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向
+            },
+            {
+              "type": "uri",
+              "label": "瀏覽Take Book網站",
+              "uri": "http://takebook107511.herokuapp.com/"
+            }
+        ]
+    }
+  }
 　
   //收集使用者的喜好
   const habit = {
@@ -159,38 +197,7 @@ function handleEvent(event) {
     }
   }
 
-  //takebook機器人功能選單
-  const botMenu = {
-    "type": "template",
-    "altText": "我會做這些事...",
-    "template": {
-        "type": "buttons",
-        "title": "我會做這些事",
-        "text": "請選擇",
-        "actions": [
-            {
-              "type": "postback",
-              "label": "查詢",
-              "data": "action=buy&itemid=123"
-            },
-            {
-              "type": "message",
-              "label": "推薦書本",
-              "text": "推薦書本"
-            },
-            {
-              "type": "uri",
-              "label": "表單分析",
-              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向
-            },
-            {
-              "type": "uri",
-              "label": "瀏覽Take Book網站",
-              "uri": "http://takebook107511.herokuapp.com/"
-            }
-        ]
-    }
-  }
+  
 
   //----------關鍵字回覆---------------
   if(event.message.text == 'like'){

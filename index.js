@@ -80,10 +80,10 @@ function handleEvent(event) {
   //查詢
   const require = {
     "type": "template",
-    "altText": "找書",
+    "altText": "查詢",
     "template": {
         "type": "buttons",
-        "text": "找書",
+        "text": "查詢",
         "actions": [
             {
               "type": "message",

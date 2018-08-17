@@ -124,7 +124,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {
@@ -147,7 +147,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {
@@ -170,7 +170,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {
@@ -206,7 +206,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {
@@ -229,7 +229,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {
@@ -252,7 +252,7 @@ function handleEvent(event) {
               "actions": [
                   {
                       "type": "message",
-                      "label": "Like",
+                      "label": "Like or Dislike?",
                       "text": "Like or Dislike?"
                   },
                   {

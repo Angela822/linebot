@@ -300,9 +300,9 @@ function handleEvent(event) {
         "text": "請選擇",
         "actions": [
             {
-              "type": "postback",
+              "type": "message",
               "label": "查詢",
-              "data": "action=buy&itemid=123"
+              "text": "查詢"
             },
             {
               "type": "message",

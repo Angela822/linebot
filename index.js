@@ -92,10 +92,97 @@ function handleEvent(event) {
             },
             {
               "type": "message",
+              "label": "新書",
+              "text": "新書"
+            },
+            {
+              "type": "message",
               "label": "推薦書本",
               "text": "推薦書本"
             }
         ]
+    }
+  }
+
+  //新書推薦
+  const newBook = {
+    "type": "template",
+    "altText": "新書推薦",
+    "template": {
+        "type": "carousel",
+        "columns": [
+            {
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "imageBackgroundColor": "#FFFFFF",
+              "title": "<<憤怒的菩薩>>",
+              "text": "類別：文學",
+              "defaultAction": {
+                  "type": "uri",
+                  "label": "View detail",
+                  "uri": "http://takebook107511.herokuapp.com/"
+              },
+              "actions": [
+                  {
+                      "type": "postback",
+                      "label": "Like",
+                      "data": "action=buy&itemid=111"
+                  },
+                  {
+                      "type": "uri",
+                      "label": "看更多...",
+                      "uri": "http://www.books.com.tw/products/0010795463?loc=P_015_0_102"
+                  }
+              ]
+            },
+            {
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "imageBackgroundColor": "#000000",
+              "title": "<<甜素烘焙實驗室>>",
+              "text": "類別：飲食料理",
+              "defaultAction": {
+                  "type": "uri",
+                  "label": "View detail",
+                  "uri": "http://takebook107511.herokuapp.com/"
+              },
+              "actions": [
+                  {
+                      "type": "postback",
+                      "label": "Like",
+                      "data": "action=buy&itemid=222"
+                  },
+                  {
+                      "type": "uri",
+                      "label": "看更多...",
+                      "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                  }
+              ]
+            },
+            {
+              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "imageBackgroundColor": "#000000",
+              "title": "<<願你的深情，能被溫柔以待>",
+              "text": "類別：心理勵志",
+              "defaultAction": {
+                  "type": "uri",
+                  "label": "View detail",
+                  "uri": "http://takebook107511.herokuapp.com/"
+              },
+              "actions": [
+                  {
+                      "type": "postback",
+                      "label": "Like",
+                      "data": "action=buy&itemid=222"
+                  },
+                  {
+                      "type": "uri",
+                      "label": "看更多...",
+                      "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                  }
+              ]
+            }
+        ],
+        "imageAspectRatio": "rectangle",
+        "imageSize": "cover"
     }
   }
 

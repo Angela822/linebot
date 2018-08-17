@@ -43,7 +43,7 @@ function handleEvent(event) {
     "altText": "你可以試著打'你會做什麼'",
     "template": {
         "type": "buttons",
-        "title": "你會做什麼",
+        "title": "你可以試著打'你會做什麼'",
         "text": "請選擇",
         "actions": [
             {

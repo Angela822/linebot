@@ -77,6 +77,28 @@ function handleEvent(event) {
     }
   };
 
+  //找書
+  const findBook = {
+    "type": "template",
+    "altText": "找書",
+    "template": {
+        "type": "buttons",
+        "text": "找書",
+        "actions": [
+            {
+              "type": "message",
+              "label": "用類別找書",
+              "text": "用類別找書"
+            },
+            {
+              "type": "message",
+              "label": "推薦書本",
+              "text": "推薦書本"
+            }
+        ]
+    }
+  }
+
   //推薦書本
   const recommend = {
     "type": "template",
@@ -204,6 +226,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);
+  }else if(event.message.text == '找書'){
+    return client.replyMessage(event.replyToken, findBook);
   }
   //-------------------------------
 

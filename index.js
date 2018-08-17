@@ -315,6 +315,10 @@ function handleEvent(event) {
   }
   //-------------------------------
 
+  if(event.message.text == '用類別找書'){
+    return client.replyMessage(event.replyToken, "");
+  }
+
   // use reply API
   return client.replyMessage(event.replyToken, echo);
 

@@ -27,7 +27,7 @@ app.post('/linewebhook', line.middleware(config), (req, res) => {
       res.status(500).end();
     });
 });
-//--------------Main---------------------
+//--------------Main Start---------------------
 
 // event handler
 function handleEvent(event) {
@@ -76,6 +76,28 @@ function handleEvent(event) {
       ]
     }
   };
+
+  //查詢
+  const require = {
+    "type": "template",
+    "altText": "找書",
+    "template": {
+        "type": "buttons",
+        "text": "找書",
+        "actions": [
+            {
+              "type": "message",
+              "label": "關鍵字找書",
+              "text": "關鍵字找書"
+            },
+            {
+              "type": "message",
+              "label": "書本排行榜",
+              "text": "書本排行榜"
+            }
+        ]
+    }
+  }
 
   //找書
   const findBook = {
@@ -312,6 +334,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, findBook);
   }else if(event.message.text == '新書'){
     return client.replyMessage(event.replyToken, newBook);
+  }else if(event.message.text == '查詢'){
+    return client.replyMessage(event.replyToken, require);
   }
   //-------------------------------
 
@@ -324,7 +348,7 @@ function handleEvent(event) {
 
 }
 
-//--------------Main---------------------
+//--------------Main End---------------------
 
 // listen on port
 const port = process.env.PORT || 3000;

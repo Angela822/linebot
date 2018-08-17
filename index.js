@@ -310,6 +310,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, botMenu);
   }else if(event.message.text == '找書'){
     return client.replyMessage(event.replyToken, findBook);
+  }else if(event.message.text == '新書'){
+    return client.replyMessage(event.replyToken, newBook);
   }
   //-------------------------------
 

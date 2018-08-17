@@ -58,7 +58,7 @@ function handleEvent(event) {
   //收集使用者的喜好
   const habit = {
     "type": "template",
-    "altText": "Like or Dislike?",
+    "altText": "喜歡這本書嗎?",
     "template": {
       "type": "confirm",
       "text": "喜歡這本書嗎?",//提示字，會出現在選項的上面
@@ -123,9 +123,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=111"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -146,9 +146,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=222"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -169,9 +169,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=222"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -205,9 +205,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=111"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -228,9 +228,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=222"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -251,9 +251,9 @@ function handleEvent(event) {
               },
               "actions": [
                   {
-                      "type": "postback",
+                      "type": "message",
                       "label": "Like",
-                      "data": "action=buy&itemid=222"
+                      "text": "Like or Dislike?"
                   },
                   {
                       "type": "uri",
@@ -302,7 +302,7 @@ function handleEvent(event) {
   }
 
   //----------關鍵字回覆---------------
-  if(event.message.text == 'like'){
+  if(event.message.text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);
   }else if(event.message.text == '推薦書本'){
     return client.replyMessage(event.replyToken, recommend);

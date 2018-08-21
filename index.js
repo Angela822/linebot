@@ -134,7 +134,7 @@ function handleEvent(event) {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://github.com/Angela822/linebot/blob/master/images/%E6%88%91%E6%9C%89%E7%A0%B4%E5%A3%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E6%AC%8A%E5%88%A9.jpg",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<我有破壞自己的權利>>",
               "text": "類別：文學",

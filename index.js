@@ -136,7 +136,7 @@ function handleEvent(event) {
             {
               "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
               "imageBackgroundColor": "#FFFFFF",
-              "title": "<<憤怒的菩薩>>",
+              "title": "<<我有破壞自己的權利>>",
               "text": "類別：文學",
               "defaultAction": {
                   "type": "uri",
@@ -152,7 +152,7 @@ function handleEvent(event) {
                   {
                       "type": "uri",
                       "label": "看更多...",
-                      "uri": "http://www.books.com.tw/products/0010795463?loc=P_015_0_102"
+                      "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                   }
               ]
             },

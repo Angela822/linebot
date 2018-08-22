@@ -119,8 +119,8 @@ function handleEvent(event) {
             },
             {
               "type": "message",
-              "label": "TakeBook推薦書本",
-              "text": "TakeBook推薦書本"
+              "label": "機器人推薦書本",
+              "text": "機器人推薦書本"
             }
         ]
     }
@@ -326,7 +326,7 @@ function handleEvent(event) {
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);
-  }else if(event.message.text == '推薦書本'){
+  }else if(event.message.text == '機器人推薦書本'){
     return client.replyMessage(event.replyToken, recommend);
   }else if(event.message.text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);

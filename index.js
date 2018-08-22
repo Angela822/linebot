@@ -239,7 +239,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://github.com/Angela822/linebot/blob/master/images/img01.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<讓男人追著妳跑>>",
               "text": "類別：心理勵志",

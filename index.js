@@ -137,8 +137,7 @@ function handleEvent(event) {
             {
               "type": "postback",
               "label": "文學",
-              "data": "action=bookType=01",
-              "text": "文學"
+              "data": "action=bookType=01"
             },
             {
               "type": "postback",
@@ -377,7 +376,9 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, typeBook);
   }
 
- 
+  if(event.postback.data=='action=bookType=01'){
+    return client.replyMessage(event.replyToken, "文學");
+  }
 
 
   // use reply API

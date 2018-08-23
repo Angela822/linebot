@@ -137,12 +137,12 @@ function handleEvent(event) {
             {
               "type": "postback",
               "label": "文學",
-              "data": "action=bookType=01"
+              "data": "bookType=01"
             },
             {
               "type": "postback",
               "label": "財經企管",
-              "data": "action=bookType=02",
+              "data": "bookType=02",
               "text": "財經企管"
             },
             {
@@ -374,7 +374,7 @@ function handleEvent(event) {
 
   if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
-    if(event.postback =='action=bookType=01'){
+    if(event.postback.data =='bookType=01'){
       return client.replyMessage(event.replyToken, "文學");
     }
   }

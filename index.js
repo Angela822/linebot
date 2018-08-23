@@ -142,9 +142,9 @@ function handleEvent(event) {
             },
             {
               "type": "postback",
-              "label": "財金管理",
+              "label": "財經管理",
               "data": "action=bookType=02",
-              "text": "財金管理"
+              "text": "財經管理"
             },
             {
               "type": "message",

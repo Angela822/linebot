@@ -126,6 +126,40 @@ function handleEvent(event) {
     }
   }
 
+  //用類別找書
+  const typeBook = {
+    "type": "template",
+    "altText": "用類別找書",
+    "template": {
+        "type": "buttons",
+        "text": "用類別找書",
+        "actions": [
+            {
+              "type": "postback",
+              "label": "文學",
+              "data": "action=bookType=01",
+              "text": "文學"
+            },
+            {
+              "type": "postback",
+              "label": "財金管理",
+              "data": "action=bookType=02",
+              "text": "財金管理"
+            },
+            {
+              "type": "message",
+              "label": "飲食料理",
+              "text": "飲食料理"
+            },
+            {
+              "type": "message",
+              "label": "旅遊",
+              "text": "旅遊"
+            }
+        ]
+    }
+  }
+
   //新書推薦
   const newBook = {
     "type": "template",
@@ -340,7 +374,7 @@ function handleEvent(event) {
   //-------------------------------
 
   if(event.message.text == '用類別找書'){
-    return client.replyMessage(event.replyToken, "");
+    return client.replyMessage(event.replyToken, typeBook);
   }
 
   // use reply API

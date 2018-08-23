@@ -374,11 +374,12 @@ function handleEvent(event) {
 
   if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
+    if(event.postback.data =='action=bookType=01'){
+      return client.replyMessage(event.replyToken, "文學");
+    }
   }
 
-  if(event.postback.data=='action=bookType=01'){
-    return client.replyMessage(event.replyToken, "文學");
-  }
+  
 
 
   // use reply API

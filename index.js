@@ -53,7 +53,7 @@ function handleEvent(event) {
             }
         ]
     }
-  };
+  }
 　
   //收集使用者的喜好
   const habit = {
@@ -75,7 +75,7 @@ function handleEvent(event) {
         }
       ]
     }
-  };
+  }
 
   //查詢
   const require = {

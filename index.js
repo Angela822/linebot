@@ -371,7 +371,7 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
-  }else if(event.postback.postback.data == 'bookType=01'){
+  }else if(event.postback.data == 'bookType=01'){
     return client.replyMessage(event.replyToken, '文學');
   }
   //-------------------------------

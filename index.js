@@ -374,8 +374,8 @@ function handleEvent(event) {
   }
   //-------------------------------
   
-  if(event.postback.postback.data =='bookType=01'){
-    return client.replyMessage(event.replyToken, "文學");
+  if(event.postback.postback.data == 'bookType=01'){
+    return client.replyMessage(event.replyToken, '文學');
   }
   
   // use reply API

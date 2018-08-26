@@ -127,7 +127,6 @@ function handleEvent(event) {
   }
 
   //用類別找書
-  /*
   const typeBook = {
     "type": "template",
     "altText": "用類別找書",
@@ -158,7 +157,7 @@ function handleEvent(event) {
             }
         ]
     }
-  }*/
+  }
 
   //新書推薦
   const newBook = {
@@ -376,10 +375,10 @@ function handleEvent(event) {
   if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, "");
   }
-  /*
-  if(event.postback.data =='bookType=01'){
+  
+  if(event.postback.postback.data =='bookType=01'){
     return client.replyMessage(event.replyToken, "文學");
-  }*/
+  }
 
   
 

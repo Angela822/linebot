@@ -373,11 +373,11 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, typeBook);
   }
   //-------------------------------
-  
+  /*
   const bookType = event.postback.postback.data;
   if(bookType == 'bookType=01'){
     return client.replyMessage(event.replyToken, '文學');
-  }
+  }*/
   
   // use reply API
   return client.replyMessage(event.replyToken, echo);

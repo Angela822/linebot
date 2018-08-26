@@ -369,16 +369,14 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, newBook);
   }else if(event.message.text == '查詢'){
     return client.replyMessage(event.replyToken, require);
+  }else if(event.message.text == '用類別找書'){
+    return client.replyMessage(event.replyToken, typeBook);
   }
   //-------------------------------
-
-  if(event.message.text == '用類別找書'){
-    return client.replyMessage(event.replyToken, "");
-  }
-  /*
+  
   if(event.postback.postback.data =='bookType=01'){
     return client.replyMessage(event.replyToken, "文學");
-  }*/
+  }
   
   // use reply API
   return client.replyMessage(event.replyToken, echo);

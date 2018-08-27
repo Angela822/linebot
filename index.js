@@ -37,7 +37,12 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-  const echo = { 
+  const echo = [
+  {
+    type: 'text',
+    text: '您好!'
+  },
+  { 
 		"type": 'template', 
     //text: '你可以試著打"你會做什麼"'//event.message.text 
     "altText": "你可以試著打'你會做什麼'",
@@ -54,6 +59,7 @@ function handleEvent(event) {
         ]
     }
   }
+]
 　
   //收集使用者的喜好
   const habit = {

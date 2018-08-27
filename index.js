@@ -373,6 +373,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, typeBook);
   }else if(event.postback.data == 'bookType=01'){
     return client.replyMessage(event.replyToken, '文學');
+  }else{
+    return client.replyMessage(event.replyToken, echo);
   }
   //-------------------------------
   /*
@@ -382,7 +384,7 @@ function handleEvent(event) {
   }*/
   
   // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  
 
 }
 

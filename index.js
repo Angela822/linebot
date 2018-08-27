@@ -29,10 +29,6 @@ app.post('/linewebhook', line.middleware(config), (req, res) => {
 });
 //--------------Main Start---------------------
 
-var chooseType = [];
-  chooseType.push(event.postback.postback.data);
-  console.log(chooseType);
-
 // event handler
 function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
@@ -359,6 +355,10 @@ function handleEvent(event) {
         ]
     }
   }
+
+  const chooseType = [];
+  chooseType.push(event.postback.postback.data);
+  console.log(chooseType);
 
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){

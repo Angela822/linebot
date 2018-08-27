@@ -356,6 +356,10 @@ function handleEvent(event) {
     }
   }
 
+  var chooseType = [];
+  chooseType.push(event.postback.postback.data);
+  console.log(chooseType);
+
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);

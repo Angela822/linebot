@@ -53,7 +53,7 @@ function handleEvent(event) {
             }
         ]
     }
-  };
+  }
 　
   //收集使用者的喜好
   const habit = {

@@ -197,7 +197,7 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://takebook107511.herokuapp.com/"
+                  "uri": "http://140.131.114.176/"
               },
               "actions": [
                   {
@@ -220,7 +220,7 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://takebook107511.herokuapp.com/"
+                  "uri": "http://140.131.114.176/"
               },
               "actions": [
                   {
@@ -256,7 +256,7 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://takebook107511.herokuapp.com/"
+                  "uri": "http://140.131.114.176/"
               },
               "actions": [
                   {
@@ -279,7 +279,7 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://takebook107511.herokuapp.com/"
+                  "uri": "http://140.131.114.176/"
               },
               "actions": [
                   {
@@ -302,7 +302,7 @@ function handleEvent(event) {
               "defaultAction": {
                   "type": "uri",
                   "label": "View detail",
-                  "uri": "http://takebook107511.herokuapp.com/"
+                  "uri": "http://140.131.114.176/"
               },
               "actions": [
                   {

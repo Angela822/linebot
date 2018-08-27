@@ -358,7 +358,6 @@ function handleEvent(event) {
 
   const chooseType = [];
   chooseType.push(event.postback.postback.data);
-  console.log(chooseType);
 
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){

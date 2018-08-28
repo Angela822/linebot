@@ -148,7 +148,7 @@ function handleEvent(event) {
             {
               "type": "message",
               "label": "飲食料理",
-              "text": "飲食料理"
+              "text": " "
             },
             {
               "type": "message",

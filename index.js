@@ -143,7 +143,7 @@ function handleEvent(event) {
               "type": "postback",
               "label": "財經企管",
               "data": "bookType=02",
-              "text": ""
+              "text": " "
             },
             {
               "type": "message",

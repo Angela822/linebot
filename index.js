@@ -361,9 +361,9 @@ function handleEvent(event) {
   chooseType.push(event.postback.postback.data);
   */
 
-  var received_text = event.message.text;
-  if(received_text.substring(0,1)=){
-
+  //var received_text = event.message.text;
+  if(event.message.text.substring(0,1)=="文學"){
+    return client.replyMessage(event.replyToken, "好的好的");
   }
   
 

@@ -361,7 +361,7 @@ function handleEvent(event) {
   const chooseType = [];
   chooseType.push(event.postback.postback.data);
   */
-  //var received_text = event.message.text;
+  var received_text = event.message.text;
 
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){
@@ -378,7 +378,7 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
-  }else if(event.message.text.substring(0,1) =='文學'){
+  }else if(received_text.substring(0,1) =='文學'){
     return client.replyMessage(event.replyToken, '好的好的~');
   }
   //-------------------------------

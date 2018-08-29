@@ -361,6 +361,12 @@ function handleEvent(event) {
   chooseType.push(event.postback.postback.data);
   */
 
+  var received_text = event.message.text;
+  if(received_text.substring(0,1)=){
+
+  }
+  
+
   //----------關鍵字回覆---------------
   if(event.message.text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);

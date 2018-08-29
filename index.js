@@ -143,12 +143,12 @@ function handleEvent(event) {
               "type": "postback",
               "label": "財經企管",
               "data": "bookType=02",
-              "text": " "
+              "text": "財經企管"
             },
             {
               "type": "message",
               "label": "飲食料理",
-              "text": " "
+              "text": "飲食料理"
             },
             {
               "type": "message",
@@ -350,7 +350,7 @@ function handleEvent(event) {
             {
               "type": "uri",
               "label": "瀏覽Take Book網站",
-              "uri": "http://takebook107511.herokuapp.com/"
+              "uri": "http://140.131.114.176/"
             }
         ]
     }

@@ -362,9 +362,6 @@ function handleEvent(event) {
   */
 
   //var received_text = event.message.text;
-  if(event.message.text.substring(0,1)=="文學"){
-    return client.replyMessage(event.replyToken, "好的好的");
-  }
   
 
   //----------關鍵字回覆---------------
@@ -382,6 +379,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(event.message.text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
+  }else if(event.message.text.substring(0,1)=="文學"){
+    return client.replyMessage(event.replyToken, "好的好的~");
   }
   //-------------------------------
   /*

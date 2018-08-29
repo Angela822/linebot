@@ -36,36 +36,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  //var received_text = event.message.text;
-
-  //----------關鍵字回覆---------------
-  if(event.message.text == 'Like or Dislike?'){
-    return client.replyMessage(event.replyToken, habit);
-  }else if(event.message.text == '機器人推薦書本'){
-    return client.replyMessage(event.replyToken, recommend);
-  }else if(event.message.text == '你會做什麼'){
-    return client.replyMessage(event.replyToken, botMenu);
-  }else if(event.message.text == '找書'){
-    return client.replyMessage(event.replyToken, findBook);
-  }else if(event.message.text == '新書'){
-    return client.replyMessage(event.replyToken, newBook);
-  }else if(event.message.text == '查詢'){
-    return client.replyMessage(event.replyToken, require);
-  }else if(event.message.text == '用類別找書'){
-    return client.replyMessage(event.replyToken, typeBook);
-  }else if(event.message.text.substring(0,1) =='文學'){
-    return client.replyMessage(event.replyToken, '好的好的~');
-  }
-  //-------------------------------
-  /*
-  const bookType = event.postback.postback.data;
-  if(bookType == 'bookType=01'){
-    return client.replyMessage(event.replyToken, '文學');
-  }*/
   
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
-
   // create a echoing text message
   const echo = { 
 		"type": 'template', 
@@ -390,7 +361,35 @@ function handleEvent(event) {
   const chooseType = [];
   chooseType.push(event.postback.postback.data);
   */
+  //var received_text = event.message.text;
 
+  //----------關鍵字回覆---------------
+  if(event.message.text == 'Like or Dislike?'){
+    return client.replyMessage(event.replyToken, habit);
+  }else if(event.message.text == '機器人推薦書本'){
+    return client.replyMessage(event.replyToken, recommend);
+  }else if(event.message.text == '你會做什麼'){
+    return client.replyMessage(event.replyToken, botMenu);
+  }else if(event.message.text == '找書'){
+    return client.replyMessage(event.replyToken, findBook);
+  }else if(event.message.text == '新書'){
+    return client.replyMessage(event.replyToken, newBook);
+  }else if(event.message.text == '查詢'){
+    return client.replyMessage(event.replyToken, require);
+  }else if(event.message.text == '用類別找書'){
+    return client.replyMessage(event.replyToken, typeBook);
+  }else if(event.message.text.substring(0,1) =='文學'){
+    return client.replyMessage(event.replyToken, '好的好的~');
+  }
+  //-------------------------------
+  /*
+  const bookType = event.postback.postback.data;
+  if(bookType == 'bookType=01'){
+    return client.replyMessage(event.replyToken, '文學');
+  }*/
+  
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
   
 
 }

@@ -366,22 +366,23 @@ function handleEvent(event) {
   const chooseType = [];
   chooseType.push(event.postback.postback.data);
   */
-  var received_text = event.message.text;
 
   //----------關鍵字回覆---------------
-  if(event.message.text == 'Like or Dislike?'){
+  var received_text = event.message.text;
+
+  if(received_text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);
-  }else if(event.message.text == '機器人推薦書本'){
+  }else if(received_text == '機器人推薦書本'){
     return client.replyMessage(event.replyToken, recommend);
-  }else if(event.message.text == '你會做什麼'){
+  }else if(received_text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);
-  }else if(event.message.text == '找書'){
+  }else if(received_text == '找書'){
     return client.replyMessage(event.replyToken, findBook);
-  }else if(event.message.text == '新書'){
+  }else if(received_text == '新書'){
     return client.replyMessage(event.replyToken, newBook);
-  }else if(event.message.text == '查詢'){
+  }else if(received_text == '查詢'){
     return client.replyMessage(event.replyToken, require);
-  }else if(event.message.text == '用類別找書'){
+  }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
   }else if(received_text.substring(0,1) == '文'){
     return client.replyMessage(event.replyToken, test);

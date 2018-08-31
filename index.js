@@ -135,7 +135,7 @@ function handleEvent(event) {
   //用類別找書
   const typeBook = {
     type: 'text',
-    text: '我想看 XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
+    text: '我想看:XX,XX,XX (Ex.我想看:文學,生活風格,藝術設計)'
   }
 
   //新書推薦

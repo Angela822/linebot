@@ -127,13 +127,12 @@ function handleEvent(event) {
     }
   }
 
-  
   //用類別找書
   const typeBook = {
     type: 'text',
     text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
   }
- /*
+
   const typeFalse = {
     type: 'text',
     text: '你這樣不對喔，要按照格式打~'
@@ -143,7 +142,6 @@ function handleEvent(event) {
     type: 'text',
     text: '好的好的~'
   }
-  */
 
   //新書推薦
   const newBook = {
@@ -350,14 +348,6 @@ function handleEvent(event) {
   //----------關鍵字回覆---------------
   var received_text = event.message.text;
 
-  function typeAnalysis(received_text){
-    if(received_text.substring(0,4) == '我想看：'){
-      return client.replyMessage(event.replyToken, typeTrue);
-    }else{
-      return client.replyMessage(event.replyToken, typeFalse);
-    }
-  }
-
   if(received_text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);
   }else if(received_text == '機器人推薦書本'){
@@ -372,8 +362,9 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
+  }else if(received_text.substring(0,4) == '我想看：'){
+    return client.replyMessage(event.replyToken, typeTrue);
   }
-  typeAnalysis();
   // use reply API
   return client.replyMessage(event.replyToken, echo);
   

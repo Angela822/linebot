@@ -357,7 +357,7 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
-  }else if(received_text.substring(0,1) == '文'){
+  }else if(received_text.substring(0,4) == '我想看:'){
     return client.replyMessage(event.replyToken, test);
   }
   //-------------------------------

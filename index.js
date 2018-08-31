@@ -55,11 +55,6 @@ function handleEvent(event) {
         ]
     }
   }
-
-  const test = {
-    type: 'text',
-    text: '好的好的~'
-  }
 　
   //收集使用者的喜好
   const habit = {
@@ -136,6 +131,16 @@ function handleEvent(event) {
   const typeBook = {
     type: 'text',
     text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+  }
+
+  const typeFalse = {
+    type: 'text',
+    text: '你這樣不對喔，要按照格式打~'
+  }
+
+  const typeTrue = {
+    type: 'text',
+    text: '好的好的~'
   }
 
   //新書推薦
@@ -357,8 +362,15 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
-  }else if(received_text.substring(0,4) == '我想看：'){
-    return client.replyMessage(event.replyToken, test);
+  }
+    // use reply API
+   return client.replyMessage(event.replyToken, echo);
+  
+  
+  if(received_text.substring(0,4) == '我想看：'){
+    return client.replyMessage(event.replyToken, typeTrue);
+  }else{
+    return client.replyMessage(event.replyToken, typeFalse);
   }
   //-------------------------------
   /*
@@ -367,8 +379,7 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, '文學');
   }*/
   
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  
   
 
 }

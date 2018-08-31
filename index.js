@@ -371,9 +371,9 @@ function handleEvent(event) {
   }else if(received_text == '查詢'){
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
-    typeAnalysis();
     return client.replyMessage(event.replyToken, typeBook);
   }
+  typeAnalysis();
   // use reply API
   return client.replyMessage(event.replyToken, echo);
   

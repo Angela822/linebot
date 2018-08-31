@@ -134,35 +134,9 @@ function handleEvent(event) {
 
   //用類別找書
   const typeBook = {
-    "type": "template",
-    "altText": "用類別找書",
-    "template": {
-        "type": "buttons",
-        "text": "用類別找書",
-        "actions": [
-            {
-              "type": "postback",
-              "label": "文學",
-              "data": "bookType=01"
-            },
-            {
-              "type": "postback",
-              "label": "財經企管",
-              "data": "bookType=02",
-              "text": "財經企管"
-            },
-            {
-              "type": "message",
-              "label": "飲食料理",
-              "text": "飲食料理"
-            },
-            {
-              "type": "message",
-              "label": "旅遊",
-              "text": "旅遊"
-            }
-        ]
-    }
+    type: 'text',
+    text: '請用這樣的方式告訴我吧：',
+    text: '我想看 XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
   }
 
   //新書推薦
@@ -382,6 +356,8 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, newBook);
   }else if(received_text == '查詢'){
     return client.replyMessage(event.replyToken, require);
+  }else if(received_text == '用類別找書'){
+    return client.replyMessage(event.replyToken, typeBook);
   }else if(received_text.substring(0,1) == '文'){
     return client.replyMessage(event.replyToken, test);
   }

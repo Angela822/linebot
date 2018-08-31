@@ -362,16 +362,21 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);
+  }else if(received_text.substring(0,4) == '我想看：'){
+    return client.replyMessage(event.replyToken, typeTrue);
   }
-    // use reply API
-   return client.replyMessage(event.replyToken, echo);
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
   
-  
+  /*
   if(received_text.substring(0,4) == '我想看：'){
     return client.replyMessage(event.replyToken, typeTrue);
   }else{
     return client.replyMessage(event.replyToken, typeFalse);
   }
+  */
+
+
   //-------------------------------
   /*
   const bookType = event.postback.postback.data;

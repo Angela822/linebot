@@ -16,7 +16,7 @@ var bot = linebot({
 });
 
 // create LINE SDK client
-const client = new line.Client(config);
+const client = new linebot.Client(config);
 
 //--------------Main Start---------------------
 

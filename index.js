@@ -157,6 +157,8 @@ function handleEvent(event) {
         "columns": [
             {
               "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+              "imageAspectRatio": "rectangle",
+              "imageSize": "cover",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<我有破壞自己的權利>>",
               "text": "類別：文學",

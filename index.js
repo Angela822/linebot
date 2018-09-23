@@ -18,6 +18,21 @@ var bot = linebot({
 // create LINE SDK client
 const client = new linebot.Client(config);
 
+//--------------------------------
+// 建立一個網站應用程式app
+// 如果連接根目錄, 交給機器人處理
+//--------------------------------
+const app = express();
+app.post('/linewebhook', line.middleware(config), (req, res) => {
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    });
+});
+
 //--------------Main Start---------------------
 
 //--------------------------
@@ -405,14 +420,6 @@ function handleEvent(event) {
 }
 
 //--------------Main End---------------------
-
-//--------------------------------
-// 建立一個網站應用程式app
-// 如果連接根目錄, 交給機器人處理
-//--------------------------------
-const app = express();
-const linebotParser = bot.parser();
-app.post('/', linebotParser);
 
 //--------------------------------
 // 可直接取用檔案的資料夾

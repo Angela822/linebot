@@ -1,7 +1,7 @@
 {
   "name": "node-js-line-bot",
   "version": "0.1.0",
-  "description": "A sample Node.js linebot app",
+  "description": "My linebot",
   "engines": {
     "node": "8.9.1",
     "pg": "^7.4.1"

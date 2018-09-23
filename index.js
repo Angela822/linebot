@@ -179,7 +179,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<甜素烘焙實驗室>>",
               "text": "類別：飲食料理",
@@ -202,7 +202,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<願你的深情，能被溫柔以待>",
               "text": "類別：心理勵志",
@@ -238,7 +238,7 @@ function handleEvent(event) {
         "type": "carousel",
         "columns": [
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/没問題，我可以搞定.jpg",
               "imageBackgroundColor": "#FFFFFF",
               "title": "<<没問題，我可以搞定>>",
               "text": "類別：生活教育",
@@ -261,7 +261,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://github.com/Angela822/linebot/blob/master/images/img01.jpg",
+              "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/讓男人追著妳跑.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<讓男人追著妳跑>>",
               "text": "類別：心理勵志",
@@ -284,7 +284,7 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+              "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/跟著阿滴滴妹說出溜英文.jpg",
               "imageBackgroundColor": "#000000",
               "title": "<<跟著阿滴滴妹說出溜英文>",
               "text": "類別：語言／字辭典",

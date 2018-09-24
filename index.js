@@ -35,6 +35,7 @@ app.use(express.static('public'));
 
 //--------------Main Start---------------------
 
+/*
 //--------------------------
 // 機器人接受回覆的處理
 //--------------------------
@@ -60,7 +61,7 @@ bot.on('postback', function(event) {
           }
       ]);		
   });
-});
+});*/
 
 // event handler
 function handleEvent(event) {

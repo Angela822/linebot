@@ -1,3 +1,10 @@
+//--------------------------------
+// 載入必要的模組
+//--------------------------------
+var linebot = require('linebot');
+var express = require('express');
+const { Client } = require('pg');
+
 'use strict';
 
 const line = require('@line/bot-sdk');

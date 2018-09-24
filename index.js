@@ -35,7 +35,7 @@ app.use(express.static('public'));
 
 //--------------Main Start---------------------
 
-/*
+
 //--------------------------
 // 機器人接受回覆的處理
 //--------------------------
@@ -61,7 +61,7 @@ bot.on('postback', function(event) {
           }
       ]);		
   });
-});*/
+});
 
 // event handler
 function handleEvent(event) {
@@ -69,6 +69,33 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
+
+  //--------------------------
+  // 機器人接受回覆的處理
+  //--------------------------
+  bot.on('postback', function(event) { 
+    var data = event.postback.data;
+    var userId = event.source.userId;
+
+    event.source.profile().then(function (profile) {
+        userName = profile.displayName;
+    
+        return event.reply([
+            {
+                "type": "text",
+                "text": data
+            },
+            {
+                "type": "text",
+                "text": userId
+            },
+            {
+                "type": "text",
+                "text": userName
+            }
+        ]);		
+    });
+  });
   
   // create a echoing text message
   const echo = { 

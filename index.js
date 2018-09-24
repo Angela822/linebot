@@ -13,24 +13,7 @@ var bot = linebot({
 });
 
 
-// create Express app
-// about Express itself: https://expressjs.com/
-const app = express();
-
-// register a webhook handler with middleware
-// about the middleware, please refer to doc
-const linebotParser = bot.parser();
-app.post('/linewebhook', linebotParser);
-
-//--------------------------------
-// 可直接取用檔案的資料夾
-//--------------------------------
-app.use(express.static('public'));
-
-//--------------Main Start---------------------
-
-//--------------------------
-  // 機器人接受回覆的處理
+// 機器人接受回覆的處理
   //--------------------------
   bot.on('postback', function(event) { 
     var data = event.postback.data;
@@ -92,6 +75,25 @@ bot.on('message', function(event) {
     });
 });
 
+
+// create Express app
+// about Express itself: https://expressjs.com/
+const app = express();
+
+// register a webhook handler with middleware
+// about the middleware, please refer to doc
+const linebotParser = bot.parser();
+app.post('/linewebhook', linebotParser);
+
+//--------------------------------
+// 可直接取用檔案的資料夾
+//--------------------------------
+app.use(express.static('public'));
+
+//--------------Main Start---------------------
+
+//--------------------------
+  
 
 // listen on port
 const port = process.env.PORT || 3000;

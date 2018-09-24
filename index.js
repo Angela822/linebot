@@ -360,17 +360,17 @@ function handleEvent(event) {
         "actions": [
             {
               "type": "message",
-              "label": "我有要查書!",
-              "text": "我有要查書!"
+              "label": "我有要查的書!",
+              "text": "我有要查的書!"
             },
             {
               "type": "message",
-              "label": "好想找本書看阿~",
-              "text": "好想找本書看阿~"
+              "label": "好想找本書看ㄚ~",
+              "text": "好想找本書看ㄚ~"
             },
             {
               "type": "uri",
-              "label": "表單分析",
+              "label": "告訴我你想看什麼類的書吧",
               "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向
             },
             {
@@ -396,11 +396,11 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(received_text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);
-  }else if(received_text == '好想找本書看阿~'){
+  }else if(received_text == '好想找本書看ㄚ~'){
     return client.replyMessage(event.replyToken, findBook);
   }else if(received_text == '新書'){
     return client.replyMessage(event.replyToken, newBook);
-  }else if(received_text == '我有要查書!'){
+  }else if(received_text == '我有要查的書!'){
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);

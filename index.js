@@ -43,14 +43,7 @@ app.use(express.static('public'));
 
 //--------------Main Start---------------------
 
-// event handler
-function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
-    return Promise.resolve(null);
-  }
-
-  //--------------------------
+//--------------------------
   // 機器人接受回覆的處理
   //--------------------------
   bot.on('postback', function(event) { 
@@ -77,7 +70,13 @@ function handleEvent(event) {
     });
   });
 
-
+// event handler
+function handleEvent(event) {
+  if (event.type !== 'message' || event.message.type !== 'text') {
+    // ignore non-text-message event
+    return Promise.resolve(null);
+  }
+  
   // create a echoing text message
   const echo = { 
 		"type": 'template', 
@@ -426,10 +425,7 @@ function handleEvent(event) {
   if(bookType == 'bookType=01'){
     return client.replyMessage(event.replyToken, '文學');
   }*/
-  
-  
-  
-
+   
 }
 
 //--------------Main End---------------------

@@ -360,13 +360,13 @@ function handleEvent(event) {
         "actions": [
             {
               "type": "message",
-              "label": "查詢",
-              "text": "查詢"
+              "label": "我有要查書!",
+              "text": "我有要查書!"
             },
             {
               "type": "message",
-              "label": "找書",
-              "text": "找書"
+              "label": "好想找本書看阿~",
+              "text": "好想找本書看阿~"
             },
             {
               "type": "uri",
@@ -375,7 +375,7 @@ function handleEvent(event) {
             },
             {
               "type": "uri",
-              "label": "瀏覽Take Book網站",
+              "label": "快來看看Take Book網站",
               "uri": "http://140.131.114.176/"
             }
         ]
@@ -396,11 +396,11 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, recommend);
   }else if(received_text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);
-  }else if(received_text == '找書'){
+  }else if(received_text == '好想找本書看阿~'){
     return client.replyMessage(event.replyToken, findBook);
   }else if(received_text == '新書'){
     return client.replyMessage(event.replyToken, newBook);
-  }else if(received_text == '查詢'){
+  }else if(received_text == '我有要查書!'){
     return client.replyMessage(event.replyToken, require);
   }else if(received_text == '用類別找書'){
     return client.replyMessage(event.replyToken, typeBook);

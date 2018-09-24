@@ -19,15 +19,8 @@ const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-app.post('/linewebhook', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).end();
-    });
-});
+const linebotParser = bot.parser();
+app.post('/linewebhook', linebotParser);
 
 //--------------------------------
 // 可直接取用檔案的資料夾

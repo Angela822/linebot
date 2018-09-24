@@ -35,6 +35,33 @@ app.use(express.static('public'));
 
 //--------------Main Start---------------------
 
+//--------------------------
+// 機器人接受回覆的處理
+//--------------------------
+config.on('postback', function(event) { 
+  var data = event.postback.data;
+  var userId = event.source.userId;
+
+  event.source.profile().then(function (profile) {
+      userName = profile.displayName;
+  
+      return event.reply([
+          {
+              "type": "text",
+              "text": data
+          },
+          {
+              "type": "text",
+              "text": userId
+          },
+          {
+              "type": "text",
+              "text": userName
+          }
+      ]);		
+  });
+});
+
 // event handler
 function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
@@ -70,14 +97,14 @@ function handleEvent(event) {
       "text": "喜歡這本書嗎?",//提示字，會出現在選項的上面
       "actions": [
         {
-          "type": "message",
+          "type": "postback",
           "label": "Like",
-          "text": "like"
+          "data": "1"
         },
         {
-          "type": "message",
+          "type": "postback",
           "label": "Dislike",
-          "text": "dislike"
+          "data": "0"
         }
       ]
     }

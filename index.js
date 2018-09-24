@@ -1,10 +1,5 @@
 'use strict';
-//--------------------------------
-// 載入必要的模組
-//--------------------------------
-var linebot = require('linebot');
-var express = require('express');
-const { Client } = require('pg');
+
 const line = require('@line/bot-sdk');
 const express = require('express');
 
@@ -15,15 +10,15 @@ const config = {
 };
 
 // create LINE SDK client
-/*const client = new line.Client(config);*/
+const client = new line.Client(config);
 
 // create Express app
 // about Express itself: https://expressjs.com/
-/*const app = express();*/
+const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-/*app.post('/linewebhook', line.middleware(config), (req, res) => {
+app.post('/linewebhook', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
@@ -31,84 +26,15 @@ const config = {
       console.error(err);
       res.status(500).end();
     });
-});*/
+});
 
 //--------------------------------
 // 可直接取用檔案的資料夾
 //--------------------------------
 app.use(express.static('public'));
 
-//--------------jessieteststart---------------------
-//--------------------------------
-// 機器人接受訊息的處理
-//--------------------------------
-bot.on('message', function(event) {    
-  event.source.profile().then(
-      function (profile) {	
-          //取得使用者資料及傳回文字
-          var userName = profile.displayName;
-          var userId = profile.userId;
-          var no = event.message.text;		
-
-          //建立資料庫連線           
-          var client = new Client({
-              connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-              ssl: true,
-          })
-    
-          client.connect();
-    
-          //查詢資料
-          //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-          client.query("select * from book where bookname = $1", [no], (err, results) => {    
-              console.log(results);
-      
-              //回覆查詢結果
-              if (err || results.rows.length==0){
-                  event.reply('找不到資料');
-              }else{						
-                  var bookname=results.rows[0].bookname;
-                  var content=results.rows[0].content;
-                  event.reply('有資料 - '+stuname +'/n' +content);
-              }
-
-              //關閉連線
-              client.end();
-          });  
-      }
-  );
-});
-//--------------jessietestend---------------------
-
 //--------------Main Start---------------------
 
-
-//--------------------------
-// 機器人接受回覆的處理
-//--------------------------
-/*bot.on('postback', function(event) { 
-  var data = event.postback.data;
-  var userId = event.source.userId;
-
-  event.source.profile().then(function (profile) {
-      userName = profile.displayName;
-  
-      return event.reply([
-          {
-              "type": "text",
-              "text": data
-          },
-          {
-              "type": "text",
-              "text": userId
-          },
-          {
-              "type": "text",
-              "text": userName
-          }
-      ]);		
-  });
-});
 
 // event handler
 function handleEvent(event) {
@@ -429,7 +355,7 @@ function handleEvent(event) {
   */
 
   //----------關鍵字回覆---------------
-  /*var received_text = event.message.text;
+  var received_text = event.message.text;
 
   if(received_text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);

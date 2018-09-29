@@ -365,7 +365,7 @@ function handleEvent(event) {
             },
             {
               "type": "message",
-              "label": "告訴我你想看什麼類的書吧",
+              "label": "讓機器人推薦給你吧",
               "text": "讓機器人推薦給你吧"
             },
             {

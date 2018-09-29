@@ -106,12 +106,12 @@ function handleEvent(event) {
       "actions": [
         {
           "type": "postback",
-          "label": "Like",
+          "label": "喜歡",
           "data": "1"
         },
         {
           "type": "postback",
-          "label": "Dislike",
+          "label": "不喜歡",
           "data": "0"
         }
       ]
@@ -130,11 +130,6 @@ function handleEvent(event) {
               "type": "message",
               "label": "關鍵字找書",
               "text": "關鍵字找書"
-            },
-            {
-              "type": "message",
-              "label": "書本排行榜",
-              "text": "書本排行榜"
             }
         ]
     }
@@ -160,8 +155,8 @@ function handleEvent(event) {
             },
             {
               "type": "message",
-              "label": "機器人推薦書本",
-              "text": "機器人推薦書本"
+              "label": "書本排行榜",
+              "text": "書本排行榜"
             }
         ]
     }
@@ -267,7 +262,7 @@ function handleEvent(event) {
     }
   }
 
-  //推薦書本
+  //機器人推薦書本
   const recommend = {
     "type": "template",
     "altText": "推薦給您...",
@@ -369,9 +364,9 @@ function handleEvent(event) {
               "text": "好想找本書看ㄚ~"
             },
             {
-              "type": "uri",
+              "type": "message",
               "label": "告訴我你想看什麼類的書吧",
-              "uri":"https://goo.gl/forms/usqTTQ8nyVnqfdqi1" //Google Forms:書本類型取向
+              "text": "讓機器人推薦給你吧"
             },
             {
               "type": "uri",
@@ -392,7 +387,7 @@ function handleEvent(event) {
 
   if(received_text == 'Like or Dislike?'){
     return client.replyMessage(event.replyToken, habit);
-  }else if(received_text == '機器人推薦書本'){
+  }else if(received_text == '讓機器人推薦給你吧'){
     return client.replyMessage(event.replyToken, recommend);
   }else if(received_text == '你會做什麼'){
     return client.replyMessage(event.replyToken, botMenu);

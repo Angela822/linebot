@@ -1,5 +1,5 @@
 var linebot = require('linebot');
-const line = require('@line/bot-sdk');
+//const line = require('@line/bot-sdk');
 const express = require('express');
 
 var bot = linebot({
@@ -47,7 +47,7 @@ var bot = linebot({
 //--------------------------------
 const app = express();
 const linebotParser = bot.parser();
-app.post('/', linebotParser);
+app.post('/webhook', linebotParser);
 
 
 //--------------------------------

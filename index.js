@@ -20,16 +20,16 @@ var bot = linebot({
   bot.on('postback', function(event) { 
       var data = event.postback.data;
       var userId = event.source.userId;
-      var types=[];
+     // var types=[];
   
       event.source.profile().then(function (profile) {
           userName = profile.displayName;
-          types = types+data;
+          //types = types+data;
 
           return event.reply([
               {
                   "type": "text",
-                  "text": types
+                  "text": data
               },
               {
                   "type": "text",
@@ -317,8 +317,8 @@ bot.on('message',function(event) {
                           "actions": [
                             {
                               "type": "postback",
-                              "label": "喜歡like",
-                              "data": "喜歡like"
+                              "label": "喜歡",
+                              "data": "喜歡"
                             },
                             {
                               "type": "postback",

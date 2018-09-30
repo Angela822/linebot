@@ -19,201 +19,214 @@ var bot = linebot({
 // 機器人接受回覆的處理
 //--------------------------
 bot.on('message',function(event) {
-    switch(event.message.text){
-        case '你會做什麼' :
-            return event.reply({
-                "type": "template",
-                "altText": "我會做這些事...",
-                "template": {
-                    "type": "buttons",
-                    "title": "我會做這些事",
-                    "text": "請選擇",
-                    "actions": [
-                        {
-                        "type": "message",
-                        "label": "我有要查的書!",
-                        "text": "我有要查的書!"
-                        },
-                        {
-                        "type": "message",
-                        "label": "好想找本書看ㄚ~",
-                        "text": "好想找本書看ㄚ~"
-                        },
-                        {
-                        "type": "message",
-                        "label": "讓機器人推薦給你吧",
-                        "text": "讓機器人推薦給你吧"
-                        },
-                        {
-                        "type": "uri",
-                        "label": "快來看看Take Book網站",
-                        "uri": "http://140.131.114.176/"
+    switch (event.message.type){
+        case 'text' :
+            switch(event.message.text){
+                case '你會做什麼' :
+                    return event.reply({
+                        "type": "template",
+                        "altText": "我會做這些事...",
+                        "template": {
+                            "type": "buttons",
+                            "title": "我會做這些事",
+                            "text": "請選擇",
+                            "actions": [
+                                {
+                                "type": "message",
+                                "label": "我有要查的書!",
+                                "text": "我有要查的書!"
+                                },
+                                {
+                                "type": "message",
+                                "label": "好想找本書看ㄚ~",
+                                "text": "好想找本書看ㄚ~"
+                                },
+                                {
+                                "type": "message",
+                                "label": "讓機器人推薦給你吧",
+                                "text": "讓機器人推薦給你吧"
+                                },
+                                {
+                                "type": "uri",
+                                "label": "快來看看Take Book網站",
+                                "uri": "http://140.131.114.176/"
+                                }
+                            ]
                         }
-                    ]
-                }
-            });
+                    });
+                    break;
+                
+                case '我有要查的書!' :
+                    return event.reply({
+                        "type": "template",
+                        "altText": "查詢",
+                        "template": {
+                            "type": "buttons",
+                            "text": "查詢",
+                            "actions": [
+                                {
+                                "type": "message",
+                                "label": "關鍵字找書",
+                                "text": "關鍵字找書"
+                                }
+                            ]
+                        } 
+                    });
+                    break;
+                
+                case '好想找本書看ㄚ~' :
+                    return event.reply({
+                        "type": "template",
+                        "altText": "找書",
+                        "template": {
+                            "type": "buttons",
+                            "text": "找書",
+                            "actions": [
+                                {
+                                "type": "message",
+                                "label": "用類別找書",
+                                "text": "用類別找書"
+                                },
+                                {
+                                "type": "message",
+                                "label": "新書",
+                                "text": "新書"
+                                },
+                                {
+                                "type": "message",
+                                "label": "書本排行榜",
+                                "text": "書本排行榜"
+                                }
+                            ]
+                        }
+                    });
+                    break;
+                
+                case '用類別找書' :
+                    return event.reply({
+                        type: 'text',
+                        text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+                    });
+                    break;
+            
+                case '新書' :
+                    return event.reply({
+
+                    })
+                    break;
+
+                case '讓機器人推薦給你吧' :
+                    return event.reply({
+                        "type": "template",
+                        "altText": "推薦給您...",
+                        "template": {
+                            "type": "carousel",
+                            "columns": [
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/没問題，我可以搞定.jpg",
+                                "imageBackgroundColor": "#FFFFFF",
+                                "title": "<<没問題，我可以搞定>>",
+                                "text": "類別：生活教育",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "Like or Dislike?",
+                                        "text": "Like or Dislike?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010792988?loc=P_002_012"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/讓男人追著妳跑.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<讓男人追著妳跑>>",
+                                "text": "類別：心理勵志",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "Like or Dislike?",
+                                        "text": "Like or Dislike?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010779366?loc=P_002_001"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/跟著阿滴滴妹說出溜英文.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<跟著阿滴滴妹說出溜英文>",
+                                "text": "類別：語言／字辭典",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "Like or Dislike?",
+                                        "text": "Like or Dislike?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010790130?loc=P_002_017"
+                                    }
+                                ]
+                                }
+                            ],
+                            "imageAspectRatio": "rectangle",
+                            "imageSize": "cover"
+                        }
+                    })
+                    break;
+
+                default:
+                    return event.reply({
+                        "type": 'template', 
+                        "altText": "你可以試著打'你會做什麼'",
+                        "template": {
+                            "type": "buttons",
+                            "title": "你可以試著打'你會做什麼'",
+                            "text": "請選擇",
+                            "actions": [
+                                {
+                                "type": "message",
+                                "label": "你會做什麼",
+                                "text": "你會做什麼"
+                                }
+                            ]
+                        }
+                    })
+            }
             break;
         
-        case '我有要查的書!' :
-            return event.reply({
-                "type": "template",
-                "altText": "查詢",
-                "template": {
-                    "type": "buttons",
-                    "text": "查詢",
-                    "actions": [
-                        {
-                        "type": "message",
-                        "label": "關鍵字找書",
-                        "text": "關鍵字找書"
-                        }
-                    ]
-                } 
+        case 'sticker' :
+            event.reply({
+                type: 'sticker',
+                packageId: 1,
+                stickerId: 1
             });
             break;
-        
-        case '好想找本書看ㄚ~' :
-            return event.reply({
-                "type": "template",
-                "altText": "找書",
-                "template": {
-                    "type": "buttons",
-                    "text": "找書",
-                    "actions": [
-                        {
-                        "type": "message",
-                        "label": "用類別找書",
-                        "text": "用類別找書"
-                        },
-                        {
-                        "type": "message",
-                        "label": "新書",
-                        "text": "新書"
-                        },
-                        {
-                        "type": "message",
-                        "label": "書本排行榜",
-                        "text": "書本排行榜"
-                        }
-                    ]
-                }
-            });
-            break;
-        
-        case '用類別找書' :
-            return event.reply({
-                type: 'text',
-                text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
-            });
-            break;
-       
-        case '新書' :
-            return event.reply({
-
-            })
-            break;
-
-        case '讓機器人推薦給你吧' :
-            return event.reply({
-                "type": "template",
-                "altText": "推薦給您...",
-                "template": {
-                    "type": "carousel",
-                    "columns": [
-                        {
-                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/没問題，我可以搞定.jpg",
-                        "imageBackgroundColor": "#FFFFFF",
-                        "title": "<<没問題，我可以搞定>>",
-                        "text": "類別：生活教育",
-                        "defaultAction": {
-                            "type": "uri",
-                            "label": "View detail",
-                            "uri": "http://140.131.114.176/"
-                        },
-                        "actions": [
-                            {
-                                "type": "message",
-                                "label": "Like or Dislike?",
-                                "text": "Like or Dislike?"
-                            },
-                            {
-                                "type": "uri",
-                                "label": "看更多...",
-                                "uri": "http://www.books.com.tw/products/0010792988?loc=P_002_012"
-                            }
-                        ]
-                        },
-                        {
-                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/讓男人追著妳跑.jpg",
-                        "imageBackgroundColor": "#000000",
-                        "title": "<<讓男人追著妳跑>>",
-                        "text": "類別：心理勵志",
-                        "defaultAction": {
-                            "type": "uri",
-                            "label": "View detail",
-                            "uri": "http://140.131.114.176/"
-                        },
-                        "actions": [
-                            {
-                                "type": "message",
-                                "label": "Like or Dislike?",
-                                "text": "Like or Dislike?"
-                            },
-                            {
-                                "type": "uri",
-                                "label": "看更多...",
-                                "uri": "http://www.books.com.tw/products/0010779366?loc=P_002_001"
-                            }
-                        ]
-                        },
-                        {
-                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/跟著阿滴滴妹說出溜英文.jpg",
-                        "imageBackgroundColor": "#000000",
-                        "title": "<<跟著阿滴滴妹說出溜英文>",
-                        "text": "類別：語言／字辭典",
-                        "defaultAction": {
-                            "type": "uri",
-                            "label": "View detail",
-                            "uri": "http://140.131.114.176/"
-                        },
-                        "actions": [
-                            {
-                                "type": "message",
-                                "label": "Like or Dislike?",
-                                "text": "Like or Dislike?"
-                            },
-                            {
-                                "type": "uri",
-                                "label": "看更多...",
-                                "uri": "http://www.books.com.tw/products/0010790130?loc=P_002_017"
-                            }
-                        ]
-                        }
-                    ],
-                    "imageAspectRatio": "rectangle",
-                    "imageSize": "cover"
-                }
-            })
-            break;
-
-        default:
-            return event.reply({
-                "type": 'template', 
-                "altText": "你可以試著打'你會做什麼'",
-                "template": {
-                    "type": "buttons",
-                    "title": "你可以試著打'你會做什麼'",
-                    "text": "請選擇",
-                    "actions": [
-                        {
-                        "type": "message",
-                        "label": "你會做什麼",
-                        "text": "你會做什麼"
-                        }
-                    ]
-                }
-            })
     }
+        
 
 
 });

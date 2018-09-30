@@ -318,12 +318,12 @@ bot.on('message',function(event) {
                             {
                               "type": "postback",
                               "label": "喜歡",
-                              "data": "喜歡"
+                              "data": "1"
                             },
                             {
                               "type": "postback",
                               "label": "不喜歡",
-                              "data": "不喜歡"
+                              "data": "2"
                             }
                           ]
                         }

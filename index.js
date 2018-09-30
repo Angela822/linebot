@@ -14,6 +14,33 @@ var bot = linebot({
     channelAccessToken: 'g93gFjGS2nxtZtwdGYwFg2Sd+i7eO7C1imlK96heyVGV76dLwRPXO1qseNi4R7poSpv3P1KnNsQle4MStyTrTgd8O2eGK+6yUnJkTELfeQPp1y9hj/MB+S03z99VpKL3IO8JUbuS2G7jRwJ8WqmKSgdB04t89/1O/w1cDnyilFU='
   });
 
+  //--------------------------
+  // 機器人接受回覆的處理
+  //--------------------------
+  bot.on('postback', function(event) { 
+      var data = event.postback.data;
+      var userId = event.source.userId;
+  
+      event.source.profile().then(function (profile) {
+          userName = profile.displayName;
+          
+          return event.reply([
+              {
+                  "type": "text",
+                  "text": data
+              },
+              {
+                  "type": "text",
+                  "text": userId
+              },
+              {
+                  "type": "text",
+                  "text": userName
+              }
+          ]);		
+      });
+  });
+
 
 //--------------------------
 // 機器人接受回覆的處理

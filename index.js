@@ -51,9 +51,27 @@ bot.on('message',function(event) {
                         }
                     ]
                 }
-            })
+            });
             break;
-
+        
+        case '我有要查的書!' :
+            return event.reply({
+                "type": "template",
+                "altText": "查詢",
+                "template": {
+                    "type": "buttons",
+                    "text": "查詢",
+                    "actions": [
+                        {
+                        "type": "message",
+                        "label": "關鍵字找書",
+                        "text": "關鍵字找書"
+                        }
+                    ]
+                } 
+            });
+            break;
+s
         default:
             return event.reply({
                 "type": 'template', 
@@ -73,41 +91,7 @@ bot.on('message',function(event) {
             })
     }
 
-/*
-    if(event.message.text == '你會做什麼'){
-        return event.reply({
-            "type": "template",
-            "altText": "我會做這些事...",
-            "template": {
-                "type": "buttons",
-                "title": "我會做這些事",
-                "text": "請選擇",
-                "actions": [
-                    {
-                    "type": "message",
-                    "label": "我有要查的書!",
-                    "text": "我有要查的書!"
-                    },
-                    {
-                    "type": "message",
-                    "label": "好想找本書看ㄚ~",
-                    "text": "好想找本書看ㄚ~"
-                    },
-                    {
-                    "type": "message",
-                    "label": "讓機器人推薦給你吧",
-                    "text": "讓機器人推薦給你吧"
-                    },
-                    {
-                    "type": "uri",
-                    "label": "快來看看Take Book網站",
-                    "uri": "http://140.131.114.176/"
-                    }
-                ]
-            }
-        })
-    }
-   */ 
+
 });
 
 

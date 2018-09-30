@@ -8,41 +8,37 @@ var bot = linebot({
     channelAccessToken: 'g93gFjGS2nxtZtwdGYwFg2Sd+i7eO7C1imlK96heyVGV76dLwRPXO1qseNi4R7poSpv3P1KnNsQle4MStyTrTgd8O2eGK+6yUnJkTELfeQPp1y9hj/MB+S03z99VpKL3IO8JUbuS2G7jRwJ8WqmKSgdB04t89/1O/w1cDnyilFU='
   });
 
-bot.on('message',function(event) {
-    if(event.message.text == '你會做什麼'){
-        return event.reply({
-            "type": "template",
-            "altText": "我會做這些事...",
-            "template": {
-                "type": "buttons",
-                "title": "我會做這些事",
-                "text": "請選擇",
-                "actions": [
-                    {
-                    "type": "message",
-                    "label": "我有要查的書!",
-                    "text": "我有要查的書!"
-                    },
-                    {
-                    "type": "message",
-                    "label": "好想找本書看ㄚ~",
-                    "text": "好想找本書看ㄚ~"
-                    },
-                    {
-                    "type": "message",
-                    "label": "讓機器人推薦給你吧",
-                    "text": "讓機器人推薦給你吧"
-                    },
-                    {
-                    "type": "uri",
-                    "label": "快來看看Take Book網站",
-                    "uri": "http://140.131.114.176/"
-                    }
-                ]
-            }
-        })
-    }
-    
+  bot.on('message', function(event) {
+	event.reply({
+        "type": "template",
+        "altText": "This is a buttons template",
+        "template": {
+            "type": "buttons",
+            "thumbnailImageUrl": "https://test0921107511.herokuapp.com/imgs/1.jpg",
+            "imageAspectRatio": "rectangle",
+            "imageSize": "cover",
+            "imageBackgroundColor": "#FFFFFF",
+            "title": "這是什麼花?",
+            "text": "是菊科向日葵屬的植物。別名太陽花。",
+            "defaultAction": {
+                "type": "uri",
+                "label": "檢視網頁",
+                "uri": "https://zh.wikipedia.org/wiki/向日葵"
+            },
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "鳶尾花",
+                    "data": "1"
+                },
+                {
+                    "type": "postback",
+                    "label": "向日葵",
+                    "data": "2"
+                }				
+            ]
+        }
+    });
 });
 
 //--------------------------------

@@ -20,16 +20,14 @@ var bot = linebot({
   bot.on('postback', function(event) { 
       var data = event.postback.data;
       var userId = event.source.userId;
-      var types=[];
   
       event.source.profile().then(function (profile) {
           userName = profile.displayName;
-          types = types+data;
 
           return event.reply([
               {
                   "type": "text",
-                  "text": types
+                  "text": data
               },
               {
                   "type": "text",

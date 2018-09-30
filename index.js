@@ -47,7 +47,7 @@ var bot = linebot({
 //--------------------------------
 const app = express();
 const linebotParser = bot.parser();
-app.post('/webhook', linebotParser);
+app.post('/linewebhook', linebotParser);
 
 
 //--------------------------------

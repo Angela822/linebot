@@ -276,9 +276,7 @@ bot.on('message',function(event) {
                             "imageSize": "cover"
                         }
                     })
-                    break;
-
-                case ''    
+                    break;   
 
                 default:
                     return event.reply({

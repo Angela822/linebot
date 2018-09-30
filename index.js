@@ -318,7 +318,7 @@ bot.on('message',function(event) {
                             {
                               "type": "postback",
                               "label": "喜歡like",
-                              "data": "喜歡"
+                              "data": "喜歡like"
                             },
                             {
                               "type": "postback",

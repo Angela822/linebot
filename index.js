@@ -220,14 +220,24 @@ bot.on('message',function(event) {
         
         case 'sticker' :
             event.reply({
-                type: 'sticker',
-                packageId: 1,
-                stickerId: 1
+                "type": 'template', 
+                "altText": "你可以試著打'你會做什麼'",
+                "template": {
+                    "type": "buttons",
+                    "title": "你可以試著打'你會做什麼'",
+                    "text": "請選擇",
+                    "actions": [
+                        {
+                        "type": "message",
+                        "label": "你會做什麼",
+                        "text": "你會做什麼"
+                        }
+                    ]
+                }
             });
             break;
     }
         
-
 
 });
 

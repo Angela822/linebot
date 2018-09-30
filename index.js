@@ -20,6 +20,7 @@ var bot = linebot({
 //--------------------------
 bot.on('message',function(event) {
     switch (event.message.type){
+        //event.message.type==text
         case 'text' :
             switch(event.message.text){
                 case '你會做什麼' :
@@ -111,7 +112,86 @@ bot.on('message',function(event) {
             
                 case '新書' :
                     return event.reply({
-
+                        "type": "template",
+                        "altText": "新書推薦",
+                        "template": {
+                            "type": "carousel",
+                            "columns": [
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+                                "imageAspectRatio": "rectangle",
+                                "imageSize": "cover",
+                                "imageBackgroundColor": "#FFFFFF",
+                                "title": "<<我有破壞自己的權利>>",
+                                "text": "類別：文學",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<甜素烘焙實驗室>>",
+                                "text": "類別：飲食料理",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<願你的深情，能被溫柔以待>",
+                                "text": "類別：心理勵志",
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                    }
+                                ]
+                                }
+                            ],
+                            "imageAspectRatio": "rectangle",
+                            "imageSize": "cover"
+                        }
                     })
                     break;
 
@@ -135,8 +215,8 @@ bot.on('message',function(event) {
                                 "actions": [
                                     {
                                         "type": "message",
-                                        "label": "Like or Dislike?",
-                                        "text": "Like or Dislike?"
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
                                     },
                                     {
                                         "type": "uri",
@@ -158,8 +238,8 @@ bot.on('message',function(event) {
                                 "actions": [
                                     {
                                         "type": "message",
-                                        "label": "Like or Dislike?",
-                                        "text": "Like or Dislike?"
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
                                     },
                                     {
                                         "type": "uri",
@@ -181,8 +261,8 @@ bot.on('message',function(event) {
                                 "actions": [
                                     {
                                         "type": "message",
-                                        "label": "Like or Dislike?",
-                                        "text": "Like or Dislike?"
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
                                     },
                                     {
                                         "type": "uri",
@@ -197,6 +277,8 @@ bot.on('message',function(event) {
                         }
                     })
                     break;
+
+                case ''    
 
                 default:
                     return event.reply({
@@ -218,6 +300,7 @@ bot.on('message',function(event) {
             }
             break;
         
+        //event.message.type==sticker
         case 'sticker' :
             event.reply({
                 "type": 'template', 

@@ -323,7 +323,7 @@ bot.on('message',function(event) {
                             {
                               "type": "postback",
                               "label": "不喜歡",
-                              "data": "2"
+                              "data": "dislike"
                             }
                           ]
                         }

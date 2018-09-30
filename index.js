@@ -277,6 +277,29 @@ bot.on('message',function(event) {
                         }
                     })
                     break;   
+                
+                case '喜歡/不喜歡?' :
+                    return event.reply({
+                        "type": "template",
+                        "altText": "喜歡這本書嗎?",
+                        "template": {
+                          "type": "confirm",
+                          "text": "喜歡這本書嗎?",
+                          "actions": [
+                            {
+                              "type": "postback",
+                              "label": "喜歡",
+                              "data": "1"
+                            },
+                            {
+                              "type": "postback",
+                              "label": "不喜歡",
+                              "data": "0"
+                            }
+                          ]
+                        }
+                    })
+                    break;
 
                 default:
                     return event.reply({

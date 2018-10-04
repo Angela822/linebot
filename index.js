@@ -350,7 +350,13 @@ bot.on('message',function(event) {
         
         //event.message.type==sticker
         case 'sticker' :
-            event.reply({
+            event.reply([
+            {
+                "type": "message",
+                "label": "Hi!",
+                "text": "Hi!"
+            },
+            {
                 "type": 'template', 
                 "altText": "你可以試著打'你會做什麼'",
                 "template": {
@@ -365,7 +371,7 @@ bot.on('message',function(event) {
                         }
                     ]
                 }
-            });
+            }]);
             break;
     }
         

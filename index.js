@@ -377,7 +377,7 @@ bot.on('message',function(event) {
     }    
     //event.message.type==sticker
     else if (event.message.type == 'sticker'){
-        return event.reply([
+         event.reply([
         {
             type: 'text', 
             text: 'Hi！'

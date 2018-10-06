@@ -113,7 +113,7 @@ bot.on('message',function(event) {
                     });
                     break;
                 
-                case '關鍵字找書' :
+                /*case '關鍵字找書' :
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                     client.query("select * from book where bookname = $1", [no], (err, results) => {    
@@ -127,7 +127,7 @@ bot.on('message',function(event) {
                                 var content=results.rows[0].content;
                                 event.reply(bookname +content);                               
                             }
-                    break;
+                    break;*/
                 
                 case '好想找本書看ㄚ~' :
                     return event.reply({

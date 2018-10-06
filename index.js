@@ -183,7 +183,7 @@ bot.on('message',function(event) {
                     });
                     break;
                 
-                case type :
+                case 'type' :
                     return event.reply({
                         type: 'text',
                         text: '好的好的~'

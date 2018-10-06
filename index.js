@@ -175,9 +175,14 @@ bot.on('message',function(event) {
                     break;
                 
                 case '用類別找書' :
-                    return event.reply({
-                        type: 'text',
-                        text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+                    event.message.content().then(function (content) {
+                        console.log(content.toString('base64'));
+
+                        return event.reply({
+                            type: 'text',
+                            text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+                        });
+                        
                     });
                     break;
             

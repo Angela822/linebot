@@ -46,7 +46,7 @@ var bot = linebot({
 // 機器人接受回覆的處理
 //--------------------------
 bot.on('message',function(event) {
-    var userName = profile.displayName;
+    /*var userName = profile.displayName;
     var userId = profile.userId;
     var no = event.message.text;		
 
@@ -56,7 +56,8 @@ bot.on('message',function(event) {
             ssl: true,
         })
     
-    client.connect();
+    client.connect();*/
+
     switch (event.message.type){
         //event.message.type==text
         case 'text' :

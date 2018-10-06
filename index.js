@@ -74,7 +74,7 @@ bot.on('message',function(event) {
     
     client.connect();*/
     
-    var type = event.message.text.substring(0,4) == '我想看：';
+    
 
     switch (event.message.type){
         //event.message.type==text

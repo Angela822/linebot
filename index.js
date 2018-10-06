@@ -73,6 +73,8 @@ bot.on('message',function(event) {
         })
     
     client.connect();*/
+    
+    var type = event.message.text.substring(0,4) == '我想看：';
 
     switch (event.message.type){
         //event.message.type==text
@@ -175,14 +177,16 @@ bot.on('message',function(event) {
                     break;
                 
                 case '用類別找書' :
-                    event.message.content().then(function (content) {
-                        console.log(content.toString('base64'));
-
-                        return event.reply({
-                            type: 'text',
-                            text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
-                        });
-                        
+                    return event.reply({
+                        type: 'text',
+                        text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+                    });
+                    break;
+                
+                case type :
+                    return event.reply({
+                        type: 'text',
+                        text: '好的好的~'
                     });
                     break;
             

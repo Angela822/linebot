@@ -108,7 +108,6 @@ bot.on('message',function(event) {
                             ]
                         }
                     });
-                    break;
         }else if (event.message.text == '我有要查的書!'){      
             return event.reply({
                 "type": "template",
@@ -378,7 +377,7 @@ bot.on('message',function(event) {
     }    
     //event.message.type==sticker
     else if (event.message.type == 'sticker'){
-        event.reply([
+        return event.reply([
         {
             type: 'text', 
             text: 'Hi！'

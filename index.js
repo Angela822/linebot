@@ -41,6 +41,22 @@ var bot = linebot({
       });
   });
 
+//自訂function
+function selectBook(profile) {	
+    //取得使用者資料及傳回文字
+    var userName = profile.displayName;
+    var userId = profile.userId;
+    var no = event.message.text;		
+
+          //建立資料庫連線           
+        var client = new Client({
+            connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+            ssl: true,
+        })
+    
+    client.connect(); 
+}
+
 
 //--------------------------
 // 機器人接受回覆的處理

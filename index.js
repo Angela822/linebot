@@ -397,7 +397,7 @@ bot.on('message',function(event) {
             event.reply([
             {
                 type: 'text', 
-                text: 'Hi!'
+                text: 'Hi！'
             },
             {
                 "type": 'template', 

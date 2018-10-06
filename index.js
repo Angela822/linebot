@@ -101,6 +101,37 @@ bot.on('message',function(event) {
                         } 
                     });
                     break;
+					
+				case '關鍵字找書' :
+                    var no = event.message.text;		
+        
+                      //建立資料庫連線           
+                        var client = new Client({
+                            connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                            ssl: true,
+                        })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                    client.query("select * from book where bookname = $1", [no], (err, results) => {    
+                        console.log(results);
+                
+                            //回覆查詢結果
+                            if (err || results.rows==0){
+                                //event.reply('查不到本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
+                                return event.reply({
+                                    type: 'text',
+                                    text: '查不到本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?'
+                                });
+                                break;
+                            }else{						
+                                var bookname=results.rows[0].bookname;
+                                var content=results.rows[0].content;
+                                event.reply(bookname +content);
+                                break;                                
+                            }
                 
                 case '好想找本書看ㄚ~' :
                     return event.reply({

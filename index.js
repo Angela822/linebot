@@ -171,6 +171,13 @@ bot.on('message',function(event) {
                 type: 'text',
                 text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
             });
+        }else if(event.message.text.substring(0,4) == '我想看：'){
+            return event.reply([
+                {
+                    "type": "text",
+                    "text": '收到了~'
+                }
+            ]);
         }else if(event.message.text == '新書'){
             return event.reply({
                 "type": "template",
@@ -377,7 +384,7 @@ bot.on('message',function(event) {
     }    
     //event.message.type==sticker
     else if (event.message.type == 'sticker'){
-         event.reply([
+        event.reply([
         {
             type: 'text', 
             text: 'Hi！'

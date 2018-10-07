@@ -185,7 +185,7 @@ bot.on('message',function(event) {
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",
                                             "title": "<<" + bookname3 +">>",
-                                            "text": type1,
+                                            "text": "文學",
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",

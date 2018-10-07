@@ -165,10 +165,14 @@ bot.on('message',function(event) {
                     var bookname=results.rows[2].bookname;
                     var type=results.rows[2].type; 
                     var pic=results.rows[2].picture;
+
                     var bookname2=results.rows[3].bookname;
                     var type2=results.rows[3].type;
+                    var pic2=results.rows[3].picture;
+
                     var bookname3=results.rows[4].bookname;
-                    var type3=results.rows[4].type;                                                
+                    var type3=results.rows[4].type;   
+                    var pic3=results.rows[2].picture;                                             
                                                     
                     return event.reply({
                         "type": "template",
@@ -202,7 +206,7 @@ bot.on('message',function(event) {
                                 ]
                                 },
                                 {
-                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                 "imageBackgroundColor": "#000000",
                                 "title": "<<" + bookname2 + ">>",
                                 "text": "類別：" + type2,
@@ -225,7 +229,7 @@ bot.on('message',function(event) {
                                 ]
                                 },
                                 {
-                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
+                                "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
                                 "imageBackgroundColor": "#000000",
                                 "title": "<<" + bookname3 + ">>",
                                 "text": "類別：" + type3,

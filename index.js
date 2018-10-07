@@ -164,14 +164,14 @@ bot.on('message',function(event) {
                         client.query("select * from book ORDER BY date DESC", (err, results) => {    
                             console.log(results);
                             
-                            for(var i=0; i<9; i++){
-                                //回覆查詢結果
-                               						
-                                    var bookname=results.rows[i].bookname;
-                                    //var content=results.rows[i].content;
-                                    event.reply(bookname);  
-                                
-                            };
+                            //for(var i=0; i<9; i++){
+                                //回覆查詢結果		
+                                var bookname1=results.rows[0].bookname1;
+                                var bookname2=results.rows[1].bookname2;
+                                var bookname3=results.rows[2].bookname3;
+                                //var content=results.rows[i].content;
+                                event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3);    
+                            //};
                             //關閉連線
                             client.end();
                         });  

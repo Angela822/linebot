@@ -4,7 +4,7 @@
 var linebot = require('linebot');
 //const line = require('@line/bot-sdk');
 const express = require('express');
-//const { Client } = require('pg');
+const { Client } = require('pg');
 
 //--------------------------------
 // 填入自己在linebot的channel值

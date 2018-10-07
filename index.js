@@ -169,7 +169,7 @@ bot.on('message',function(event) {
                                 //var type=results.rows[i].type;
                                 var bookname=results.rows[i].bookname;
                                 //var content=results.rows[i].content;
-                                event.reply(bookname + '\n'); 
+                                 
                                 /*
                                 return event.reply({
                                     "type": "template",
@@ -208,6 +208,7 @@ bot.on('message',function(event) {
                                     }
                                 });*/
                             };
+                            event.reply(bookname + '\n');
                             //關閉連線
                             client.end();
                         });  

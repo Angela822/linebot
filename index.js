@@ -183,7 +183,7 @@ bot.on('message',function(event) {
                                             "imageAspectRatio": "rectangle",
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",
-                                            "title": bookname3,
+                                            "title": "<<" + bookname3 +">>",
                                             "text": bookname1,
                                             "defaultAction": {
                                                 "type": "uri",

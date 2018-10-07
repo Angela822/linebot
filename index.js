@@ -164,6 +164,7 @@ bot.on('message',function(event) {
                     //回覆查詢結果		
                     var bookname=results.rows[2].bookname;
                     var type=results.rows[2].type; 
+                    var pic=results.rows[2].picture;
                     var bookname2=results.rows[3].bookname;
                     var type2=results.rows[3].type;
                     var bookname3=results.rows[4].bookname;
@@ -176,7 +177,7 @@ bot.on('message',function(event) {
                             "type": "carousel",
                             "columns": [
                                 {
-                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
                                 "imageAspectRatio": "rectangle",
                                 "imageSize": "cover",
                                 "imageBackgroundColor": "#FFFFFF",

@@ -166,11 +166,11 @@ bot.on('message',function(event) {
                             
                             for(var i=1; i<3; i++){
                                 //回覆查詢結果		
-                                var type=results.rows[i].type;
+                                //var type=results.rows[i].type;
                                 var bookname=results.rows[i].bookname;
                                 //var content=results.rows[i].content;
-                                //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
-
+                                event.reply(bookname + '\n'); 
+                                /*
                                 return event.reply({
                                     "type": "template",
                                     "altText": "新書推薦",
@@ -206,7 +206,7 @@ bot.on('message',function(event) {
                                         "imageAspectRatio": "rectangle",
                                         "imageSize": "cover"
                                     }
-                                });
+                                });*/
                             };
                             //關閉連線
                             client.end();

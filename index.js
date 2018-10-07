@@ -166,9 +166,8 @@ bot.on('message',function(event) {
                             
                             //for(var i=0; i<9; i++){
                                 //回覆查詢結果		
-                                var type=results.rows[0].type;
-                                //var bookname2=results.rows[1].bookname;
-                                var bookname3=results.rows[2].bookname;
+                                var type=results.rows[2].type;
+                                var bookname=results.rows[2].bookname;
                                 //var content=results.rows[i].content;
                                 //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
                                 
@@ -183,7 +182,7 @@ bot.on('message',function(event) {
                                             "imageAspectRatio": "rectangle",
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",
-                                            "title": "<<" + bookname3 +">>",
+                                            "title": "<<" + bookname +">>",
                                             "text": type,
                                             "defaultAction": {
                                                 "type": "uri",

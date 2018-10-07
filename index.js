@@ -166,7 +166,7 @@ bot.on('message',function(event) {
                             
                             //for(var i=0; i<9; i++){
                                 //回覆查詢結果		
-                                //var bookname1=results.rows[0].bookname;
+                                var bookname1=results.rows[0].bookname;
                                 //var bookname2=results.rows[1].bookname;
                                 //var bookname3=results.rows[2].bookname;
                                 //var content=results.rows[i].content;
@@ -184,7 +184,7 @@ bot.on('message',function(event) {
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",
                                             "title": "<<我有破壞自己的權利>>",
-                                            "text": "類別：文學",
+                                            "text": bookname1,
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",

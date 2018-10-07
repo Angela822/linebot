@@ -166,7 +166,7 @@ bot.on('message',function(event) {
                             
                             //for(var i=0; i<9; i++){
                                 //回覆查詢結果		
-                                var type1=results.rows[0].type;
+                                var type1=results.rows[1].type;
                                 //var bookname2=results.rows[1].bookname;
                                 var bookname3=results.rows[0].bookname;
                                 //var content=results.rows[i].content;

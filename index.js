@@ -99,6 +99,7 @@ bot.on('message',function(event) {
                         }
                     });
         }else if (event.message.text == '我有要查的書!'){
+            /*
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
@@ -131,8 +132,8 @@ bot.on('message',function(event) {
                         client.end();
                     });  
                 }
-            );
-            /*
+            );*/
+            
             return event.reply({
                 "type": "template",
                 "altText": "查詢",
@@ -147,7 +148,7 @@ bot.on('message',function(event) {
                         }
                     ]
                 } 
-            });*/
+            });
         }else if (event.message.text == '好想找本書看ㄚ~'){    
                 return event.reply({
                     "type": "template",

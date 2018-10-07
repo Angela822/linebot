@@ -437,6 +437,131 @@ bot.on('message',function(event) {
                                                     "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture5,
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": "<<" + bookname5 + ">>",
+                                            "text": "類別：" + type5,
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture6,
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": "<<" + bookname6 + ">>",
+                                            "text": "類別：" + type6,
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture7,
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": "<<" + bookname7 + ">>",
+                                            "text": "類別：" + type7,
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture8,
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": "<<" + bookname8 + ">>",
+                                            "text": "類別：" + type8,
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture9,
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": "<<" + bookname9 + ">>",
+                                            "text": "類別：" + type9,
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
                                         }
                                     ],
                                     "imageAspectRatio": "rectangle",

@@ -147,119 +147,114 @@ bot.on('message',function(event) {
                     "text": '收到了~'
                 }
             ]);
-        }else if(event.message.text == '新書'){
-            event.source.profile().then(
-                function (profile) {	
-                           
-                    //建立資料庫連線           
-                    var client = new Client({
-                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                        ssl: true,
-                    })
+        }else if(event.message.text == '新書'){	        
+            //建立資料庫連線           
+            var client = new Client({
+                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                ssl: true,
+            })
+            
+            client.connect();
+            
+            //查詢資料
+            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                client.query("select * from book ORDER BY date DESC", (err, results) => {    
+                    console.log(results);
                     
-                    client.connect();
-                    
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY date DESC", (err, results) => {    
-                            console.log(results);
-                            
-                            //回覆查詢結果		
-                            var bookname=results.rows[2].bookname;
-                            var type=results.rows[2].type; 
-                            var bookname2=results.rows[3].bookname;
-                            var type2=results.rows[3].type;
-                            var bookname3=results.rows[4].bookname;
-                            var type3=results.rows[4].type;                                                
-                                                          
-                            return event.reply({
-                                "type": "template",
-                                "altText": "新書推薦",
-                                "template": {
-                                    "type": "carousel",
-                                    "columns": [
-                                        {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
-                                        "imageAspectRatio": "rectangle",
-                                        "imageSize": "cover",
-                                        "imageBackgroundColor": "#FFFFFF",
-                                        "title": "<<" + bookname + ">>",
-                                        "text": "類別：" + type,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
-                                            }
-                                        ]
-                                        },
-                                        {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
-                                        "imageBackgroundColor": "#000000",
-                                        "title": "<<" + bookname2 + ">>",
-                                        "text": "類別：" + type2,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
-                                            }
-                                        ]
-                                        },
-                                        {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
-                                        "imageBackgroundColor": "#000000",
-                                        "title": "<<" + bookname3 + ">>",
-                                        "text": "類別：" + type3,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
-                                            }
-                                        ]
-                                        }
-                                    ],
-                                    "imageAspectRatio": "rectangle",
-                                    "imageSize": "cover"
+                    //回覆查詢結果		
+                    var bookname=results.rows[2].bookname;
+                    var type=results.rows[2].type; 
+                    var bookname2=results.rows[3].bookname;
+                    var type2=results.rows[3].type;
+                    var bookname3=results.rows[4].bookname;
+                    var type3=results.rows[4].type;                                                
+                                                    
+                    return event.reply({
+                        "type": "template",
+                        "altText": "新書推薦",
+                        "template": {
+                            "type": "carousel",
+                            "columns": [
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+                                "imageAspectRatio": "rectangle",
+                                "imageSize": "cover",
+                                "imageBackgroundColor": "#FFFFFF",
+                                "title": "<<" + bookname + ">>",
+                                "text": "類別：" + type,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<" + bookname2 + ">>",
+                                "text": "類別：" + type2,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<" + bookname3 + ">>",
+                                "text": "類別：" + type3,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                    }
+                                ]
                                 }
-                            }); 
-                            
-                            //關閉連線
-                            client.end();
-                        });  
-                }
-            );
+                            ],
+                            "imageAspectRatio": "rectangle",
+                            "imageSize": "cover"
+                        }
+                    }); 
+                    
+                    //關閉連線
+                    client.end();
+                });  
                     
         }else if(event.message.text == '書本排行榜'){
             event.source.profile().then(

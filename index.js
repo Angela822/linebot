@@ -169,7 +169,7 @@ bot.on('message',function(event) {
                                 
                                 //var bookname2=results.rows[1].bookname;
                                 var bookname3=results.rows[0].bookname;
-                                var type1=results.rows[0].type;
+                                //var bookno=results.rows[0].bookno;
                                 //var content=results.rows[i].content;
                                 //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
                                 

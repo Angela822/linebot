@@ -168,7 +168,7 @@ bot.on('message',function(event) {
                                 //回覆查詢結果		
                                 var type=results.rows[0].type;
                                 //var bookname2=results.rows[1].bookname;
-                                var bookname3=results.rows[2].bookname;
+                                var bookname3=results.rows[0].bookname;
                                 //var content=results.rows[i].content;
                                 //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
                                 

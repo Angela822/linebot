@@ -164,7 +164,7 @@ bot.on('message',function(event) {
                         client.query("select * from book ORDER BY date DESC", (err, results) => {    
                             console.log(results);
                             
-                            for(var i=1; i<3; i++){
+                            for(var i=1; i<=3; i++){
                                 //回覆查詢結果		
                                 //var type=results.rows[i].type;
                                 var bookname=results.rows[i].bookname;
@@ -207,7 +207,7 @@ bot.on('message',function(event) {
                                         "imageSize": "cover"
                                     }
                                 });*/
-                            };
+                            }
                             event.reply(bookname + '\n');
                             //關閉連線
                             client.end();

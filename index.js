@@ -168,7 +168,7 @@ bot.on('message',function(event) {
                             if (err || results.rows.length==0){
                                 event.reply('Error');
                             }else{						
-                                var bookname=results.rows[i].bookname;
+                                var bookname=results.rows[0].bookname;
                                 //var content=results.rows[i].content;
                                 event.reply(bookname);  
                             }

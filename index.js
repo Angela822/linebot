@@ -165,12 +165,12 @@ bot.on('message',function(event) {
                             console.log(results);
                             
                             //回覆查詢結果		
-                            var bookname=results.rows[3].bookname;
-                            var type=results.rows[3].type; 
+                            var bookname=results.rows[2].bookname;
+                            var type=results.rows[2].type; 
                             var bookname2=results.rows[3].bookname;
                             var type2=results.rows[3].type;
-                            var bookname3=results.rows[3].bookname;
-                            var type3=results.rows[3].type;                                                
+                            var bookname3=results.rows[4].bookname;
+                            var type3=results.rows[4].type;                                                
                                                           
                             return event.reply({
                                 "type": "template",

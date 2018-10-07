@@ -164,15 +164,16 @@ bot.on('message',function(event) {
                         client.query("select * from book ORDER BY date DESC LIMIT 10", (err, results) => {    
                             console.log(results);
                             
-                            //回覆查詢結果
-                            if (err || results.rows.length==0){
-                                event.reply('Error');
-                            }else{						
-                                var bookname=results.rows[0].bookname;
-                                //var content=results.rows[i].content;
-                                event.reply(bookname);  
+                            for(var i=0; i<9; i++){
+                                //回覆查詢結果
+                                if (err || results.rows.length==0){
+                                    event.reply('Error');
+                                }else{						
+                                    var bookname=results.rows[i].bookname;
+                                    //var content=results.rows[i].content;
+                                    event.reply(bookname);  
+                                }
                             }
-            
                             //關閉連線
                             client.end();
                         });  

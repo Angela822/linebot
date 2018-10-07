@@ -161,7 +161,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY date DESC", (err, results) => {    
+                        client.query("select * from book ORDER BY rankno ASC", (err, results) => {    
                             console.log(results);
                             
                             //for(var i=0; i<9; i++){
@@ -199,52 +199,6 @@ bot.on('message',function(event) {
                                                     "type": "uri",
                                                     "label": "看更多...",
                                                     "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
-                                                }
-                                            ]
-                                            },
-                                            {
-                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
-                                            "imageBackgroundColor": "#000000",
-                                            "title": "<<甜素烘焙實驗室>>",
-                                            "text": "類別：飲食料理",
-                                            "defaultAction": {
-                                                "type": "uri",
-                                                "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
-                                            },
-                                            "actions": [
-                                                {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
-                                                },
-                                                {
-                                                    "type": "uri",
-                                                    "label": "看更多...",
-                                                    "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
-                                                }
-                                            ]
-                                            },
-                                            {
-                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
-                                            "imageBackgroundColor": "#000000",
-                                            "title": "<<願你的深情，能被溫柔以待>",
-                                            "text": "類別：心理勵志",
-                                            "defaultAction": {
-                                                "type": "uri",
-                                                "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
-                                            },
-                                            "actions": [
-                                                {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
-                                                },
-                                                {
-                                                    "type": "uri",
-                                                    "label": "看更多...",
-                                                    "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
                                                 }
                                             ]
                                             }

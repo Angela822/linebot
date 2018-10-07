@@ -99,7 +99,6 @@ bot.on('message',function(event) {
                         }
                     });
         }else if (event.message.text == '我有要查的書!'){
-            
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
@@ -117,21 +116,17 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                    client.query("select * from student where stuno = $1", [no], (err, results) => {    
-                        console.log(results);
-                        
+                    client.query("select * from book where bookname = $1", [no], (err, results) => {    
+                    console.log(results);
                         //回覆查詢結果
-                        if (err || results.rows.length==0){
-                            event.reply('找不到資料');
+                        if (err || results.rows==0){
+                            event.reply('查不到本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
                         }else{						
-                            var stuname=results.rows[0].stuname;
-                            event.reply(stuname);
-                        }
-        
-                        //關閉連線
-                        client.end();
-                    });  
-                }
+                            var bookname=results.rows[0].bookname;
+                            var content=results.rows[0].content;
+                            event.reply(bookname +content);                               
+                        }  
+                    }
             );
             /*
             return event.reply({

@@ -62,14 +62,7 @@ function selectBook(profile) {
 //--------------------------
 // 機器人接受回覆的處理
 //--------------------------
-bot.on('message',function(event) {
-    //建立資料庫連線           
-    var client = new Client({
-        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-        ssl: true,
-    })
-    
-    client.connect();
+bot.on('message',function(event) {           
       
     //event.message.type==text
     if (event.message.type == 'text'){      
@@ -115,7 +108,7 @@ bot.on('message',function(event) {
         
                     //建立資料庫連線           
                     var client = new Client({
-                        connectionString: pgConn,
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
                         ssl: true,
                     })
                     

@@ -256,7 +256,7 @@ bot.on('message',function(event) {
                     client.end();
                 });  
                     
-        }else if(event.message.text == '書本排行榜'){
+        }/*else if(event.message.text == '書本排行榜'){
             event.source.profile().then(
                 function (profile) {	
                            
@@ -568,7 +568,7 @@ bot.on('message',function(event) {
                         });  
                 }
             );
-        }else if (event.message.text == '讓機器人推薦給你吧'){
+        }*/else if (event.message.text == '讓機器人推薦給你吧'){
             return event.reply({
                 "type": "template",
                 "altText": "推薦給您...",

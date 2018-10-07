@@ -161,19 +161,17 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY date DESC LIMIT 10", (err, results) => {    
+                        client.query("select * from book ORDER BY date DESC", (err, results) => {    
                             console.log(results);
                             
-                            for(var i=0; i<results.rows.length; i++){
+                            for(var i=0; i<9; i++){
                                 //回覆查詢結果
-                                if (err || results.rows.length==0){
-                                    event.reply('Error');
-                                }else{						
+                               						
                                     var bookname=results.rows[i].bookname;
                                     //var content=results.rows[i].content;
                                     event.reply(bookname);  
-                                }
-                            }
+                                
+                            };
                             //關閉連線
                             client.end();
                         });  

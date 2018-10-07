@@ -167,10 +167,93 @@ bot.on('message',function(event) {
                             //for(var i=0; i<9; i++){
                                 //回覆查詢結果		
                                 var bookname1=results.rows[0].bookname;
-                                var bookname2=results.rows[1].bookname;
-                                var bookname3=results.rows[2].bookname;
+                                //var bookname2=results.rows[1].bookname;
+                               // var bookname3=results.rows[2].bookname;
                                 //var content=results.rows[i].content;
-                                event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3);    
+                                //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
+                                
+                                return event.reply({
+                                    "type": "template",
+                                    "altText": "新書推薦",
+                                    "template": {
+                                        "type": "carousel",
+                                        "columns": [
+                                            {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+                                            "imageAspectRatio": "rectangle",
+                                            "imageSize": "cover",
+                                            "imageBackgroundColor": "#FFFFFF",
+                                            "title": bookname1,
+                                            "text": "類別：文學",
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                }
+                                            ]
+                                            },
+                                            {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/甜素烘焙實驗室.jpg",
+                                            "imageBackgroundColor": "#000000",
+                                            "title": "<<甜素烘焙實驗室>>",
+                                            "text": "類別：飲食料理",
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                }
+                                            ]
+                                            },
+                                            {
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/願你的深情，能被溫柔以待.jpg",
+                                            "imageBackgroundColor": "#000000",
+                                            "title": "<<願你的深情，能被溫柔以待>",
+                                            "text": "類別：心理勵志",
+                                            "defaultAction": {
+                                                "type": "uri",
+                                                "label": "View detail",
+                                                "uri": "http://140.131.114.176/"
+                                            },
+                                            "actions": [
+                                                {
+                                                    "type": "message",
+                                                    "label": "喜歡/不喜歡?",
+                                                    "text": "喜歡/不喜歡?"
+                                                },
+                                                {
+                                                    "type": "uri",
+                                                    "label": "看更多...",
+                                                    "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                }
+                                            ]
+                                            }
+                                        ],
+                                        "imageAspectRatio": "rectangle",
+                                        "imageSize": "cover"
+                                    }
+                                });
                             //};
                             //關閉連線
                             client.end();

@@ -161,7 +161,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY rankno ASC", (err, results) => {    
+                        client.query("select * from book ORDER BY rankno DESC", (err, results) => {    
                             console.log(results);
                             
                             //for(var i=0; i<9; i++){

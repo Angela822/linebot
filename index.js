@@ -178,7 +178,7 @@ bot.on('message',function(event) {
                                         "type": "carousel",
                                         "columns": [
                                             {
-                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/我有破壞自己的權利.jpg",
+                                            "thumbnailImageUrl": "http://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/076/02/0010760228.jpg&v=597577d4&w=348&h=348",
                                             "imageAspectRatio": "rectangle",
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",

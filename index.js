@@ -167,12 +167,11 @@ bot.on('message',function(event) {
                             for(var i=1; i<=3; i++){
                                 //回覆查詢結果		
                                 //var type=results.rows[i].type;
-                                var names =[];
                                 var bookname=results.rows[i].bookname;
                                 //var content=results.rows[i].content;
-                                names += bookname;
+                                var test = console.log(bookname);
                             }
-                            event.reply(names);
+                            event.reply(test);
                                 /*
                                 return event.reply({
                                     "type": "template",

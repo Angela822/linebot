@@ -537,31 +537,6 @@ bot.on('message',function(event) {
                                                     "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                                                 }
                                             ]
-                                        },
-                                        {
-                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + picture9,
-                                            "imageAspectRatio": "rectangle",
-                                            "imageSize": "cover",
-                                            "imageBackgroundColor": "#FFFFFF",
-                                            "title": "<<" + bookname9 + ">>",
-                                            "text": "類別：" + type9,
-                                            "defaultAction": {
-                                                "type": "uri",
-                                                "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
-                                            },
-                                            "actions": [
-                                                {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
-                                                },
-                                                {
-                                                    "type": "uri",
-                                                    "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
-                                                }
-                                            ]
                                         }
                                     ],
                                     "imageAspectRatio": "rectangle",

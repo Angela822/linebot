@@ -161,16 +161,16 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY rankno DESC", (err, results) => {    
+                        client.query("select * from book ORDER BY date DESC", (err, results) => {    
                             console.log(results);
                             
-                            //for(var i=0; i<9; i++){
+                            for(var i=1; i<3; i++){
                                 //回覆查詢結果		
-                                var type=results.rows[2].type;
-                                var bookname=results.rows[2].bookname;
+                                var type=results.rows[i].type;
+                                var bookname=results.rows[i].bookname;
                                 //var content=results.rows[i].content;
                                 //event.reply(bookname1 + '\n' + bookname2 + '\n' + bookname3); 
-                                
+
                                 return event.reply({
                                     "type": "template",
                                     "altText": "新書推薦",
@@ -207,7 +207,7 @@ bot.on('message',function(event) {
                                         "imageSize": "cover"
                                     }
                                 });
-                            //};
+                            };
                             //關閉連線
                             client.end();
                         });  

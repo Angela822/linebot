@@ -4,6 +4,7 @@
 var linebot = require('linebot');
 //const line = require('@line/bot-sdk');
 const express = require('express');
+const { Client } = require('pg');
 
 //--------------------------------
 // 填入自己在linebot的channel值
@@ -40,7 +41,7 @@ var bot = linebot({
           ]);		
       });
   });
-
+/*
 //自訂function
 function selectBook(profile) {	
     //取得使用者資料及傳回文字
@@ -55,24 +56,20 @@ function selectBook(profile) {
         })
     
     client.connect(); 
-}
+}*/
 
 
 //--------------------------
 // 機器人接受回覆的處理
 //--------------------------
 bot.on('message',function(event) {
-    /*var userName = profile.displayName;
-    var userId = profile.userId;
-    var no = event.message.text;		
-
-          //建立資料庫連線           
-        var client = new Client({
-            connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-            ssl: true,
-        })
+    //建立資料庫連線           
+    var client = new Client({
+        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+        ssl: true,
+    })
     
-    client.connect();*/
+    client.connect();
       
     //event.message.type==text
     if (event.message.type == 'text'){      
@@ -108,7 +105,41 @@ bot.on('message',function(event) {
                             ]
                         }
                     });
-        }else if (event.message.text == '我有要查的書!'){      
+        }else if (event.message.text == '我有要查的書!'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userName = profile.displayName;
+                    var userId = profile.userId;
+                    var no = event.message.text;		
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: pgConn,
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                    client.query("select * from student where stuno = $1", [no], (err, results) => {    
+                        console.log(results);
+                        
+                        //回覆查詢結果
+                        if (err || results.rows.length==0){
+                            event.reply('找不到資料');
+                        }else{						
+                            var stuname=results.rows[0].stuname;
+                            event.reply(stuname);
+                        }
+        
+                        //關閉連線
+                        client.end();
+                    });  
+                }
+            );
+            /*
             return event.reply({
                 "type": "template",
                 "altText": "查詢",
@@ -123,24 +154,8 @@ bot.on('message',function(event) {
                         }
                     ]
                 } 
-            });
+            });*/
         }else if (event.message.text == '好想找本書看ㄚ~'){    
-            /*case '關鍵字找書' :
-                //查詢資料
-                //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                client.query("select * from book where bookname = $1", [no], (err, results) => {    
-                    console.log(results);
-            
-                        //回覆查詢結果
-                        if (err || results.rows==0){
-                            event.reply('查不到本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
-                        }else{						
-                            var bookname=results.rows[0].bookname;
-                            var content=results.rows[0].content;
-                            event.reply(bookname +content);                               
-                        }
-                break;*/
-
                 return event.reply({
                     "type": "template",
                     "altText": "找書",

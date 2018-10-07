@@ -163,13 +163,16 @@ bot.on('message',function(event) {
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("select * from book ORDER BY date DESC", (err, results) => {    
                             console.log(results);
-                            
+                            event.reply(results.rows[0].bookname + '\n');
+                            event.reply(results.rows[1].bookname + '\n');
+                            /*
                             for(var i=1; i<=3; i++){
                                 //回覆查詢結果		
                                 //var type=results.rows[i].type;
                                 //var bookname=results.rows[i].bookname;
                                 //var content=results.rows[i].content;
                                 event.reply(results.rows[i].bookname + '\n');
+                            }*/
                                 /*
                                 return event.reply({
                                     "type": "template",
@@ -206,8 +209,8 @@ bot.on('message',function(event) {
                                         "imageAspectRatio": "rectangle",
                                         "imageSize": "cover"
                                     }
-                                });*/
-                            }
+                                });
+                                */
                             
                             //關閉連線
                             client.end();

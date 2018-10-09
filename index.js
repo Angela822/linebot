@@ -311,7 +311,12 @@ bot.on('message',function(event) {
                             var type9=results.rows[13].type; 
                             var picture9=results.rows[13].picture;                
                                                           
-                            return event.reply({
+                            return event.reply([
+                                {
+                                    type: 'text', 
+                                    text: '熱門排行Top 10'
+                                },
+                                {
                                 "type": "template",
                                 "altText": "Top 10",
                                 "template": {
@@ -567,7 +572,7 @@ bot.on('message',function(event) {
                                     "imageAspectRatio": "rectangle",
                                     "imageSize": "cover"
                                 }
-                            }); 
+                            }]); 
                             
                             //關閉連線
                             client.end();

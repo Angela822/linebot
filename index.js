@@ -307,9 +307,9 @@ bot.on('message',function(event) {
                             var bookname8=results.rows[8].bookname;
                             var type8=results.rows[8].type; 
                             var picture8=results.rows[8].picture;
-                            var bookname9=results.rows[9].bookname;
-                            var type9=results.rows[9].type; 
-                            var picture9=results.rows[9].picture;                
+                            var bookname9=results.rows[13].bookname;
+                            var type9=results.rows[13].type; 
+                            var picture9=results.rows[13].picture;                
                                                           
                             return event.reply({
                                 "type": "template",

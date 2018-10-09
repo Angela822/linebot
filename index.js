@@ -708,7 +708,7 @@ bot.on('message',function(event) {
                             }else{						
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
-                                event.reply('書名：<<' + bookname + '>>' +'\n'+ '內容簡介' +'\n' + content);  
+                                event.reply('書名：<<' + bookname + '>>' +'\n'+ '內容簡介：' +'\n' + content);  
                             }
             
                             //關閉連線

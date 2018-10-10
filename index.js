@@ -41,30 +41,11 @@ var bot = linebot({
           ]);		
       });
   });
-/*
-//自訂function
-function selectBook(profile) {	
-    //取得使用者資料及傳回文字
-    var userName = profile.displayName;
-    var userId = profile.userId;
-    var no = event.message.text;		
-
-          //建立資料庫連線           
-        var client = new Client({
-            connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-            ssl: true,
-        })
-    
-    client.connect(); 
-}*/
-
 
 //--------------------------
 // 機器人接受回覆的處理
 //--------------------------
-bot.on('message',function(event) {           
-      
-    //event.message.type==text
+bot.on('message',function(event) {               
     if (event.message.type == 'text'){      
         if (event.message.text == '你會做什麼'){
             return event.reply({
@@ -106,11 +87,11 @@ bot.on('message',function(event) {
                     },
                     {
                         type: 'text', 
-                        text: '來~先請跟我這樣做'
+                        text: '來~請跟我這樣做'
                     },
                     {
                         type: 'text', 
-                        text: 'Ex.查 女演員(書名)'
+                        text: '「查 雲上的阿里」'
                     }
                 ]);
         }else if (event.message.text.substring(0,1) == '查'){
@@ -177,7 +158,7 @@ bot.on('message',function(event) {
         }else if(event.message.text == '用類別找書'){
             return event.reply({
                 type: 'text',
-                text: '我想看 XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
+                text: 'Ex.我想看 文學,生活風格,藝術設計'
             });
         }else if(event.message.text.substring(0,3) == '我想看'){
             event.source.profile().then(

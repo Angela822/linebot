@@ -67,6 +67,7 @@ bot.on('message',function(event) {
     //event.message.type==text
     if (event.message.type == 'text'){      
         if (event.message.text == '你會做什麼'){
+            //收集使用者userid
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
@@ -210,6 +211,96 @@ bot.on('message',function(event) {
                 text: '我想看：XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
             });
         }else if(event.message.text.substring(0,4) == '我想看'){
+            event.source.profile().then(
+                function (profile) {
+                    //取得使用者資料及傳回文字
+                    var userName = profile.displayName;
+                    var userId = profile.userId;
+                    //擷取使用者空格後的資料
+                    var userWord = event.message.text.substring(4);
+                    //將userWord的內容用逗號切割
+                    var type = userWord.split(",",10);
+
+                    switch(type){
+                        case '藝術':
+                        case '設計':
+                        case '藝術設計':
+                            type = 'art';
+                        break;
+
+                        case '文學':
+                            type = 'literature';
+                        break;
+
+                        case '財經':
+                            type = 'financial';
+                        break;
+
+                        case '飲食':
+                        case '料理':
+                        case '飲食料理':
+                            type = 'food';
+                        break;
+
+                        case '旅遊':
+                            type = 'travel';
+                        break;
+
+                        case '心理':
+                        case '勵志':
+                        case '心理勵志':
+                            type = 'mental';
+                        break;
+
+                        case '教育':
+                        case '親子':
+                            type = 'education';
+                        break;
+
+                        case '語言':
+                        case '辭典':
+                            type = 'language';
+                        break;
+
+                        case '生活':
+                            type = 'life';
+                        break;
+
+                        case '醫療':
+                        case '保健':
+                        case '醫療保健':
+                            type = 'medical';
+                        break;
+
+                        default:
+                            event.reply = '請重新輸入';
+                    }
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("update userid set $1 = 101 where userid = $2", [type,userId], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果
+                            if (err){
+                                console.log('更新DB失敗');
+                            }else{						
+                                console.log('更新DB成功'); 
+                            }
+            
+                            //關閉連線
+                            client.end();
+                        });  
+                }
+            );
             return event.reply([
                 {
                     "type": "text",

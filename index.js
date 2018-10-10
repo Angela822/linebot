@@ -239,7 +239,7 @@ bot.on('message',function(event) {
 
                         client.query("select * from userhabit where type = 'art' && userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
-                                client.query("INSERT INTO userhabit(userid,type,count)VALUES ($1,'art',100)", [userId], (err, results) => {    
+                                client.query("insert into userhabit(userid,type,count)values ($1,'art',100)", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果

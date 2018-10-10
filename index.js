@@ -208,9 +208,9 @@ bot.on('message',function(event) {
         }else if(event.message.text == '用類別找書'){
             return event.reply({
                 type: 'text',
-                text: '我想看：XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
+                text: '我想看 XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
             });
-        }else if(event.message.text.substring(0,4) == '我想看'){
+        }else if(event.message.text.substring(0,3) == '我想看'){
             event.source.profile().then(
                 function (profile) {
                     //取得使用者資料及傳回文字

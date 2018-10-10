@@ -106,16 +106,20 @@ bot.on('message',function(event) {
                     },
                     {
                         type: 'text', 
-                        text: '請輸入書名'
+                        text: '來~先請跟我這樣做'
+                    },
+                    {
+                        type: 'text', 
+                        text: 'Ex.查 女演員(書名)'
                     }
                 ]);
-        }else if (event.reply.text == '請輸入書名'){
+        }else if (event.message.text.substring(0,1) == '查'){
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
                     var userName = profile.displayName;
                     var userId = profile.userId;
-                    var no = event.message.text;		
+                    var no = event.message.text.substring(2);		
         
                     //建立資料庫連線           
                     var client = new Client({

@@ -217,10 +217,10 @@ bot.on('message',function(event) {
                     var userName = profile.displayName;
                     var userId = profile.userId;
                     //擷取使用者空格後的資料
-                    var userWord = event.message.text.substring(4);
+                    var type = event.message.text.substring(4);
                     //將userWord的內容用逗號切割
-                    var type = userWord.split(",",10);
-
+                    //var type = userWord.split(",",10);
+                    
                     switch(type){
                         case '藝術':
                         case '設計':
@@ -271,9 +271,6 @@ bot.on('message',function(event) {
                         case '醫療保健':
                             type = 'medical';
                         break;
-
-                        default:
-                            event.reply = '請重新輸入';
                     }
         
                     //建立資料庫連線           
@@ -286,7 +283,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("update userid set $1 = 101 where userid = $2", [type,userId], (err, results) => {    
+                        client.query("update userhabit set $1 = 101 where userid = $2", [type,userId], (err, results) => {    
                             console.log(results);
                             
                             //回覆查詢結果

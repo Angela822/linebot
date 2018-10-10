@@ -237,26 +237,23 @@ bot.on('message',function(event) {
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
 
-                        client.query("select type from userhabit where userid = $1", [userId], (err, results) =>{
+                        client.query("select * from userhabit where type = 'art' && userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
-                                /*
-                                client.query("insert into userhabit(userid) values($1)", [userId], (err, results) => {    
+                                client.query("insert into userhabit(userid,type,count) values($1,art,100)", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
                                     if (err){
-                                        console.log('更新DB失敗');
+                                        console.log('新增DB失敗');
                                     }else{						
-                                        console.log('更新DB成功'); 
+                                        console.log('新增DB成功'); 
                                     }
                     
                                     //關閉連線
                                     client.end();
                                 });
-                                */
-                                console.log('nobody');
                             }else{
-                                console.log(userId);
+                                console.log('有');
                             }
                         });      
 

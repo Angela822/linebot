@@ -253,7 +253,19 @@ bot.on('message',function(event) {
                                     client.end();
                                 });
                             }else{
-                                console.log('有');
+                                client.query("update userhabit set count = count+1 where type = 'art' AND userid = $1", [userId], (err, results) => {    
+                                    console.log(results);
+                                    
+                                    //回覆查詢結果
+                                    if (err){
+                                        console.log('更新DB失敗');
+                                    }else{						
+                                        console.log('更新DB成功'); 
+                                    }
+                    
+                                    //關閉連線
+                                    client.end();
+                                });
                             }
                         });      
 

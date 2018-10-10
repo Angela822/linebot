@@ -239,7 +239,7 @@ bot.on('message',function(event) {
 
                         client.query("select type from userhabit where userid = $1", [userId], (err, results) =>{
                             console.log(results);
-                            if(err|| results.rows.length==0){
+                            if(err){
                                 /*
                                 client.query("insert into userhabit(userid) values($1)", [userId], (err, results) => {    
                                     console.log(results);

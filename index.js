@@ -1096,10 +1096,10 @@ bot.on('message',function(event) {
         }else{
             return event.reply({
                 "type": 'template', 
-                "altText": "你可以試著打'「Takebook會做什麼呢」",
+                "altText": "你可以試著打：",
                 "template": {
                     "type": "buttons",
-                    "title": "你可以試著打「Takebook會做什麼呢」",
+                    "title": "你可以試著打：",
                     "text": "請選擇",
                     "actions": [
                         {

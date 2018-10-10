@@ -67,37 +67,67 @@ bot.on('message',function(event) {
     //event.message.type==text
     if (event.message.type == 'text'){      
         if (event.message.text == '你會做什麼'){
-                    return event.reply({
-                        "type": "template",
-                        "altText": "我會做這些事...",
-                        "template": {
-                            "type": "buttons",
-                            "title": "我會做這些事",
-                            "text": "請選擇",
-                            "actions": [
-                                {
-                                "type": "message",
-                                "label": "我有要查的書!",
-                                "text": "我有要查的書!"
-                                },
-                                {
-                                "type": "message",
-                                "label": "好想找本書看ㄚ~",
-                                "text": "好想找本書看ㄚ~"
-                                },
-                                {
-                                "type": "message",
-                                "label": "讓機器人推薦給你吧",
-                                "text": "讓機器人推薦給你吧"
-                                },
-                                {
-                                "type": "uri",
-                                "label": "快來看看Take Book網站",
-                                "uri": "http://140.131.114.176/"
-                                }
-                            ]
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+                        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("insert into userhabit values($1)", [userId], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果
+                            if (err){
+                                console.log('新增失敗');
+                            }else{						
+                                console.log('新增成功');
+                            }
+            
+                            //關閉連線
+                            client.end();
+                        });  
+                }
+            );
+            return event.reply({
+                "type": "template",
+                "altText": "我會做這些事...",
+                "template": {
+                    "type": "buttons",
+                    "title": "我會做這些事",
+                    "text": "請選擇",
+                    "actions": [
+                        {
+                        "type": "message",
+                        "label": "我有要查的書!",
+                        "text": "我有要查的書!"
+                        },
+                        {
+                        "type": "message",
+                        "label": "好想找本書看ㄚ~",
+                        "text": "好想找本書看ㄚ~"
+                        },
+                        {
+                        "type": "message",
+                        "label": "讓機器人推薦給你吧",
+                        "text": "讓機器人推薦給你吧"
+                        },
+                        {
+                        "type": "uri",
+                        "label": "快來看看Take Book網站",
+                        "uri": "http://140.131.114.176/"
                         }
-                    });
+                    ]
+                }
+            });
         }else if (event.message.text == '我有要查的書!'){
                 return event.reply([
                     {
@@ -175,36 +205,6 @@ bot.on('message',function(event) {
                     }
                 });
         }else if(event.message.text == '用類別找書'){
-            event.source.profile().then(
-                function (profile) {	
-                    //取得使用者資料及傳回文字
-                    var userId = profile.userId;
-                        
-                    //建立資料庫連線           
-                    var client = new Client({
-                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                        ssl: true,
-                    })
-                    
-                    client.connect();
-                    
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("insert into userhabit values($1)", [userId], (err, results) => {    
-                            console.log(results);
-                            
-                            //回覆查詢結果
-                            if (err){
-                                console.log('新增失敗');
-                            }else{						
-                                console.log('新增成功');
-                            }
-            
-                            //關閉連線
-                            client.end();
-                        });  
-                }
-            );
             return event.reply({
                 type: 'text',
                 text: '我想看：XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'

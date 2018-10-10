@@ -47,7 +47,7 @@ var bot = linebot({
 //--------------------------
 bot.on('message',function(event) {               
     if (event.message.type == 'text'){      
-        if (event.message.text == '你會做什麼'){
+        if (event.message.text == 'Takebook會做什麼呢'){
             return event.reply({
                 "type": "template",
                 "altText": "我會做這些事...",
@@ -58,13 +58,13 @@ bot.on('message',function(event) {
                     "actions": [
                         {
                         "type": "message",
-                        "label": "我有要查的書!",
-                        "text": "我有要查的書!"
+                        "label": "我要查詢書本！",
+                        "text": "我要查詢書本！"
                         },
                         {
                         "type": "message",
-                        "label": "好想找本書看ㄚ~",
-                        "text": "好想找本書看ㄚ~"
+                        "label": "好想找本書看ㄚ～",
+                        "text": "好想找本書看ㄚ～"
                         },
                         {
                         "type": "message",
@@ -79,7 +79,7 @@ bot.on('message',function(event) {
                     ]
                 }
             });
-        }else if (event.message.text == '我有要查的書!'){
+        }else if (event.message.text == '我要查詢書本！'){
                 return event.reply([
                     {
                         type: 'text', 
@@ -129,7 +129,7 @@ bot.on('message',function(event) {
                         });  
                 }
             );
-        }else if (event.message.text == '好想找本書看ㄚ~'){    
+        }else if (event.message.text == '好想找本書看ㄚ～'){    
                 return event.reply({
                     "type": "template",
                     "altText": "找書",
@@ -1096,16 +1096,16 @@ bot.on('message',function(event) {
         }else{
             return event.reply({
                 "type": 'template', 
-                "altText": "你可以試著打'你會做什麼'",
+                "altText": "你可以試著打'「Takebook會做什麼呢」",
                 "template": {
                     "type": "buttons",
-                    "title": "你可以試著打'你會做什麼'",
+                    "title": "你可以試著打「Takebook會做什麼呢」",
                     "text": "請選擇",
                     "actions": [
                         {
                         "type": "message",
-                        "label": "你會做什麼",
-                        "text": "你會做什麼"
+                        "label": "Takebook會做什麼呢",
+                        "text": "Takebook會做什麼呢"
                         }
                     ]
                 }

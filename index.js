@@ -256,7 +256,7 @@ bot.on('message',function(event) {
                                 */
                                 console.log('nobody');
                             }else{
-                                console.log('有的!');
+                                console.log(userId);
                             }
                         });      
 

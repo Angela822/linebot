@@ -150,7 +150,7 @@ bot.on('message',function(event) {
                     //取得使用者資料及傳回文字
                     var userName = profile.displayName;
                     var userId = profile.userId;
-                    var no = event.message.text.substring(2);		
+                    var no = event.message.text.substring(2);
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -236,7 +236,11 @@ bot.on('message',function(event) {
                             
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                                client.query("update userhabit set art = art+1  where userid = $1", [userId], (err, results) => {    
+
+                        client.query("select userid from userhabit where userid = $1", [userId], (err, results) =>{
+                            if(err){
+                                /*
+                                client.query("insert into userhabit(userid) values($1)", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -248,14 +252,20 @@ bot.on('message',function(event) {
                     
                                     //關閉連線
                                     client.end();
-                                }); 
+                                });
+                                */
+                                console.log('nobody');
+                            }else{
+                                console.log('有的!');
+                            }
+                        });      
 
                         break;
 
                         case '文學':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set literature = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set literature = literature+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -273,7 +283,7 @@ bot.on('message',function(event) {
                         case '財經':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set financial = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set financial = financial+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -293,7 +303,7 @@ bot.on('message',function(event) {
                         case '飲食料理':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set food = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set food = food+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -311,7 +321,7 @@ bot.on('message',function(event) {
                         case '旅遊':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set travel = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set travel = travel+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -331,7 +341,7 @@ bot.on('message',function(event) {
                         case '心理勵志':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set mental = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set mental = mental+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -350,7 +360,7 @@ bot.on('message',function(event) {
                         case '親子':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set education = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set education = education+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -369,7 +379,7 @@ bot.on('message',function(event) {
                         case '辭典':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set language = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set language = language+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果
@@ -387,7 +397,7 @@ bot.on('message',function(event) {
                         case '生活':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set life = 101 where userid = $1", [userId], (err, results) => {    
+                            client.query("update userhabit set life = life+1 where userid = $1", [userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果

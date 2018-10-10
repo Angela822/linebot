@@ -237,7 +237,7 @@ bot.on('message',function(event) {
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
 
-                        client.query("select * from userhabit where type = 'art' && userid = $1", [userId], (err, results) =>{
+                        client.query("select * from userhabit where type = 'art' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
                                 client.query("insert into userhabit(userid,type,count)values ($1,'art',100)", [userId], (err, results) => {    
                                     console.log(results);

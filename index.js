@@ -109,6 +109,41 @@ bot.on('message',function(event) {
                         text: '請輸入書名'
                     }
                 ]);
+        }else if (event.reply.text == '請輸入書名'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userName = profile.displayName;
+                    var userId = profile.userId;
+                    var no = event.message.text;		
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("select * from book where bookname = $1", [no], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果
+                            if (err || results.rows.length==0){
+                                event.reply('查不到這本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
+                            }else{						
+                                var bookname=results.rows[0].bookname;
+                                var content=results.rows[0].content;
+                                event.reply('書名：<<' + bookname + '>>' +'\n'+ '內容簡介：' +'\n' + content);  
+                            }
+            
+                            //關閉連線
+                            client.end();
+                        });  
+                }
+            );
         }else if (event.message.text == '好想找本書看ㄚ~'){    
                 return event.reply({
                     "type": "template",
@@ -681,41 +716,6 @@ bot.on('message',function(event) {
                     ]
                 }
             })
-        }else if (event.message.text == event.message.text){
-            event.source.profile().then(
-                function (profile) {	
-                    //取得使用者資料及傳回文字
-                    var userName = profile.displayName;
-                    var userId = profile.userId;
-                    var no = event.message.text;		
-        
-                    //建立資料庫連線           
-                    var client = new Client({
-                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                        ssl: true,
-                    })
-                    
-                    client.connect();
-                    
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book where bookname = $1", [no], (err, results) => {    
-                            console.log(results);
-                            
-                            //回覆查詢結果
-                            if (err || results.rows.length==0){
-                                event.reply('查不到這本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
-                            }else{						
-                                var bookname=results.rows[0].bookname;
-                                var content=results.rows[0].content;
-                                event.reply('書名：<<' + bookname + '>>' +'\n'+ '內容簡介：' +'\n' + content);  
-                            }
-            
-                            //關閉連線
-                            client.end();
-                        });  
-                }
-            );
         }else{
             return event.reply({
                 "type": 'template', 

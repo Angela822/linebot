@@ -175,11 +175,41 @@ bot.on('message',function(event) {
                     }
                 });
         }else if(event.message.text == '用類別找書'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+                        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("insert into userhabit values($1)", [userId], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果
+                            if (err){
+                                console.log('新增失敗');
+                            }else{						
+                                console.log('新增成功');
+                            }
+            
+                            //關閉連線
+                            client.end();
+                        });  
+                }
+            );
             return event.reply({
                 type: 'text',
-                text: '我想看：XX,XX,XX (Ex.我想看：文學,生活風格,藝術設計)'
+                text: '我想看：XX,XX,XX (Ex.我想看 文學,生活風格,藝術設計)'
             });
-        }else if(event.message.text.substring(0,4) == '我想看：'){
+        }else if(event.message.text.substring(0,4) == '我想看'){
             return event.reply([
                 {
                     "type": "text",
@@ -318,9 +348,9 @@ bot.on('message',function(event) {
                             console.log(results);
                             
                             //回覆查詢結果		
-                            var bookname=results.rows[13].bookname;
-                            var type=results.rows[13].type; 
-                            var picture=results.rows[13].picture;
+                            var bookname=results.rows[0].bookname;
+                            var type=results.rows[0].type; 
+                            var picture=results.rows[0].picture;
                             var bookname1=results.rows[1].bookname;
                             var type1=results.rows[1].type;
                             var picture1=results.rows[1].picture;

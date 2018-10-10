@@ -288,7 +288,7 @@ bot.on('message',function(event) {
                             
                             //回覆查詢結果
                             if (err){
-                                console.log(results);
+                                console.log('更新DB失敗' + type);
                             }else{						
                                 console.log('更新DB成功'); 
                             }

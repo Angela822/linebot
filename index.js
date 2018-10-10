@@ -563,7 +563,17 @@ bot.on('message',function(event) {
             client.query("select type from userhabit where userid = $1 order by count DESC", [userId], (err, results) =>{
                 var getType = results.rows[0].type;
 
-                client.query("select * from book where type = $1 order by random()", [getType], (err, results) =>{
+                //回覆查詢結果
+                if (err || results.rows.length==0){
+                    console.log('更新DB失敗');
+                }else{						
+                    console.log(getType); 
+                }
+
+                //關閉連線
+                client.end();
+
+                /*client.query("select * from book where type = $1 order by random()", [getType], (err, results) =>{
                     var bookname=results.rows[0].bookname;
                     var type=results.rows[0].type; 
                     var pic=results.rows[0].picture;
@@ -666,7 +676,7 @@ bot.on('message',function(event) {
     
                     //關閉連線
                     client.end();
-                });
+                });*/
             }); 
             /*
             return event.reply([

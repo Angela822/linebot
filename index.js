@@ -318,9 +318,9 @@ bot.on('message',function(event) {
                             console.log(results);
                             
                             //回覆查詢結果		
-                            var bookname=results.rows[0].bookname;
-                            var type=results.rows[0].type; 
-                            var picture=results.rows[0].picture;
+                            var bookname=results.rows[13].bookname;
+                            var type=results.rows[13].type; 
+                            var picture=results.rows[13].picture;
                             var bookname1=results.rows[1].bookname;
                             var type1=results.rows[1].type;
                             var picture1=results.rows[1].picture;

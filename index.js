@@ -283,12 +283,12 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("update userhabit set art = 101 where userid = $1", [userId], (err, results) => {    
+                        client.query("update userhabit set $1 = 101 where userid = $2", [type,userId], (err, results) => {    
                             console.log(results);
                             
                             //回覆查詢結果
                             if (err){
-                                console.log('更新DB失敗');
+                                console.log(results);
                             }else{						
                                 console.log('更新DB成功'); 
                             }

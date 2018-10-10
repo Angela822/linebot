@@ -221,58 +221,6 @@ bot.on('message',function(event) {
                     //將userWord的內容用逗號切割
                     //var type = userWord.split(",",10);
                     
-                    switch(type){
-                        case '藝術':
-                        case '設計':
-                        case '藝術設計':
-                            type = 'art';
-                        break;
-
-                        case '文學':
-                            type = 'literature';
-                        break;
-
-                        case '財經':
-                            type = 'financial';
-                        break;
-
-                        case '飲食':
-                        case '料理':
-                        case '飲食料理':
-                            type = 'food';
-                        break;
-
-                        case '旅遊':
-                            type = 'travel';
-                        break;
-
-                        case '心理':
-                        case '勵志':
-                        case '心理勵志':
-                            type = 'mental';
-                        break;
-
-                        case '教育':
-                        case '親子':
-                            type = 'education';
-                        break;
-
-                        case '語言':
-                        case '辭典':
-                            type = 'language';
-                        break;
-
-                        case '生活':
-                            type = 'life';
-                        break;
-
-                        case '醫療':
-                        case '保健':
-                        case '醫療保健':
-                            type = 'medical';
-                        break;
-                    }
-        
                     //建立資料庫連線           
                     var client = new Client({
                         connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
@@ -280,22 +228,200 @@ bot.on('message',function(event) {
                     })
                     
                     client.connect();
-                    
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("update userhabit set $1 = 101 where userid = $2", [type,userId], (err, results) => {    
-                            console.log(results);
+
+                    switch(type){
+                        case '藝術':
+                        case '設計':
+                        case '藝術設計':
                             
-                            //回覆查詢結果
-                            if (err){
-                                console.log('更新DB失敗' + type);
-                            }else{						
-                                console.log('更新DB成功'); 
-                            }
-            
-                            //關閉連線
-                            client.end();
-                        });  
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                                client.query("update userhabit set art = 101 where userid = $1", [userId], (err, results) => {    
+                                    console.log(results);
+                                    
+                                    //回覆查詢結果
+                                    if (err){
+                                        console.log('更新DB失敗');
+                                    }else{						
+                                        console.log('更新DB成功'); 
+                                    }
+                    
+                                    //關閉連線
+                                    client.end();
+                                }); 
+
+                        break;
+
+                        case '文學':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set literature = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '財經':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set financial = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '飲食':
+                        case '料理':
+                        case '飲食料理':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set food = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '旅遊':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set travel = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '心理':
+                        case '勵志':
+                        case '心理勵志':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set mental = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '教育':
+                        case '親子':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set education = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '語言':
+                        case '辭典':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set language = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '生活':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set life = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+
+                        case '醫療':
+                        case '保健':
+                        case '醫療保健':
+                            //查詢資料
+                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                            client.query("update userhabit set medical = 101 where userid = $1", [userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('更新DB失敗');
+                                }else{						
+                                    console.log('更新DB成功'); 
+                                }
+                
+                                //關閉連線
+                                client.end();
+                            }); 
+                        break;
+                    }
                 }
             );
             return event.reply([

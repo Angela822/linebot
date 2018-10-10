@@ -107,7 +107,7 @@ bot.on('message',function(event) {
                         connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
                         ssl: true,
                     })
-                    
+                    gfr
                     client.connect();
                     
                     //查詢資料
@@ -186,9 +186,9 @@ bot.on('message',function(event) {
                             
                         //查詢資料
                         //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from userhabit where type = 'art' AND userid = $1", [userId], (err, results) =>{
+                        client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
-                                client.query("insert into userhabit(userid,type,count)values ($1,'art',100)", [userId], (err, results) => {    
+                                client.query("insert into userhabit(userid,type,count)values ($1,'藝術設計',100)", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -202,7 +202,7 @@ bot.on('message',function(event) {
                                     client.end();
                                 });
                             }else{
-                                client.query("update userhabit set count = count+1 where type = 'art' AND userid = $1", [userId], (err, results) => {    
+                                client.query("update userhabit set count = count+1 where type = '藝術設計' AND userid = $1", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -220,11 +220,12 @@ bot.on('message',function(event) {
                         break;
 
                         case '文學':
+                        case '小說':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'literature' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '文學小說' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'literature',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'文學小說',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -238,7 +239,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'literature' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '文學小說' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -256,11 +257,12 @@ bot.on('message',function(event) {
                         break;
 
                         case '財經':
+                        case '商業理財':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'financial' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '商業理財' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'financial',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'商業理財',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -274,7 +276,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'financial' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '商業理財' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -296,9 +298,9 @@ bot.on('message',function(event) {
                         case '飲食料理':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'food' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '飲食' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'food',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'飲食',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -312,7 +314,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'food' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '飲食' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -332,9 +334,9 @@ bot.on('message',function(event) {
                         case '旅遊':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'travel' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '旅遊' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'travel',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'旅遊',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -348,7 +350,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'travel' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '旅遊' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -370,9 +372,9 @@ bot.on('message',function(event) {
                         case '心理勵志':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'mental' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '心理勵志' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'mental',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'心理勵志',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -386,7 +388,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'mental' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '心理勵志' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -407,9 +409,9 @@ bot.on('message',function(event) {
                         case '親子':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'education' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '親子教養' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'education',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'親子教養',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -423,7 +425,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'education' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '親子教養' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -444,9 +446,9 @@ bot.on('message',function(event) {
                         case '辭典':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'language' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '語言學習' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'language',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'語言學習',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -460,7 +462,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'language' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '語言學習' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -480,9 +482,9 @@ bot.on('message',function(event) {
                         case '生活':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'life' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '生活風格' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'life',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'生活風格',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -496,7 +498,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'life' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '生活風格' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -518,9 +520,9 @@ bot.on('message',function(event) {
                         case '醫療保健':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("select * from userhabit where type = 'medical' AND userid = $1", [userId], (err, results) =>{
+                            client.query("select * from userhabit where type = '醫療保健' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("insert into userhabit(userid,type,count)values ($1,'medical',100)", [userId], (err, results) => {    
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'醫療保健',100)", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -534,7 +536,7 @@ bot.on('message',function(event) {
                                         client.end();
                                     });
                                 }else{
-                                    client.query("update userhabit set count = count+1 where type = 'medical' AND userid = $1", [userId], (err, results) => {    
+                                    client.query("update userhabit set count = count+1 where type = '醫療保健' AND userid = $1", [userId], (err, results) => {    
                                         console.log(results);
                                         
                                         //回覆查詢結果
@@ -553,6 +555,10 @@ bot.on('message',function(event) {
                     }
                 }
             );
+
+            //依據類別推薦書
+
+
             return event.reply([
                 {
                     "type": "text",
@@ -1096,10 +1102,10 @@ bot.on('message',function(event) {
         }else{
             return event.reply({
                 "type": 'template', 
-                "altText": "你可以試著打：",
+                "altText": "你可以試著打",
                 "template": {
                     "type": "buttons",
-                    "title": "你可以試著打：",
+                    "title": "你可以試著打",
                     "text": "請選擇",
                     "actions": [
                         {

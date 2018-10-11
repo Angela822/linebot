@@ -98,7 +98,7 @@ bot.on('message',function(event) {
                     },
                     {
                         type: 'text', 
-                        text: '提醒：「查」後面有沒有記得空一格呢~'
+                        text: '提醒：「查」後面要記得空一格喔!'
                     }
                 ]);
 
@@ -1155,7 +1155,7 @@ bot.on('message',function(event) {
             })
         }             
     }
-    
+
     //event.message.type==sticker
     else if (event.message.type == 'sticker'){
         event.reply([

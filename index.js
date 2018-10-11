@@ -572,14 +572,13 @@ bot.on('message',function(event) {
                     //依據類別推薦書
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                    client.query("select type from userhabit where userid = $1 order by count DESC", [userId], (err, results) =>{
-                        var getType = results.rows[0].type;
+                    client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
 
                         //回覆查詢結果
                         if (err || results.rows.length==0){
                             console.log('查詢DB失敗');
                         }else{						
-                            console.log(getType); 
+                            console.log(type); 
                         }
 
                         //關閉連線

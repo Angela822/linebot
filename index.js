@@ -572,6 +572,8 @@ bot.on('message',function(event) {
                     //依據類別推薦書
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                    client.connect();
+
                     client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
 
                         //回覆查詢結果

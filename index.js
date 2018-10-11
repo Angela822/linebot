@@ -562,7 +562,7 @@ bot.on('message',function(event) {
                                         }
                         
                                         //關閉連線
-                                        client.end();
+                                        //client.end();
                                     });
                                 }
                             }); 
@@ -572,7 +572,7 @@ bot.on('message',function(event) {
                     //依據類別推薦書
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                    client.connect();
+                    //client.connect();
 
                     client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
 
@@ -603,8 +603,6 @@ bot.on('message',function(event) {
                 connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
                 ssl: true,
             })
-            
-            client.connect();
             
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)

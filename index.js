@@ -46,9 +46,8 @@ var bot = linebot({
 // 機器人接受回覆的處理
 //--------------------------
 bot.on('message',function(event) {           
-      
-    //event.message.type==text
-    if (event.message.type == 'text'){      
+    if (event.message.type == 'text'){ 
+        //主選單     
         if (event.message.text == 'Takebook會做什麼呢'){
             return event.reply({
                 "type": "template",
@@ -81,6 +80,8 @@ bot.on('message',function(event) {
                     ]
                 }
             });
+
+        //關鍵字查書
         }else if (event.message.text == '我要查詢書本！'){
                 return event.reply([
                     {
@@ -93,9 +94,15 @@ bot.on('message',function(event) {
                     },
                     {
                         type: 'text', 
-                        text: '「查 雲上的阿里」'
+                        text: '「查 書名」'
+                    },
+                    {
+                        type: 'text', 
+                        text: '提醒：「查」後面有沒有記得空一格呢~'
                     }
                 ]);
+
+        //關鍵字查書，判斷書本是否存在
         }else if (event.message.text.substring(0,1) == '查'){
             event.source.profile().then(
                 function (profile) {	
@@ -131,6 +138,8 @@ bot.on('message',function(event) {
                         });  
                 }
             );
+
+        //找書選單
         }else if (event.message.text == '好想找本書看ㄚ～'){    
                 return event.reply({
                     "type": "template",
@@ -157,11 +166,15 @@ bot.on('message',function(event) {
                         ]
                     }
                 });
+
+        //用類別找書-提示字詞
         }else if(event.message.text == '用類別找書'){
             return event.reply({
                 type: 'text',
                 text: 'Ex.我想看 文學,生活風格,藝術設計'
             });
+        
+        //用類別找書-收集使用者userid && 類別喜好
         }else if(event.message.text.substring(0,3) == '我想看'){
             event.source.profile().then(
                 function (profile) {
@@ -581,6 +594,8 @@ bot.on('message',function(event) {
                     "text": '收到了~'
                 }
             ]);
+        
+        //新書
         }else if(event.message.text == '新書'){	        
             //建立資料庫連線           
             var client = new Client({
@@ -694,7 +709,8 @@ bot.on('message',function(event) {
                     //關閉連線
                     client.end();
                 });  
-                    
+        
+        //書本排行榜
         }else if(event.message.text == '書本排行榜'){
             event.source.profile().then(
                 function (profile) {	
@@ -1013,6 +1029,8 @@ bot.on('message',function(event) {
                         });  
                 }
             );
+
+        //機器人依據使用者書本類別取向推薦
         }else if (event.message.text == '讓機器人推薦給你吧'){
             return event.reply({
                 "type": "template",
@@ -1094,6 +1112,8 @@ bot.on('message',function(event) {
                     "imageSize": "cover"
                 }
             })
+
+        //收集使用者書本喜好資訊
         }else if (event.message.text == '喜歡/不喜歡?'){
             return event.reply({
                 "type": "template",
@@ -1115,6 +1135,7 @@ bot.on('message',function(event) {
                     ]
                 }
             })
+
         }else{
             return event.reply({
                 "type": 'template', 
@@ -1133,7 +1154,8 @@ bot.on('message',function(event) {
                 }
             })
         }             
-    }    
+    }
+    
     //event.message.type==sticker
     else if (event.message.type == 'sticker'){
         event.reply([

@@ -186,9 +186,25 @@ bot.on('message',function(event) {
                         case '設計':
                         case '藝術設計':
                             
-                            //查詢資料
-                            //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                                client.query("update userhabit set art = art+1  where userid = $1", [userId], (err, results) => {    
+                        //查詢資料
+                        //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
+                            if(err || results.rows.length==0){
+                                client.query("insert into userhabit(userid,type,count)values ($1,'藝術設計',100)", [userId], (err, results) => {    
+                                    console.log(results);
+                                    
+                                    //回覆查詢結果
+                                    if (err){
+                                        console.log('新增DB失敗');
+                                    }else{						
+                                        console.log('新增DB成功'); 
+                                    }
+                    
+                                    //關閉連線
+                                    client.end();
+                                });
+                            }else{
+                                client.query("update userhabit set count = count+1 where type = '藝術設計' AND userid = $1", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -200,43 +216,82 @@ bot.on('message',function(event) {
                     
                                     //關閉連線
                                     client.end();
-                                }); 
-
+                                });
+                            }
+                        });      
                         break;
 
                         case '文學':
+                        case '小說':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set literature = literature+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '文學小說' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'文學小說',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '文學小說' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
-                            }); 
+                            });     
                         break;
 
                         case '財經':
+                        case '商業理財':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set financial = financial+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '商業理財' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'商業理財',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '商業理財' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
@@ -245,36 +300,72 @@ bot.on('message',function(event) {
                         case '飲食料理':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set food = food+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '飲食' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'飲食',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '飲食' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
                         case '旅遊':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set travel = travel+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '旅遊' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'旅遊',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '旅遊' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
@@ -283,18 +374,36 @@ bot.on('message',function(event) {
                         case '心理勵志':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set mental = mental+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '心理勵志' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'心理勵志',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '心理勵志' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
@@ -302,18 +411,36 @@ bot.on('message',function(event) {
                         case '親子':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set education = education+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '親子教養' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'親子教養',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '親子教養' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
@@ -321,36 +448,72 @@ bot.on('message',function(event) {
                         case '辭典':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set language = language+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '語言學習' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'語言學習',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '語言學習' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
                         case '生活':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set life = life+1 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '生活風格' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'生活風格',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '生活風格' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
 
@@ -359,23 +522,59 @@ bot.on('message',function(event) {
                         case '醫療保健':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                            client.query("update userhabit set medical = 101 where userid = $1", [userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('更新DB失敗');
-                                }else{						
-                                    console.log('更新DB成功'); 
+                            client.query("select * from userhabit where type = '醫療保健' AND userid = $1", [userId], (err, results) =>{
+                                if(err || results.rows.length==0){
+                                    client.query("insert into userhabit(userid,type,count)values ($1,'醫療保健',100)", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('新增DB失敗');
+                                        }else{						
+                                            console.log('新增DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
+                                }else{
+                                    client.query("update userhabit set count = count+1 where type = '醫療保健' AND userid = $1", [userId], (err, results) => {    
+                                        console.log(results);
+                                        
+                                        //回覆查詢結果
+                                        if (err){
+                                            console.log('更新DB失敗');
+                                        }else{						
+                                            console.log('更新DB成功'); 
+                                        }
+                        
+                                        //關閉連線
+                                        client.end();
+                                    });
                                 }
-                
-                                //關閉連線
-                                client.end();
                             }); 
                         break;
                     }
+                    /*
+                    //依據類別推薦書
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                    client.query("select type from userhabit where userid = $1 order by count DESC", [userId], (err, results) =>{
+                        var getType = results.rows[0].type;
+
+                        //回覆查詢結果
+                        if (err || results.rows.length==0){
+                            console.log('查詢DB失敗');
+                        }else{						
+                            console.log(getType); 
+                        }
+
+                        //關閉連線
+                        client.end();
+                        
+                    });*/
                 }
-            );
+            );           
             return event.reply([
                 {
                     "type": "text",

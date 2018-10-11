@@ -553,7 +553,7 @@ bot.on('message',function(event) {
                             }); 
                         break;
                     }
-
+                    /*
                     //依據類別推薦書
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
@@ -570,19 +570,19 @@ bot.on('message',function(event) {
                         //關閉連線
                         client.end();
                         
-                    });
+                    });*/
                 }
             );
 
             
              
-            /*
+            
             return event.reply([
                 {
                     "type": "text",
                     "text": '收到了~'
                 }
-            ]);*/
+            ]);
         }else if(event.message.text == '新書'){	        
             //建立資料庫連線           
             var client = new Client({

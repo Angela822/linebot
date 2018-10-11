@@ -1145,16 +1145,16 @@ bot.on('message',function(event) {
         },
         {
              "type": 'template', 
-            "altText": "你可以試著打'你會做什麼'",
+            "altText": "你可以試著打",
             "template": {
                 "type": "buttons",
-                "title": "你可以試著打'你會做什麼'",
+                "title": "你可以試著打",
                 "text": "請選擇",
                 "actions": [
                     {
                     "type": "message",
-                    "label": "你會做什麼",
-                    "text": "你會做什麼"
+                    "label": "Takebook會做什麼呢",
+                    "text": "Takebook會做什麼呢"
                      }
                 ]
             }

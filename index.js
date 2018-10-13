@@ -20,7 +20,7 @@ var bot = linebot({
   //--------------------------
   bot.on('postback', function(event) { 
         var data = event.postback.data;
-        var txt = event.message.text;
+        var txt = event.postback.text;
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -37,12 +37,12 @@ var bot = linebot({
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if( txt == '喜歡'){
+                if(txt == '喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
                         //回覆查詢結果
-                        if (err || results.rows.length==0){
+                        if (err){
                             console.log('喜歡更新失敗');
                         }else{						
                             console.log('喜歡更新成功'); 
@@ -51,12 +51,12 @@ var bot = linebot({
                         //關閉連線
                         client.end();
                     });
-                }else if( txt == '不喜歡'){
+                }else if(txt == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
                         //回覆查詢結果
-                        if (err || results.rows.length==0){
+                        if (err){
                             console.log('不喜歡更新失敗');
                         }else{						
                             console.log('不喜歡更新成功'); 

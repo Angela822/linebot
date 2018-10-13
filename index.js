@@ -813,7 +813,6 @@ bot.on('message',function(event) {
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 client.query("select * from book order by date DESC", (err, results) => {    
-                    console.log(results);
                     
                     //回覆查詢結果		
                     var bookname=results.rows[0].bookname;

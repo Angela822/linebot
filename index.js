@@ -188,6 +188,7 @@ bot.on('message',function(event) {
                     //將userWord的內容用逗號切割
                     //var type = userWord.split(",",10);
                     var bookname;
+                    var booktype;
                     var pic;
                     
                     //建立資料庫連線           
@@ -553,15 +554,18 @@ bot.on('message',function(event) {
                                             //篩選書籍給使用者
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
 
-                                                bookname=results.rows[0].bookname;
-                                                type=results.rows[0].type; 
-                                                pic=results.rows[0].picture;
+                                                
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
-                                                }else{						
-                                                    console.log('查詢DB成功'); 
+                                                }else{		
+                                                    bookname=results.rows[0].bookname;
+                                                    booktype=results.rows[0].type; 
+                                                    pic=results.rows[0].picture;				
+                                                    console.log('查詢DB成功'+ bookname + booktype + pic); 
+                                                    
+
 
                                                     //return bookname,type;
                                                 }
@@ -585,15 +589,16 @@ bot.on('message',function(event) {
 
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
 
-                                                bookname=results.rows[0].bookname;
-                                                type=results.rows[0].type; 
-                                                pic=results.rows[0].picture;
+                                                
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
-                                                }else{						
-                                                    console.log('查詢DB成功'); 
+                                                }else{			
+                                                    bookname=results.rows[0].bookname;
+                                                    booktype=results.rows[0].type; 
+                                                    pic=results.rows[0].picture;			
+                                                    console.log('查詢DB成功'+ bookname + booktype + pic); 
 
                                                     //return bookname,type;
                                                 }

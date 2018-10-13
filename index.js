@@ -548,15 +548,18 @@ bot.on('message',function(event) {
 
                                             //篩選書籍給使用者
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
-                                                var bookname=results.rows[2].bookname;
-                                                var type=results.rows[2].type; 
-                                                var pic=results.rows[2].picture;
+
+                                                var bookname=results.rows[0].bookname;
+                                                var type=results.rows[0].type; 
+                                                var pic=results.rows[0].picture;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
                                                 }else{						
-                                                    console.log('type'); 
+                                                    console.log('查詢DB成功'); 
+
+                                                    return bookname,type,pic;
                                                 }
                 
                                                 //關閉連線
@@ -565,9 +568,6 @@ bot.on('message',function(event) {
                                             });
 
                                         }
-                                        
-                                        //關閉連線
-                                        //client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '醫療保健' AND userid = $1", [userId], (err, results) => {    
@@ -578,40 +578,40 @@ bot.on('message',function(event) {
                                             console.log('更新DB失敗');
                                         }else{						
                                             console.log('更新DB成功'); 
+
+                                            client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
+
+                                                //回覆查詢結果
+                                                if (err || results.rows.length==0){
+                                                    console.log('查詢DB失敗');
+                                                }else{						
+                                                    console.log('查詢DB成功'); 
+
+                                                    return bookname,type,pic;
+                                                }
+                
+                                                //關閉連線
+                                                client.end();
+                                                
+                                            });
+
                                         }
-                        
-                                        //關閉連線
-                                        //client.end();
                                     });
                                 }
                             }); 
-                             
-                            
+                      
                         break;
                     }
                    
                 }
             ); 
-
-            client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
-
-                //回覆查詢結果
-                if (err || results.rows.length==0){
-                    console.log('查詢DB失敗');
-                }else{						
-                    console.log('查詢DB成功'); 
-                }
-
-                //關閉連線
-                client.end();
-                
-            });
+                      
             return event.reply([
                 {
                     "type": "text",
                     "text": '收到了~'
-                }
-                /*{
+                },
+                {
                     "type": "template",
                         "altText": "推薦給您~",
                         "template": {
@@ -692,7 +692,7 @@ bot.on('message',function(event) {
                             "imageAspectRatio": "rectangle",
                             "imageSize": "cover"
                         }
-                }*/
+                }
             ]);
         
         //新書

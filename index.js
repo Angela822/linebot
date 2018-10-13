@@ -559,7 +559,7 @@ bot.on('message',function(event) {
                                                 }else{						
                                                     console.log('查詢DB成功'); 
 
-                                                    return bookname,type;
+                                                    //return bookname,type;
                                                 }
                 
                                                 //關閉連線
@@ -587,7 +587,7 @@ bot.on('message',function(event) {
                                                 }else{						
                                                     console.log('查詢DB成功'); 
 
-                                                    return bookname,type;
+                                                    //return bookname,type;
                                                 }
                 
                                                 //關閉連線

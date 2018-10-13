@@ -553,9 +553,9 @@ bot.on('message',function(event) {
                                             //篩選書籍給使用者
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
 
-                                                var bookname=results.rows[0].bookname;
-                                                var type=results.rows[0].type; 
-                                                var pic=results.rows[0].picture;
+                                                bookname=results.rows[0].bookname;
+                                                type=results.rows[0].type; 
+                                                pic=results.rows[0].picture;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -640,7 +640,7 @@ bot.on('message',function(event) {
                                                 "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                                             }
                                         ]
-                                        }/*,
+                                        },
                                         {
                                         "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                         "imageBackgroundColor": "#000000",
@@ -686,7 +686,7 @@ bot.on('message',function(event) {
                                                 "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
                                             }
                                         ]
-                                        }*/
+                                        }
                                     ],
                                     "imageAspectRatio": "rectangle",
                                     "imageSize": "cover"

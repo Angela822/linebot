@@ -812,21 +812,21 @@ bot.on('message',function(event) {
 
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                client.query("select * from book where type = '醫療保健' order by random()", (err, results) => {    
+                client.query("select bookname,type,picture from book where type = '醫療保健' order by random()", (err, results) => {    
                     console.log(results);
                     
                     //回覆查詢結果		
-                    var bookname=results.rows[2].bookname;
-                    var type=results.rows[2].type; 
-                    var pic=results.rows[2].picture;
+                    var bookname=results.rows[0].bookname;
+                    var type=results.rows[0].type; 
+                    var pic=results.rows[0].picture;
 
-                    var bookname2=results.rows[3].bookname;
-                    var type2=results.rows[3].type;
-                    var pic2=results.rows[3].picture;
+                    var bookname2=results.rows[1].bookname;
+                    var type2=results.rows[1].type;
+                    var pic2=results.rows[1].picture;
 
-                    var bookname3=results.rows[4].bookname;
-                    var type3=results.rows[4].type;   
-                    var pic3=results.rows[4].picture;                                             
+                    var bookname3=results.rows[2].bookname;
+                    var type3=results.rows[2].type;   
+                    var pic3=results.rows[2].picture;                                             
                                                     
                     return event.reply({
                         "type": "template",

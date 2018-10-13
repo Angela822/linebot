@@ -567,7 +567,7 @@ bot.on('message',function(event) {
                                 }
                             }); 
                              
-                            client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
+                            client.query("select * from book where type = '文學小說' order by random()", (err, results) =>{
 
                                 //回覆查詢結果
                                 if (err || results.rows.length==0){

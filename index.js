@@ -585,6 +585,10 @@ bot.on('message',function(event) {
 
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
 
+                                                bookname=results.rows[0].bookname;
+                                                type=results.rows[0].type; 
+                                                pic=results.rows[0].picture;
+
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');

@@ -604,6 +604,8 @@ bot.on('message',function(event) {
                 ssl: true,
             })
             
+            client.connect();
+
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 client.query("select * from book ORDER BY date DESC", (err, results) => {    

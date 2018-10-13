@@ -546,7 +546,11 @@ bot.on('message',function(event) {
                                         }else{						
                                             console.log('新增DB成功'); 
 
-                                            client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
+                                            //篩選書籍給使用者
+                                            client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
+                                                var bookname=results.rows[2].bookname;
+                                                var type=results.rows[2].type; 
+                                                var pic=results.rows[2].picture;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -574,21 +578,6 @@ bot.on('message',function(event) {
                                             console.log('更新DB失敗');
                                         }else{						
                                             console.log('更新DB成功'); 
-
-                                            client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
-
-                                                //回覆查詢結果
-                                                if (err || results.rows.length==0){
-                                                    console.log('查詢DB失敗');
-                                                }else{						
-                                                    console.log(type); 
-                                                }
-                
-                                                //關閉連線
-                                                client.end();
-                                                
-                                            });
-
                                         }
                         
                                         //關閉連線
@@ -600,19 +589,110 @@ bot.on('message',function(event) {
                             
                         break;
                     }
-
-                    //依據類別推薦書
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                    //client.connect();
                    
                 }
-            );           
+            ); 
+
+            client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
+
+                //回覆查詢結果
+                if (err || results.rows.length==0){
+                    console.log('查詢DB失敗');
+                }else{						
+                    console.log('查詢DB成功'); 
+                }
+
+                //關閉連線
+                client.end();
+                
+            });
             return event.reply([
                 {
                     "type": "text",
                     "text": '收到了~'
-                }
+                },
+                /*{
+                    "type": "template",
+                        "altText": "推薦給您~",
+                        "template": {
+                            "type": "carousel",
+                            "columns": [
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                "imageAspectRatio": "rectangle",
+                                "imageSize": "cover",
+                                "imageBackgroundColor": "#FFFFFF",
+                                "title": "<<" + bookname + ">>",
+                                "text": "類別：" + type,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<" + bookname2 + ">>",
+                                "text": "類別：" + type2,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                    }
+                                ]
+                                },
+                                {
+                                "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
+                                "imageBackgroundColor": "#000000",
+                                "title": "<<" + bookname3 + ">>",
+                                "text": "類別：" + type3,
+                                "defaultAction": {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://140.131.114.176/"
+                                },
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "喜歡/不喜歡?",
+                                        "text": "喜歡/不喜歡?"
+                                    },
+                                    {
+                                        "type": "uri",
+                                        "label": "看更多...",
+                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                    }
+                                ]
+                                }
+                            ],
+                            "imageAspectRatio": "rectangle",
+                            "imageSize": "cover"
+                        }
+                }*/
             ]);
         
         //新書

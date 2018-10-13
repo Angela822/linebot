@@ -690,7 +690,7 @@ bot.on('message',function(event) {
                                                 var pic3=results.rows[2].picture;
 
                                                 //回覆查詢結果
-                                                if (err || results.rows.length==0){
+                                                if (err){
                                                     console.log('查詢DB失敗');
                                                 }else{
                                                     //return 書本資訊

@@ -581,7 +581,7 @@ bot.on('message',function(event) {
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
                                                 }else{						
-                                                    console.log('type'); 
+                                                    console.log(type); 
                                                 }
                 
                                                 //關閉連線

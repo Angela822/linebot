@@ -31,13 +31,13 @@ var bot = linebot({
                 var client = new Client({
                     connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
                     ssl: true,
-                    })
+                })
                 
                 client.connect();
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if(text == '喜歡'){
+                if( text == '喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
@@ -51,7 +51,7 @@ var bot = linebot({
                         //關閉連線
                         client.end();
                     });
-                }else if(text == '不喜歡'){
+                }else if( text == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
@@ -70,7 +70,7 @@ var bot = linebot({
                 return event.reply([
                     {
                         "type": "text",
-                        "text": "好的!!"
+                        "text": text
                     }
                 ]);		
         });

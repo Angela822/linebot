@@ -545,6 +545,21 @@ bot.on('message',function(event) {
                                             console.log('新增DB失敗');
                                         }else{						
                                             console.log('新增DB成功'); 
+
+                                            client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
+
+                                                //回覆查詢結果
+                                                if (err || results.rows.length==0){
+                                                    console.log('查詢DB失敗');
+                                                }else{						
+                                                    console.log('type'); 
+                                                }
+                
+                                                //關閉連線
+                                                client.end();
+                                                
+                                            });
+
                                         }
                                         
                                         //關閉連線
@@ -559,6 +574,21 @@ bot.on('message',function(event) {
                                             console.log('更新DB失敗');
                                         }else{						
                                             console.log('更新DB成功'); 
+
+                                            client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
+
+                                                //回覆查詢結果
+                                                if (err || results.rows.length==0){
+                                                    console.log('查詢DB失敗');
+                                                }else{						
+                                                    console.log('type'); 
+                                                }
+                
+                                                //關閉連線
+                                                client.end();
+                                                
+                                            });
+
                                         }
                         
                                         //關閉連線
@@ -567,19 +597,7 @@ bot.on('message',function(event) {
                                 }
                             }); 
                              
-                            client.query("select * from book where type = '文學小說' order by random()", (err, results) =>{
-
-                                //回覆查詢結果
-                                if (err || results.rows.length==0){
-                                    console.log('查詢DB失敗');
-                                }else{						
-                                    console.log('type'); 
-                                }
-
-                                //關閉連線
-                                client.end();
-                                
-                            });
+                            
                         break;
                     }
 

@@ -531,10 +531,10 @@ bot.on('message',function(event) {
                                 }
                             }); 
                         break;
-
+                        
+                        case '醫療保健':
                         case '醫療':
                         case '保健':
-                        case '醫療保健':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                             client.query("select * from userhabit where type = '醫療保健' AND userid = $1", [userId], (err, results) =>{

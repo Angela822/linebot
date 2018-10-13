@@ -566,12 +566,11 @@ bot.on('message',function(event) {
                                     });
                                 }
                             }); 
-                            client.connect();
-
+                             
                             client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
 
                                 //回覆查詢結果
-                                if (err){
+                                if (err || results.rows.length==0){
                                     console.log('查詢DB失敗');
                                 }else{						
                                     console.log('type'); 

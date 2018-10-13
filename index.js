@@ -549,7 +549,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '醫療保健'", (err, results) =>{            
+                                            client.query("select * from book where type = '醫療保健' AND random()", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -566,7 +566,7 @@ bot.on('message',function(event) {
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
-                                                }else{						
+                                                }else{			
                                                     //return 書本資訊
                                                     return event.reply([
                                                         {
@@ -656,8 +656,7 @@ bot.on('message',function(event) {
                                                                 }
                                                         }
                                                     ]);
-
-                                                    //return bookname,type;
+                                                    //--------------------------------
                                                 }
                 
                                                 //關閉連線
@@ -677,7 +676,7 @@ bot.on('message',function(event) {
                                         }else{						
                                             console.log('更新DB成功'); 
 
-                                            client.query("select * from book where type = '醫療保健'", (err, results) =>{
+                                            client.query("select * from book where type = '醫療保健' AND random()", (err, results) =>{
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;

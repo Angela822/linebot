@@ -19,8 +19,8 @@ var bot = linebot({
   // 機器人接受回覆的處理
   //--------------------------
   bot.on('postback', function(event) { 
-        var data = event.postback.data;
-        var txt = event.postback.text;
+        var data = event.postback.data.substring(4);//type
+        //var txt = event.postback.data.substring(0,3);//like or dislike
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -37,7 +37,7 @@ var bot = linebot({
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if(txt == '喜歡'){
+                if(event.postback.data.substring(0,2) == '喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
@@ -51,7 +51,7 @@ var bot = linebot({
                         //關閉連線
                         client.end();
                     });
-                }else if(txt == '不喜歡'){
+                }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
                         console.log(results);
                         
@@ -1105,14 +1105,12 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": type,
-                                        "text": "喜歡"
+                                        "data": "喜歡" + type
                                     },
                                     {
                                         "type": "postback",
                                         "label": "不喜歡",
-                                        "data": type,
-                                        "text": "不喜歡"
+                                        "data": "不喜歡" + type
                                     },
                                     {
                                         "type": "uri",
@@ -1135,14 +1133,12 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": type2,
-                                        "text": "喜歡"
+                                        "data": "喜歡" + type2
                                     },
                                     {
                                         "type": "postback",
                                         "label": "不喜歡",
-                                        "data": type2,
-                                        "text": "不喜歡"
+                                        "data": "不喜歡" + type2
                                     },
                                     {
                                         "type": "uri",
@@ -1165,14 +1161,12 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": type3,
-                                        "text": "喜歡"
+                                        "data": "喜歡" + type3
                                     },
                                     {
                                         "type": "postback",
                                         "label": "不喜歡",
-                                        "data": type3,
-                                        "text": "不喜歡"
+                                        "data": "不喜歡" + type3
                                     },
                                     {
                                         "type": "uri",

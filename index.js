@@ -19,28 +19,62 @@ var bot = linebot({
   // 機器人接受回覆的處理
   //--------------------------
   bot.on('postback', function(event) { 
-      var data = event.postback.data;
-      var userId = event.source.userId;
+        var data = event.postback.data;
+        var text = event.postback.text;
+        var userId = event.source.userId;
   
-      event.source.profile().then(function (profile) {
-          userName = profile.displayName;
+        event.source.profile().then(
+            function (profile) {
+                userName = profile.displayName;
 
-          return event.reply([
-              {
-                  "type": "text",
-                  "text": data
-              },
-              {
-                  "type": "text",
-                  "text": userId
-              },
-              {
-                  "type": "text",
-                  "text": userName
-              }
-          ]);		
-      });
-  });
+                //建立資料庫連線           
+                var client = new Client({
+                    connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                    ssl: true,
+                    })
+                
+                client.connect();
+
+                //新增資料
+                //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                if(text == '喜歡'){
+                    client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
+                        console.log(results);
+                        
+                        //回覆查詢結果
+                        if (err || results.rows.length==0){
+                            console.log('喜歡更新失敗');
+                        }else{						
+                            console.log('喜歡更新成功'); 
+                        }
+
+                        //關閉連線
+                        client.end();
+                    });
+                }else if(text == '不喜歡'){
+                    client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
+                        console.log(results);
+                        
+                        //回覆查詢結果
+                        if (err || results.rows.length==0){
+                            console.log('不喜歡更新失敗');
+                        }else{						
+                            console.log('不喜歡更新成功'); 
+                        }
+
+                        //關閉連線
+                        client.end();
+                    });
+                }
+
+                return event.reply([
+                    {
+                        "type": "text",
+                        "text": "好的!!"
+                    }
+                ]);		
+        });
+});
 
 //--------------------------
 // 機器人接受回覆的處理
@@ -1069,9 +1103,16 @@ bot.on('message',function(event) {
                                 },
                                 "actions": [
                                     {
-                                        "type": "message",
-                                        "label": "喜歡/不喜歡?",
-                                        "text": "喜歡/不喜歡?"
+                                        "type": "postback",
+                                        "label": "喜歡",
+                                        "data": type,
+                                        "text": "喜歡"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "label": "不喜歡",
+                                        "data": type,
+                                        "text": "不喜歡"
                                     },
                                     {
                                         "type": "uri",
@@ -1092,9 +1133,16 @@ bot.on('message',function(event) {
                                 },
                                 "actions": [
                                     {
-                                        "type": "message",
-                                        "label": "喜歡/不喜歡?",
-                                        "text": "喜歡/不喜歡?"
+                                        "type": "postback",
+                                        "label": "喜歡",
+                                        "data": type2,
+                                        "text": "喜歡"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "label": "不喜歡",
+                                        "data": type2,
+                                        "text": "不喜歡"
                                     },
                                     {
                                         "type": "uri",
@@ -1115,9 +1163,16 @@ bot.on('message',function(event) {
                                 },
                                 "actions": [
                                     {
-                                        "type": "message",
-                                        "label": "喜歡/不喜歡?",
-                                        "text": "喜歡/不喜歡?"
+                                        "type": "postback",
+                                        "label": "喜歡",
+                                        "data": type3,
+                                        "text": "喜歡"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "label": "不喜歡",
+                                        "data": type3,
+                                        "text": "不喜歡"
                                     },
                                     {
                                         "type": "uri",
@@ -1579,7 +1634,7 @@ bot.on('message',function(event) {
             });
 
         //收集使用者書本喜好資訊
-        }else if (event.message.text == '喜歡/不喜歡?'){
+        }/*else if (event.message.text == '喜歡/不喜歡?'){
             return event.reply({
                 "type": "template",
                 "altText": "喜歡這本書嗎?",
@@ -1601,7 +1656,7 @@ bot.on('message',function(event) {
                 }
             })
 
-        }else{
+        }*/else{
             return event.reply({
                 "type": 'template', 
                 "altText": "你可以試著打",

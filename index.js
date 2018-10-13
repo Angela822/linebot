@@ -548,7 +548,7 @@ bot.on('message',function(event) {
                                         }
                                         
                                         //關閉連線
-                                        //client.end();
+                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '醫療保健' AND userid = $1", [userId], (err, results) => {    
@@ -562,11 +562,12 @@ bot.on('message',function(event) {
                                         }
                         
                                         //關閉連線
-                                        //client.end();
+                                        client.end();
                                     });
                                 }
                             }); 
-                             
+                            client.connect();
+
                             client.query("select * from book where type = $1 order by random()", [type], (err, results) =>{
 
                                 //回覆查詢結果

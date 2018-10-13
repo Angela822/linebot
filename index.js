@@ -565,7 +565,7 @@ bot.on('message',function(event) {
                                                     pic=results.rows[0].picture;				
                                                     console.log('查詢DB成功'+ bookname + booktype + pic); 
                                                     
-
+                                                    return bookname,booktype,pic;
 
                                                     //return bookname,type;
                                                 }
@@ -599,6 +599,8 @@ bot.on('message',function(event) {
                                                     booktype=results.rows[0].type; 
                                                     pic=results.rows[0].picture;			
                                                     console.log('查詢DB成功'+ bookname + booktype + pic); 
+
+                                                    return bookname,booktype,pic;
 
                                                     //return bookname,type;
                                                 }

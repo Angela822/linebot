@@ -694,9 +694,6 @@ bot.on('message',function(event) {
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
                                                 }else{			
-                                                    			
-                                                    console.log('查詢DB成功'+ bookname + booktype + pic); 
-
                                                     //return 書本資訊
                                                     return event.reply([
                                                         {

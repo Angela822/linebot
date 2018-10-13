@@ -551,15 +551,15 @@ bot.on('message',function(event) {
                                             //篩選書籍給使用者
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
-                                                var type=results.rows[0].type; 
+                                                var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
 
                                                 var bookname2=results.rows[1].bookname;
-                                                var type2=results.rows[1].type; 
+                                                var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
 
                                                 var bookname3=results.rows[2].bookname;
-                                                var type3=results.rows[2].type; 
+                                                var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
 
 
@@ -585,7 +585,7 @@ bot.on('message',function(event) {
                                                                         "imageSize": "cover",
                                                                         "imageBackgroundColor": "#FFFFFF",
                                                                         "title": "<<" + bookname + ">>",
-                                                                        "text": "類別：" + type,
+                                                                        "text": "類別：" + booktype,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
@@ -608,7 +608,7 @@ bot.on('message',function(event) {
                                                                         "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                                                         "imageBackgroundColor": "#000000",
                                                                         "title": "<<" + bookname2 + ">>",
-                                                                        "text": "類別：" + type2,
+                                                                        "text": "類別：" + booktype2,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
@@ -631,7 +631,7 @@ bot.on('message',function(event) {
                                                                         "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
                                                                         "imageBackgroundColor": "#000000",
                                                                         "title": "<<" + bookname3 + ">>",
-                                                                        "text": "類別：" + type3,
+                                                                        "text": "類別：" + booktype3,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
@@ -679,15 +679,15 @@ bot.on('message',function(event) {
 
                                             client.query("select * from book where type = '醫療保健' order by random()", (err, results) =>{
                                                 var bookname=results.rows[0].bookname;
-                                                var type=results.rows[0].type; 
+                                                var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
 
                                                 var bookname2=results.rows[1].bookname;
-                                                var type2=results.rows[1].type; 
+                                                var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
 
                                                 var bookname3=results.rows[2].bookname;
-                                                var type3=results.rows[2].type; 
+                                                var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
 
                                                 //回覆查詢結果
@@ -712,7 +712,7 @@ bot.on('message',function(event) {
                                                                         "imageSize": "cover",
                                                                         "imageBackgroundColor": "#FFFFFF",
                                                                         "title": "<<" + bookname + ">>",
-                                                                        "text": "類別：" + type,
+                                                                        "text": "類別：" + booktype,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
@@ -735,7 +735,7 @@ bot.on('message',function(event) {
                                                                         "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                                                         "imageBackgroundColor": "#000000",
                                                                         "title": "<<" + bookname2 + ">>",
-                                                                        "text": "類別：" + type2,
+                                                                        "text": "類別：" + booktype2,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
@@ -758,7 +758,7 @@ bot.on('message',function(event) {
                                                                         "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
                                                                         "imageBackgroundColor": "#000000",
                                                                         "title": "<<" + bookname3 + ">>",
-                                                                        "text": "類別：" + type3,
+                                                                        "text": "類別：" + booktype3,
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",

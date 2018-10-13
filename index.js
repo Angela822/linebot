@@ -569,11 +569,10 @@ bot.on('message',function(event) {
 
                                                     //return bookname,type;
                                                 }
-                
-                                                //關閉連線
-                                                client.end();
                                                 
                                             });
+                                            //關閉連線
+                                            client.end();
 
                                         }
                                     });
@@ -604,11 +603,10 @@ bot.on('message',function(event) {
 
                                                     //return bookname,type;
                                                 }
-                
-                                                //關閉連線
-                                                client.end();
                                                 
                                             });
+                                            //關閉連線
+                                            client.end();
 
                                         }
                                     });

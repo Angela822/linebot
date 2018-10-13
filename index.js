@@ -70,7 +70,7 @@ var bot = linebot({
                 return event.reply([
                     {
                         "type": "text",
-                        "text": txt
+                        "text": "收到了!"
                     }
                 ]);		
         });

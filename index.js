@@ -1235,6 +1235,14 @@ bot.on('message',function(event) {
 
         //機器人依據使用者書本類別取向推薦
         }else if (event.message.text == '讓機器人推薦給你吧'){
+            //建立資料庫連線           
+            var client = new Client({
+                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                ssl: true,
+            })
+            
+            client.connect();
+
             client.query("select * from book ORDER BY RANDOM()", (err, results) =>{
                 var bookname=results.rows[0].bookname;
                 var booktype=results.rows[0].type; 

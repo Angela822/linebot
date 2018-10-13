@@ -610,7 +610,7 @@ bot.on('message',function(event) {
                 {
                     "type": "text",
                     "text": '收到了~'
-                },
+                }
                 /*{
                     "type": "template",
                         "altText": "推薦給您~",

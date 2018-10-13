@@ -15,12 +15,11 @@ var bot = linebot({
     channelAccessToken: 'g93gFjGS2nxtZtwdGYwFg2Sd+i7eO7C1imlK96heyVGV76dLwRPXO1qseNi4R7poSpv3P1KnNsQle4MStyTrTgd8O2eGK+6yUnJkTELfeQPp1y9hj/MB+S03z99VpKL3IO8JUbuS2G7jRwJ8WqmKSgdB04t89/1O/w1cDnyilFU='
   });
 
-  //--------------------------
-  // 機器人接受回覆的處理
-  //--------------------------
+  //-----------------------------------------
+  // 處理event.postback，喜歡/不喜歡button的資訊收集
+  //-----------------------------------------
   bot.on('postback', function(event) { 
-        var data = event.postback.data.substring(4);//type
-        //var txt = event.postback.data.substring(0,3);//like or dislike
+        var type = event.postback.data.substring(4); //type
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -38,7 +37,7 @@ var bot = linebot({
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 if(event.postback.data.substring(0,2) == '喜歡'){
-                    client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
+                    client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         
                         //回覆查詢結果
@@ -52,7 +51,7 @@ var bot = linebot({
                         client.end();
                     });
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [data,userId], (err, results) => {    
+                    client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         
                         //回覆查詢結果
@@ -77,7 +76,7 @@ var bot = linebot({
 });
 
 //--------------------------
-// 機器人接受回覆的處理
+// 處理event.message
 //--------------------------
 bot.on('message',function(event) {           
     if (event.message.type == 'text'){ 
@@ -330,9 +329,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -353,9 +357,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype2
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -376,9 +385,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype3
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -455,9 +469,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -478,9 +497,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype2
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -501,9 +525,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype3
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -850,9 +879,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -873,9 +907,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype2
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -896,9 +935,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype3
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -975,9 +1019,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -998,9 +1047,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype2
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -1021,9 +1075,14 @@ bot.on('message',function(event) {
                                                                         },
                                                                         "actions": [
                                                                             {
-                                                                                "type": "message",
-                                                                                "label": "喜歡/不喜歡?",
-                                                                                "text": "喜歡/不喜歡?"
+                                                                                "type": "postback",
+                                                                                "label": "喜歡",
+                                                                                "data": "喜歡" + booktype3
+                                                                            },
+                                                                            {
+                                                                                "type": "postback",
+                                                                                "label": "不喜歡",
+                                                                                "data": "不喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "uri",
@@ -1261,9 +1320,14 @@ bot.on('message',function(event) {
                                         },
                                         "actions": [
                                             {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
+                                                "type": "postback",
+                                                "label": "喜歡",
+                                                "data": "喜歡" + type
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "label": "不喜歡",
+                                                "data": "不喜歡" + type
                                             },
                                             {
                                                 "type": "uri",
@@ -1284,9 +1348,14 @@ bot.on('message',function(event) {
                                         },
                                         "actions": [
                                             {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
+                                                "type": "postback",
+                                                "label": "喜歡",
+                                                "data": "喜歡" + type1
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "label": "不喜歡",
+                                                "data": "不喜歡" + type1
                                             },
                                             {
                                                 "type": "uri",
@@ -1307,9 +1376,14 @@ bot.on('message',function(event) {
                                         },
                                         "actions": [
                                             {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
+                                                "type": "postback",
+                                                "label": "喜歡",
+                                                "data": "喜歡" + type2
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "label": "不喜歡",
+                                                "data": "不喜歡" + type2
                                             },
                                             {
                                                 "type": "uri",
@@ -1332,9 +1406,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type3
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type3
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1357,9 +1436,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type4
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type4
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1382,9 +1466,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type5
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type5
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1407,9 +1496,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type6
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type6
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1432,9 +1526,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type7
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type7
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1457,9 +1556,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type8
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type8
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1482,9 +1586,14 @@ bot.on('message',function(event) {
                                             },
                                             "actions": [
                                                 {
-                                                    "type": "message",
-                                                    "label": "喜歡/不喜歡?",
-                                                    "text": "喜歡/不喜歡?"
+                                                    "type": "postback",
+                                                    "label": "喜歡",
+                                                    "data": "喜歡" + type9
+                                                },
+                                                {
+                                                    "type": "postback",
+                                                    "label": "不喜歡",
+                                                    "data": "不喜歡" + type9
                                                 },
                                                 {
                                                     "type": "uri",
@@ -1649,7 +1758,6 @@ bot.on('message',function(event) {
                     ]
                 }
             })
-
         }*/else{
             return event.reply({
                 "type": 'template', 

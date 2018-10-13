@@ -690,10 +690,9 @@ bot.on('message',function(event) {
                                                 var pic3=results.rows[2].picture;
 
                                                 //回覆查詢結果
-                                                /*
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
-                                                }else{*/
+                                                }else{
                                                     //return 書本資訊
                                                     return event.reply([
                                                         {
@@ -783,7 +782,7 @@ bot.on('message',function(event) {
                                                                 }
                                                         }
                                                     ]);
-                                                
+                                                }
                 
                                                 //關閉連線
                                                 client.end();  
@@ -813,7 +812,7 @@ bot.on('message',function(event) {
 
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                client.query("select * from book ORDER BY date DESC", (err, results) => {    
+                client.query("select * from book where tyep = '醫療保健' ORDER BY RANDOM()", (err, results) => {    
                     console.log(results);
                     
                     //回覆查詢結果		

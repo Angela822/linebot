@@ -792,6 +792,7 @@ bot.on('message',function(event) {
                                     });
                                 }
                             }); 
+                            break;
                     }
                 }
 

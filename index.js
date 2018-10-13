@@ -549,7 +549,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book ORDER BY RANDOM()", (err, results) =>{            
+                                            client.query("select * from book where type = '醫療保健' ORDER BY RANDOM() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -676,7 +676,7 @@ bot.on('message',function(event) {
                                         }else{						
                                             console.log('更新DB成功'); 
 
-                                            client.query("select * from book ORDER BY RANDOM()", (err, results) =>{
+                                            client.query("select * from book where type = '醫療保健' ORDER BY RANDOM() LIMIT 3", (err, results) =>{
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;

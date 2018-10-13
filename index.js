@@ -644,7 +644,7 @@ bot.on('message',function(event) {
                                                 "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                                             }
                                         ]
-                                        },
+                                        }/*,
                                         {
                                         "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                         "imageBackgroundColor": "#000000",
@@ -690,7 +690,7 @@ bot.on('message',function(event) {
                                                 "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
                                             }
                                         ]
-                                        }
+                                        }*/
                                     ],
                                     "imageAspectRatio": "rectangle",
                                     "imageSize": "cover"

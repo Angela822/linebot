@@ -1624,23 +1624,16 @@ bot.on('message',function(event) {
             
             client.connect();
 
-            client.query("select * from book ORDER BY RANDOM()", (err, results) =>{
-                var bookname=results.rows[0].bookname;
-                var booktype=results.rows[0].type; 
-                var pic=results.rows[0].picture;
-            
-                var bookname2=results.rows[1].bookname;
-                var booktype2=results.rows[1].type; 
-                var pic2=results.rows[1].picture;
-            
-                var bookname3=results.rows[2].bookname;
-                var booktype3=results.rows[2].type; 
-                var pic3=results.rows[2].picture;
-            
+            client.query("select * from userhabit where userid = $1 order by count DESC limit 5",[userId], (err, results) =>{
+                var type = [];
+                type.push(results.rows.type);
+                        
                 //回覆查詢結果
                 if (err || results.rows.length==0){
-                    console.log('random()查詢DB失敗');
-                }else{			
+                    console.log('查詢DB失敗');
+                }else{	
+                    console.log(type);
+                    /*
                     //return 書本資訊
                     return event.reply([
                         {
@@ -1729,7 +1722,7 @@ bot.on('message',function(event) {
                                     "imageSize": "cover"
                                 }
                         }
-                    ]);
+                    ]);*/
                 }
             
                 //關閉連線

@@ -1616,142 +1616,45 @@ bot.on('message',function(event) {
 
         //機器人依據使用者書本類別取向推薦
         }else if (event.message.text == '讓機器人推薦給你吧'){
-            //建立資料庫連線           
-            var client = new Client({
-                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                ssl: true,
-            })
-            
-            client.connect();
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userName = profile.displayName;
+                    var userId = profile.userId;		
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    
+                    //查詢資料
+                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                        client.query("SELECT book.bookname, book.type, book.picture, userhabit.userid, userhabit.type, userhabit.count FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果	
+                            var bookname=results.rows[0].bookname;
+                            var type=results.rows[0].type; 
+                            var picture=results.rows[0].picture;
 
-            client.query("select * from userhabit where userid = $1 order by count DESC limit 5",[userId], (err, results) =>{
-                var type = [];
-                type.push(results.rows.type);
-                        
-                //回覆查詢結果
-                if (err || results.rows.length==0){
-                    console.log('查詢DB失敗');
-                }else{	
-                    console.log(type);
-                    /*
-                    //return 書本資訊
-                    return event.reply([
-                        {
-                            "type": "text",
-                            "text": '收到了~'
-                        },
-                        {
-                            "type": "template",
-                                "altText": "推薦給您~",
-                                "template": {
-                                    "type": "carousel",
-                                    "columns": [
-                                        {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
-                                        "imageAspectRatio": "rectangle",
-                                        "imageSize": "cover",
-                                        "imageBackgroundColor": "#FFFFFF",
-                                        "title": "<<" + bookname + ">>",
-                                        "text": "類別：" + booktype,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
-                                            }
-                                        ]
-                                        },
-                                        {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
-                                        "imageBackgroundColor": "#000000",
-                                        "title": "<<" + bookname2 + ">>",
-                                        "text": "類別：" + booktype2,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
-                                            }
-                                        ]
-                                        },
-                                        {
-                                        "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
-                                        "imageBackgroundColor": "#000000",
-                                        "title": "<<" + bookname3 + ">>",
-                                        "text": "類別：" + booktype3,
-                                        "defaultAction": {
-                                            "type": "uri",
-                                            "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
-                                        },
-                                        "actions": [
-                                            {
-                                                "type": "message",
-                                                "label": "喜歡/不喜歡?",
-                                                "text": "喜歡/不喜歡?"
-                                            },
-                                            {
-                                                "type": "uri",
-                                                "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
-                                            }
-                                        ]
-                                        }
-                                    ],
-                                    "imageAspectRatio": "rectangle",
-                                    "imageSize": "cover"
-                                }
-                        }
-                    ]);*/
-                }
+                            //回覆查詢結果
+                            if (err || results.rows.length==0){
+                                console.log('failed');
+                            }else{						
+                                console.log(bookname +'\n'+ type +'\n' + picture);  
+                            }
             
-                //關閉連線
-                client.end();  
-            });
-
-        //收集使用者書本喜好資訊
-        }/*else if (event.message.text == '喜歡/不喜歡?'){
-            return event.reply({
-                "type": "template",
-                "altText": "喜歡這本書嗎?",
-                "template": {
-                    "type": "confirm",
-                    "text": "喜歡這本書嗎?",
-                    "actions": [
-                    {
-                        "type": "postback",
-                        "label": "喜歡",
-                        "data": "喜歡"
-                    },
-                    {
-                        "type": "postback",
-                        "label": "不喜歡",
-                        "data": "不喜歡"
-                    }
-                    ]
+                            //關閉連線
+                            client.end();
+                        });  
                 }
-            })
-        }*/else{
+            );
+
+        
+        }else{
             return event.reply({
                 "type": 'template', 
                 "altText": "你可以試著打",

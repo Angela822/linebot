@@ -1638,6 +1638,11 @@ bot.on('message',function(event) {
                             var bookname=results.rows[0].book.bookname;
                             var type=results.rows[0].book.type; 
                             var pic=results.rows[0].book.picture;
+
+                            return event.reply({
+                                type: 'text',
+                                text: bookname + '\n' + type + '\n' + pic
+                            });
                             /*
                             var bookname2=results.rows[5].bookname;
                             var type2=results.rows[5].type; 
@@ -1655,6 +1660,7 @@ bot.on('message',function(event) {
                             var type5=results.rows[20].type; 
                             var pic5=results.rows[20].picture;
                             */
+                           /*
                             return event.reply({
                                 "type": "template",
                                 "altText": "新書推薦",
@@ -1807,7 +1813,7 @@ bot.on('message',function(event) {
                                     "imageAspectRatio": "rectangle",
                                     "imageSize": "cover"
                                 }
-                            }); 
+                            }); */
             
                             //關閉連線
                             client.end();

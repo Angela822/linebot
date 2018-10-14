@@ -1815,8 +1815,6 @@ bot.on('message',function(event) {
                         });  
                 }
             );
-
-        
         }else{
             return event.reply({
                 "type": 'template', 

@@ -19,8 +19,8 @@ var bot = linebot({
   // 處理event.postback，喜歡/不喜歡button的資訊收集
   //-----------------------------------------
   bot.on('postback', function(event) { 
-        var type = event.postback.data.substring(4); //type
-        var habit = event.postback.data.substring(0,3);
+        var type = event.postback.data.substring(3); //type
+        var habit = event.postback.data.substring(0,3); //"我喜歡" or "不喜歡"
         var userId = event.source.userId;
   
         event.source.profile().then(

@@ -20,6 +20,7 @@ var bot = linebot({
   //-----------------------------------------
   bot.on('postback', function(event) { 
         var type = event.postback.data.substring(3); //type
+        // var habit = event.postback.data.substring(0,3); //"我喜歡" or "不喜歡"
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -1643,17 +1644,17 @@ bot.on('message',function(event) {
                             var type2=results.rows[5].type; 
                             var pic2=results.rows[5].picture;
 
-                            var bookname3=results.rows[8].bookname;
-                            var type3=results.rows[8].type; 
-                            var pic3=results.rows[8].picture;
+                            var bookname3=results.rows[6].bookname;
+                            var type3=results.rows[6].type; 
+                            var pic3=results.rows[6].picture;
 
-                            var bookname4=results.rows[2].bookname;
-                            var type4=results.rows[2].type; 
-                            var pic4=results.rows[2].picture;
+                            var bookname4=results.rows[7].bookname;
+                            var type4=results.rows[7].type; 
+                            var pic4=results.rows[7].picture;
 
-                            var bookname5=results.rows[6].bookname;
-                            var type5=results.rows[6].type; 
-                            var pic5=results.rows[6].picture;
+                            var bookname5=results.rows[8].bookname;
+                            var type5=results.rows[8].type; 
+                            var pic5=results.rows[8].picture;
                             
                             return event.reply({
                                 "type": "template",

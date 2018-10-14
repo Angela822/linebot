@@ -44,7 +44,7 @@ var bot = linebot({
                         if (err){
                             console.log('喜歡更新失敗');
                         }else{						
-                            console.log('喜歡更新成功'); 
+                            console.log('喜歡更新成功' + count); 
                         }
 
                         //關閉連線
@@ -58,7 +58,7 @@ var bot = linebot({
                         if (err){
                             console.log('不喜歡更新失敗');
                         }else{						
-                            console.log('不喜歡更新成功'); 
+                            console.log('不喜歡更新成功'+ count); 
                         }
 
                         //關閉連線

@@ -1635,9 +1635,9 @@ bot.on('message',function(event) {
                             console.log(results);
                             
                             //回覆查詢結果	
-                            var bookname=results.rows[0].book.bookname;
-                            var type=results.rows[0].book.type; 
-                            var pic=results.rows[0].book.picture;
+                            var bookname=results.rows[0].bookname;
+                            var type=results.rows[0].type; 
+                            var pic=results.rows[0].picture;
 
                             return event.reply({
                                 type: 'text',

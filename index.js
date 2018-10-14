@@ -20,7 +20,7 @@ var bot = linebot({
   //-----------------------------------------
   bot.on('postback', function(event) { 
         var type = event.postback.data.substring(3); //type
-        var habit = event.postback.data.substring(0,3); //"我喜歡" or "不喜歡"
+        // var habit = event.postback.data.substring(0,3); //"我喜歡" or "不喜歡"
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -37,7 +37,7 @@ var bot = linebot({
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if(habit == '我喜歡'){
+                if(event.postback.data.substring(0,3) == '我喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         
@@ -51,7 +51,7 @@ var bot = linebot({
                         //關閉連線
                         client.end();
                     });
-                }else if(habit == '不喜歡'){
+                }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         

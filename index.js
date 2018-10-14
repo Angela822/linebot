@@ -1619,7 +1619,6 @@ bot.on('message',function(event) {
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
-                    var userName = profile.displayName;
                     var userId = profile.userId;		
         
                     //建立資料庫連線           
@@ -1636,10 +1635,10 @@ bot.on('message',function(event) {
                             console.log(results);
                             
                             //回覆查詢結果	
-                            var bookname=results.rows[0].bookname;
-                            var type=results.rows[0].type; 
-                            var pic=results.rows[0].picture;
-
+                            var bookname=results.rows[0].book.bookname;
+                            var type=results.rows[0].book.type; 
+                            var pic=results.rows[0].book.picture;
+                            /*
                             var bookname2=results.rows[5].bookname;
                             var type2=results.rows[5].type; 
                             var pic2=results.rows[5].picture;
@@ -1655,7 +1654,7 @@ bot.on('message',function(event) {
                             var bookname5=results.rows[20].bookname;
                             var type5=results.rows[20].type; 
                             var pic5=results.rows[20].picture;
-
+                            */
                             return event.reply({
                                 "type": "template",
                                 "altText": "新書推薦",
@@ -1691,7 +1690,7 @@ bot.on('message',function(event) {
                                                 "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
                                             }
                                         ]
-                                        },
+                                        }/*,
                                         {
                                         "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                         "imageBackgroundColor": "#000000",
@@ -1803,7 +1802,7 @@ bot.on('message',function(event) {
                                                 "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
                                             }
                                         ]
-                                        }
+                                        }*/
                                     ],
                                     "imageAspectRatio": "rectangle",
                                     "imageSize": "cover"

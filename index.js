@@ -37,7 +37,7 @@ var bot = linebot({
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if(habit == '喜歡'){
+                if(habit == '我喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         

@@ -1644,21 +1644,21 @@ bot.on('message',function(event) {
                             var type2=results.rows[5].type; 
                             var pic2=results.rows[5].picture;
 
-                            var bookname3=results.rows[10].bookname;
-                            var type3=results.rows[10].type; 
-                            var pic3=results.rows[10].picture;
+                            var bookname3=results.rows[6].bookname;
+                            var type3=results.rows[6].type; 
+                            var pic3=results.rows[6].picture;
 
-                            var bookname4=results.rows[15].bookname;
-                            var type4=results.rows[15].type; 
-                            var pic4=results.rows[15].picture;
+                            var bookname4=results.rows[7].bookname;
+                            var type4=results.rows[7].type; 
+                            var pic4=results.rows[7].picture;
 
-                            var bookname5=results.rows[20].bookname;
-                            var type5=results.rows[20].type; 
-                            var pic5=results.rows[20].picture;
+                            var bookname5=results.rows[8].bookname;
+                            var type5=results.rows[8].type; 
+                            var pic5=results.rows[8].picture;
                             
                             return event.reply({
                                 "type": "template",
-                                "altText": "新書推薦",
+                                "altText": "推薦給您~",
                                 "template": {
                                     "type": "carousel",
                                     "columns": [

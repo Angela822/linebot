@@ -40,6 +40,7 @@ var bot = linebot({
                 if(event.postback.data.substring(0,3) == '我喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
+                        var count = results.rows[0].count;
                         
                         //回覆查詢結果
                         if (err){

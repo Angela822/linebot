@@ -19,7 +19,8 @@ var bot = linebot({
   // 處理event.postback，喜歡/不喜歡button的資訊收集
   //-----------------------------------------
   bot.on('postback', function(event) { 
-        var type = event.postback.data.substring(4); //type
+        var type = event.postback.data.substring(3); //type
+        var habit = event.postback.data.substring(0,2);
         var userId = event.source.userId;
   
         event.source.profile().then(
@@ -36,7 +37,7 @@ var bot = linebot({
 
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                if(event.postback.data.substring(0,2) == '喜歡'){
+                if(habit == '喜歡'){
                     client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         
@@ -50,7 +51,7 @@ var bot = linebot({
                         //關閉連線
                         client.end();
                     });
-                }else if(event.postback.data.substring(0,3) == '不喜歡'){
+                }else if(habit == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
                         console.log(results);
                         
@@ -331,7 +332,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype
+                                                                                "data": "我喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -359,7 +360,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype2
+                                                                                "data": "我喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -387,7 +388,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype3
+                                                                                "data": "我喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -471,7 +472,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype
+                                                                                "data": "我喜歡" + booktype
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -499,7 +500,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype2
+                                                                                "data": "我喜歡" + booktype2
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -527,7 +528,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "postback",
                                                                                 "label": "喜歡",
-                                                                                "data": "喜歡" + booktype3
+                                                                                "data": "我喜歡" + booktype3
                                                                             },
                                                                             {
                                                                                 "type": "postback",
@@ -1164,7 +1165,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": "喜歡" + type
+                                        "data": "我喜歡" + type
                                     },
                                     {
                                         "type": "postback",
@@ -1192,7 +1193,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": "喜歡" + type2
+                                        "data": "我喜歡" + type2
                                     },
                                     {
                                         "type": "postback",
@@ -1220,7 +1221,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "postback",
                                         "label": "喜歡",
-                                        "data": "喜歡" + type3
+                                        "data": "我喜歡" + type3
                                     },
                                     {
                                         "type": "postback",
@@ -1322,7 +1323,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type
+                                                "data": "我喜歡" + type
                                             },
                                             {
                                                 "type": "postback",
@@ -1350,7 +1351,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type1
+                                                "data": "我喜歡" + type1
                                             },
                                             {
                                                 "type": "postback",
@@ -1378,7 +1379,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type2
+                                                "data": "我喜歡" + type2
                                             },
                                             {
                                                 "type": "postback",
@@ -1408,7 +1409,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type3
+                                                    "data": "我喜歡" + type3
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1438,7 +1439,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type4
+                                                    "data": "我喜歡" + type4
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1468,7 +1469,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type5
+                                                    "data": "我喜歡" + type5
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1498,7 +1499,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type6
+                                                    "data": "我喜歡" + type6
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1528,7 +1529,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type7
+                                                    "data": "我喜歡" + type7
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1558,7 +1559,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type8
+                                                    "data": "我喜歡" + type8
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1588,7 +1589,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "喜歡" + type9
+                                                    "data": "我喜歡" + type9
                                                 },
                                                 {
                                                     "type": "postback",
@@ -1677,7 +1678,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type
+                                                "data": "我喜歡" + type
                                             },
                                             {
                                                 "type": "postback",
@@ -1705,7 +1706,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type2
+                                                "data": "我喜歡" + type2
                                             },
                                             {
                                                 "type": "postback",
@@ -1733,7 +1734,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type3
+                                                "data": "我喜歡" + type3
                                             },
                                             {
                                                 "type": "postback",
@@ -1761,7 +1762,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type4
+                                                "data": "我喜歡" + type4
                                             },
                                             {
                                                 "type": "postback",
@@ -1789,7 +1790,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "喜歡" + type5
+                                                "data": "我喜歡" + type5
                                             },
                                             {
                                                 "type": "postback",

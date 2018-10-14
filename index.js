@@ -1644,7 +1644,7 @@ bot.on('message',function(event) {
                             var type2=results.rows[5].type; 
                             var pic2=results.rows[5].picture;
 
-                            var bookname3=results.rows[8]].bookname;
+                            var bookname3=results.rows[8].bookname;
                             var type3=results.rows[8].type; 
                             var pic3=results.rows[8].picture;
 

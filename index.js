@@ -50,6 +50,13 @@ var bot = linebot({
 
                         //關閉連線
                         client.end();
+
+                        return event.reply([
+                            {
+                                "type": "text",
+                                "text": "收到了!" + "(≧▽≦)"
+                            }
+                        ]);
                     });
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
@@ -64,15 +71,15 @@ var bot = linebot({
 
                         //關閉連線
                         client.end();
-                    });
-                }
 
-                return event.reply([
-                    {
-                        "type": "text",
-                        "text": "收到了!"
-                    }
-                ]);		
+                        return event.reply([
+                            {
+                                "type": "text",
+                                "text": "原來你不喜歡阿..." + "(￣个￣)"
+                            }
+                        ]);
+                    });
+                }		
         });
 });
 
@@ -211,7 +218,6 @@ bot.on('message',function(event) {
         
         //用類別找書-收集使用者userid && 類別喜好
         }else if(event.message.text.substring(0,3) == '我想看'){
-
             event.source.profile().then(
                 function (profile) {
                     //取得使用者資料及傳回文字

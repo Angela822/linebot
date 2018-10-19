@@ -50,13 +50,6 @@ var bot = linebot({
 
                         //關閉連線
                         client.end();
-
-                        return event.reply([
-                            {
-                                "type": "text",
-                                "text": "收到了!" + "(≧▽≦)"
-                            }
-                        ]);
                     });
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
@@ -71,15 +64,15 @@ var bot = linebot({
 
                         //關閉連線
                         client.end();
-
-                        return event.reply([
-                            {
-                                "type": "text",
-                                "text": "原來你不喜歡阿..." + "(￣个￣)"
-                            }
-                        ]);
                     });
-                }		
+                }
+
+                return event.reply([
+                    {
+                        "type": "text",
+                        "text": "收到了!"
+                    }
+                ]);		
         });
 });
 
@@ -151,6 +144,7 @@ bot.on('message',function(event) {
                     var userName = profile.displayName;
                     var userId = profile.userId;
                     var no = event.message.text.substring(2);		
+
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -217,6 +211,7 @@ bot.on('message',function(event) {
         
         //用類別找書-收集使用者userid && 類別喜好
         }else if(event.message.text.substring(0,3) == '我想看'){
+
             event.source.profile().then(
                 function (profile) {
                     //取得使用者資料及傳回文字
@@ -244,7 +239,7 @@ bot.on('message',function(event) {
                         //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
-                                client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'藝術設計',100)", [userId,userName], (err, results) => {    
+                                client.query("insert into userhabit(userid,type,count)values ($1,'藝術設計',100)", [userId], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -1623,8 +1618,7 @@ bot.on('message',function(event) {
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
-                    var userId = profile.userId;
-                    var userName = profile.displayName;		
+                    var userId = profile.userId;		
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -1638,7 +1632,7 @@ bot.on('message',function(event) {
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                     client.query("select * from userhabit where userid = $1", [userId], (err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("insert into userhabit(userid,username)values ($1,$2)", [userId,userName], (err) => {
+                            client.query("insert into userhabit(userid)values ($1)", [userId], (err) => {
                                 if (err){
                                     console.log('新增DB失敗');
                                 }else{						

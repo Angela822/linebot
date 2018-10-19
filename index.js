@@ -1665,7 +1665,7 @@ bot.on('message',function(event) {
                 function (profile) {	
                     //取得使用者資料及傳回文字
                     var userId = profile.userId;
-                    var userName = profile.displayName;		
+                    //var userName = profile.displayName;		
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -1808,8 +1808,8 @@ bot.on('message',function(event) {
                                 client.end();  
                             });   
                         }else{
-                            client.query("SELECT book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId], (err, results) => {    
-                                console.log(results);
+                            client.query("SELECT book.bookname, book.type, book.picture userhabit.type FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId], (err, results) => {    
+                                console.log('what?');
                                 
                                 //回覆查詢結果	
                                 var bookname=results.rows[0].bookname;

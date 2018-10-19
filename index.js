@@ -1638,7 +1638,7 @@ bot.on('message',function(event) {
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                     client.query("select * from userhabit where userid = $1", [userId], (err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("insert into userhabit(userid,username)values ($1)", [userId,userName], (err) => {
+                            client.query("insert into userhabit(userid,username)values ($1,$2)", [userId,userName], (err) => {
                                 if (err){
                                     console.log('新增DB失敗');
                                 }else{						

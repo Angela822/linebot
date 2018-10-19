@@ -1632,7 +1632,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("SELECT book.bookname, book.type, book.picture, userhabit.userid, userhabit.type, userhabit.count FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId], (err, results) => {    
+                        client.query("SELECT book.bookname, book.type, book.picture, userhabit.userid, userhabit.type, userhabit.count FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId], (results) => {    
                             console.log(results);
                             
                             //回覆查詢結果	
@@ -1652,9 +1652,9 @@ bot.on('message',function(event) {
                             var type4=results.rows[3].type; 
                             var pic4=results.rows[3].picture;
 
-                            var bookname5=results.rows[10].bookname;
-                            var type5=results.rows[10].type; 
-                            var pic5=results.rows[10].picture;
+                            var bookname5=results.rows[8].bookname;
+                            var type5=results.rows[8].type; 
+                            var pic5=results.rows[8].picture;
                             
                             return event.reply({
                                 "type": "template",

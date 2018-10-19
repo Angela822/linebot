@@ -1810,10 +1810,10 @@ bot.on('message',function(event) {
                                 }
                             });
 
-                            
+                            //關閉連線
+                            client.end();
                         });  
-                        //關閉連線
-                        client.end();
+                        
                 }
             );
         }else{

@@ -1633,28 +1633,28 @@ bot.on('message',function(event) {
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("SELECT book.bookname, book.type, book.picture, userhabit.userid, userhabit.type, userhabit.count FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId],(err, results) => {    
-                            //console.log(err);
+                            console.log(err);
                             
                             //回覆查詢結果	
                             var bookname=results.rows[0].bookname;
                             var type=results.rows[0].type; 
                             var pic=results.rows[0].picture;
                             
-                            var bookname2=results.rows[5].bookname;
-                            var type2=results.rows[5].type; 
-                            var pic2=results.rows[5].picture;
+                            var bookname2=results.rows[1].bookname;
+                            var type2=results.rows[1].type; 
+                            var pic2=results.rows[1].picture;
 
-                            var bookname3=results.rows[6].bookname;
-                            var type3=results.rows[6].type; 
-                            var pic3=results.rows[6].picture;
+                            var bookname3=results.rows[3].bookname;
+                            var type3=results.rows[3].type; 
+                            var pic3=results.rows[3].picture;
 
-                            var bookname4=results.rows[3].bookname;
-                            var type4=results.rows[3].type; 
-                            var pic4=results.rows[3].picture;
+                            var bookname4=results.rows[2].bookname;
+                            var type4=results.rows[2].type; 
+                            var pic4=results.rows[2].picture;
 
-                            var bookname5=results.rows[8].bookname;
-                            var type5=results.rows[8].type; 
-                            var pic5=results.rows[8].picture;
+                            var bookname5=results.rows[4].bookname;
+                            var type5=results.rows[4].type; 
+                            var pic5=results.rows[4].picture;
                             
                             return event.reply({
                                 "type": "template",

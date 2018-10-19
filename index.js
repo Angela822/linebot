@@ -151,7 +151,6 @@ bot.on('message',function(event) {
                     var userName = profile.displayName;
                     var userId = profile.userId;
                     var no = event.message.text.substring(2);		
-
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -245,7 +244,7 @@ bot.on('message',function(event) {
                         //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
-                                client.query("insert into userhabit(userid,type,count)values ($1,'藝術設計',100)", [userId], (err, results) => {    
+                                client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'藝術設計',100)", [userId,userName], (err, results) => {    
                                     console.log(results);
                                     
                                     //回覆查詢結果
@@ -1624,7 +1623,8 @@ bot.on('message',function(event) {
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
-                    var userId = profile.userId;		
+                    var userId = profile.userId;
+                    var userName = profile.displayName;		
         
                     //建立資料庫連線           
                     var client = new Client({
@@ -1638,7 +1638,7 @@ bot.on('message',function(event) {
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                     client.query("select * from userhabit where userid = $1", [userId], (err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("insert into userhabit(userid)values ($1)", [userId], (err) => {
+                            client.query("insert into userhabit(userid,username)values ($1)", [userId,userName], (err) => {
                                 if (err){
                                     console.log('新增DB失敗');
                                 }else{						

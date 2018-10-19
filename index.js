@@ -1632,8 +1632,8 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("SELECT * from book order by random()", (err, results) => {    
-                            console.log(err);
+                        client.query("SELECT book.bookname, book.type, book.picture, userhabit.userid, userhabit.type, userhabit.count FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC", [userId],(err, results) => {    
+                            //console.log(err);
                             
                             //回覆查詢結果	
                             var bookname=results.rows[0].bookname;
@@ -1810,9 +1810,10 @@ bot.on('message',function(event) {
                                 }
                             });
 
-                            //關閉連線
-                            client.end();
+                            
                         });  
+                        //關閉連線
+                        client.end();
                 }
             );
         }else{

@@ -38,7 +38,7 @@ var bot = linebot({
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabit where type = $1 AND userid = $2 ",[type,userId] ,(err, results) =>{
+                    client.query("select * from userhabit where type = '' AND userid = $1 ",[userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("update userhabit set type = $1 ,count = '101' where userid = $2",[type,userId], (err, results) =>{
                                 if(err){
@@ -70,7 +70,7 @@ var bot = linebot({
                         }
                     });  
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabit where type = $1 AND userid = $2",[type,userId] , (err, results) =>{
+                    client.query("select * from userhabit where type = '' AND userid = $1",[userId] , (err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("update userhabit set type = $1 ,count = '99' where userid = $2",[type,userId], (err, results) =>{
                                 if(err){

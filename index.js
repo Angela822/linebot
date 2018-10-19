@@ -38,7 +38,7 @@ var bot = linebot({
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabit where userid = $1 ",[userId] ,(err, results) =>{
+                    client.query("select * from userhabit where userid = $1 AND type = $2 ",[userId,type] ,(err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
                                 if(err){
@@ -46,6 +46,16 @@ var bot = linebot({
                                 }else{
                                     console.log('喜歡新增成功');
                                 }
+
+                                //關閉連線
+                                client.end();
+
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "收到了!" + "(≧▽≦)"
+                                    }
+                                ]);
                             });
                         }else{
                             client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
@@ -70,7 +80,7 @@ var bot = linebot({
                         }
                     });  
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabit where userid = $1",[userId] , (err, results) =>{
+                    client.query("select * from userhabit where userid = $1 AND type = $2",[userId,type] , (err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,99)",[userId,userName,type], (err, results) =>{
                                 if(err){

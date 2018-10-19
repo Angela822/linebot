@@ -38,47 +38,71 @@ var bot = linebot({
                 //新增資料
                 //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
-                        console.log(userId);
-                        
-                        //回覆查詢結果
-                        if (err){
-                            console.log('喜歡更新失敗');
-                        }else{						
-                            console.log('喜歡更新成功'); 
+                    client.query("select * from userhabit where type != ''", (err, results) =>{
+                        if(err || results.rows.length==0){
+                            client.query("insert into userhabit(type,count)values ($1,101)",[type], (err, results) =>{
+                                if(err){
+                                    console.log('喜歡新增失敗');
+                                }else{
+                                    console.log('喜歡更新成功');
+                                }
+                            });
+                        }else{
+                            client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
+                                console.log(userId);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('喜歡更新失敗');
+                                }else{						
+                                    console.log('喜歡更新成功'); 
+                                }
+        
+                                //關閉連線
+                                client.end();
+        
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "收到了!" + "(≧▽≦)"
+                                    }
+                                ]);
+                            });
                         }
-
-                        //關閉連線
-                        client.end();
-
-                        return event.reply([
-                            {
-                                "type": "text",
-                                "text": "收到了!" + "(≧▽≦)"
-                            }
-                        ]);
-                    });
+                    });  
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
-                        console.log(results);
-                        
-                        //回覆查詢結果
-                        if (err){
-                            console.log('不喜歡更新失敗');
-                        }else{						
-                            console.log('不喜歡更新成功'); 
+                    client.query("select * from userhabit where type != ''", (err, results) =>{
+                        if(err || results.rows.length==0){
+                            client.query("insert into userhabit(type,count)values ($1,99)",[type], (err, results) =>{
+                                if(err){
+                                    console.log('不喜歡新增失敗');
+                                }else{
+                                    console.log('不喜歡更新成功');
+                                }
+                            });
+                        }else{
+                            client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
+                                console.log(results);
+                                
+                                //回覆查詢結果
+                                if (err){
+                                    console.log('不喜歡更新失敗');
+                                }else{						
+                                    console.log('不喜歡更新成功'); 
+                                }
+        
+                                //關閉連線
+                                client.end();
+        
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "原來你不喜歡阿..." + "(￣个￣)"
+                                    }
+                                ]);
+                            });
                         }
-
-                        //關閉連線
-                        client.end();
-
-                        return event.reply([
-                            {
-                                "type": "text",
-                                "text": "原來你不喜歡阿..." + "(￣个￣)"
-                            }
-                        ]);
-                    });
+                    });        
                 }		
         });
 });

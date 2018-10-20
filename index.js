@@ -77,6 +77,8 @@ var bot = linebot({
                             });
                         }
                     });  
+                //--------------------------------------------
+                //-----------------dislike--------------------
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("select * from userhabit where type = $1 AND userid = $2",[type,userId] , (err, results) =>{
                         if(err || results.rows.length==0){
@@ -120,7 +122,8 @@ var bot = linebot({
                             });
                         }
                     });        
-                }		
+                }	
+                //--------------------------------------------	
         });
 });
 
@@ -129,7 +132,7 @@ var bot = linebot({
 //--------------------------
 bot.on('message',function(event) {           
     if (event.message.type == 'text'){ 
-        //主選單     
+        //-------------主選單-----------------    
         if (event.message.text == 'Takebook會做什麼呢'){
             return event.reply({
                 "type": "template",
@@ -162,8 +165,9 @@ bot.on('message',function(event) {
                     ]
                 }
             });
+        //--------------------------------------------
 
-        //關鍵字查書
+        //----------------關鍵字查書-------------------
         }else if (event.message.text == '我要查詢書本！'){
                 return event.reply([
                     {
@@ -183,8 +187,9 @@ bot.on('message',function(event) {
                         text: '提醒：「查」後面要記得空一格喔!'
                     }
                 ]);
+        //--------------------------------------------
 
-        //關鍵字查書，判斷書本是否存在
+        //------關鍵字查書，判斷書本是否存在資料庫-------
         }else if (event.message.text.substring(0,1) == '查'){
             event.source.profile().then(
                 function (profile) {	
@@ -220,8 +225,9 @@ bot.on('message',function(event) {
                         });  
                 }
             );
+        //--------------------------------------------
 
-        //找書選單
+        //------------------找書選單-------------------
         }else if (event.message.text == '好想找本書看ㄚ～'){    
                 return event.reply({
                     "type": "template",
@@ -248,15 +254,17 @@ bot.on('message',function(event) {
                         ]
                     }
                 });
+        //--------------------------------------------
 
-        //用類別找書-提示字詞
+        //-------------用類別找書-提示字詞--------------
         }else if(event.message.text == '用類別找書'){
             return event.reply({
                 type: 'text',
                 text: 'Ex.我想看 文學,生活風格,藝術設計'
             });
-        
-        //用類別找書-收集使用者userid && 類別喜好
+        //--------------------------------------------
+
+        //----用類別找書-收集使用者userid && 類別喜好----
         }else if(event.message.text.substring(0,3) == '我想看'){
             event.source.profile().then(
                 function (profile) {
@@ -1160,7 +1168,9 @@ bot.on('message',function(event) {
 
                 
             );    
-        //新書
+        //--------------------------------------------
+
+        //-------------------新書---------------------
         }else if(event.message.text == '新書'){	        
             //建立資料庫連線           
             var client = new Client({
@@ -1288,8 +1298,9 @@ bot.on('message',function(event) {
                     //關閉連線
                     client.end();
                 });  
-        
-        //書本排行榜
+        //--------------------------------------------
+
+        //----------------書本排行榜-------------------
         }else if(event.message.text == '書本排行榜'){
             event.source.profile().then(
                 function (profile) {	
@@ -1658,8 +1669,9 @@ bot.on('message',function(event) {
                         });  
                 }
             );
+        //--------------------------------------------
 
-        //機器人依據使用者書本類別取向推薦
+        //-------機器人依據使用者書本類別取向推薦--------
         }else if (event.message.text == '讓機器人推薦給你吧'){
             event.source.profile().then(
                 function (profile) {	
@@ -1675,14 +1687,15 @@ bot.on('message',function(event) {
                     
                     client.connect();
                     
-                    //查詢資料
-                    //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
+                    //---先判斷資料庫是否存在此使用者---
                     client.query("select * from userhabit where userid = $1", [userId], (err, results) =>{
                         if(err || results.rows.length==0){
+                            //---如果不存在，新增userid,username---
                             client.query("insert into userhabit(userid,username)values ($1,$2)", [userId,userName], (err) => {
                                 if (err){
                                     console.log('新增userid,username失敗');
-                                }else{						
+                                }else{	
+                                    //---並亂數傳書本資訊---					
                                     client.query("select * from book ORDER BY RANDOM()", (err, results) => {    
                                         console.log(results);
                                         
@@ -1811,9 +1824,12 @@ bot.on('message',function(event) {
                                         //關閉連線
                                         client.end();  
                                     });
+                                    //--------------------
                                 }
-                            });   
+                            });
+                            //------------------------------------   
                         }else{
+                            //---判斷是否已有書本類型存在---
                             client.query("select * from userhabit where type != ''", (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("select * from book ORDER BY RANDOM()", (err, results) => {    
@@ -2074,7 +2090,8 @@ bot.on('message',function(event) {
 
                                                 //關閉連線
                                                 client.end();
-                                            }); 
+                                            });
+                                        //---count>100，就只傳喜歡的書---
                                         }else{
                                             console.log(results);
                                             //回覆查詢結果	
@@ -2255,14 +2272,18 @@ bot.on('message',function(event) {
                                             //關閉連線
                                             client.end();
                                         }
+                                        //--------------------------------------------
                                     }); 
                                 }
 
-                            });  
+                            }); 
+                            //--------------------------------------------
                         }      
                     });
+                    //--------------------------------------------
                 }
             );
+        //--------------------------------------------
         }else{
             return event.reply({
                 "type": 'template', 

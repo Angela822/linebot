@@ -1666,12 +1666,12 @@ bot.on('message',function(event) {
                                     "type": "carousel",
                                     "columns": [
                                         {
-                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/",
+                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
                                         "imageAspectRatio": "rectangle",
                                         "imageSize": "cover",
                                         "imageBackgroundColor": "#FFFFFF",
                                         "title": "<<"+bookname+">>",
-                                        "text": "類別：心情",
+                                        "text": "類別："+type,
                                         "defaultAction": {
                                             "type": "uri",
                                             "label": "View detail",
@@ -1681,12 +1681,12 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "postback",
                                                 "label": "喜歡",
-                                                "data": "我喜歡"
+                                                "data": "我喜歡"+type
                                             },
                                             {
                                                 "type": "postback",
                                                 "label": "不喜歡",
-                                                "data": "不喜歡"
+                                                "data": "不喜歡"+type
                                             },
                                             {
                                                 "type": "uri",

@@ -1640,17 +1640,17 @@ bot.on('message',function(event) {
                             var type=results.rows[0].type; 
                             var pic=results.rows[0].picture;
                             
-                            var bookname2=results.rows[5].bookname;
-                            var type2=results.rows[5].type; 
-                            var pic2=results.rows[5].picture;
+                            var bookname2=results.rows[3].bookname;
+                            var type2=results.rows[3].type; 
+                            var pic2=results.rows[3].picture;
 
-                            var bookname3=results.rows[3].bookname;
-                            var type3=results.rows[3].type; 
-                            var pic3=results.rows[3].picture;
+                            var bookname3=results.rows[7].bookname;
+                            var type3=results.rows[7].type; 
+                            var pic3=results.rows[7].picture;
 
-                            var bookname4=results.rows[2].bookname;
-                            var type4=results.rows[2].type; 
-                            var pic4=results.rows[2].picture;
+                            var bookname4=results.rows[5].bookname;
+                            var type4=results.rows[5].type; 
+                            var pic4=results.rows[5].picture;
 
                             var bookname5=results.rows[4].bookname;
                             var type5=results.rows[4].type; 
@@ -1756,12 +1756,12 @@ bot.on('message',function(event) {
                                                 ]
                                                 },
                                                 {
-                                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic5,
+                                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic4,
                                                     "imageAspectRatio": "rectangle",
                                                     "imageSize": "cover",
                                                     "imageBackgroundColor": "#FFFFFF",
-                                                    "title": "<<"+bookname5+">>",
-                                                    "text": "類別："+type5,
+                                                    "title": "<<"+bookname4+">>",
+                                                    "text": "類別："+type4,
                                                     "defaultAction": {
                                                         "type": "uri",
                                                         "label": "View detail",
@@ -1771,12 +1771,12 @@ bot.on('message',function(event) {
                                                         {
                                                             "type": "postback",
                                                             "label": "喜歡",
-                                                            "data": "我喜歡"+type5
+                                                            "data": "我喜歡"+type4
                                                         },
                                                         {
                                                             "type": "postback",
                                                             "label": "不喜歡",
-                                                            "data": "不喜歡"+type5
+                                                            "data": "不喜歡"+type4
                                                         },
                                                         {
                                                             "type": "uri",
@@ -1786,12 +1786,12 @@ bot.on('message',function(event) {
                                                     ]
                                                     },
                                                     {
-                                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic5,
                                                         "imageAspectRatio": "rectangle",
                                                         "imageSize": "cover",
                                                         "imageBackgroundColor": "#FFFFFF",
-                                                        "title": "<<"+bookname+">>",
-                                                        "text": "類別："+type,
+                                                        "title": "<<"+bookname5+">>",
+                                                        "text": "類別："+type5,
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
@@ -1801,12 +1801,12 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "postback",
                                                                 "label": "喜歡",
-                                                                "data": "我喜歡"+type
+                                                                "data": "我喜歡"+type5
                                                             },
                                                             {
                                                                 "type": "postback",
                                                                 "label": "不喜歡",
-                                                                "data": "不喜歡"+type
+                                                                "data": "不喜歡"+type5
                                                             },
                                                             {
                                                                 "type": "uri",

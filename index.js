@@ -38,12 +38,22 @@ var bot = linebot({
                 if(event.postback.data.substring(0,3) == '我喜歡'){
                     client.query("select * from userhabit where type != '' AND userid = $1 ",[userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("update userhabit set type = $1 ,count = '101' where userid = $2",[type,userId], (err, results) =>{
+                            client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
                                 if(err){
                                     console.log('喜歡新增失敗');
                                 }else{
                                     console.log('喜歡新增成功');
                                 }
+
+                                //關閉連線
+                                client.end();
+        
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "知道了!" + "(≧▽≦)"
+                                    }
+                                ]);
                             });
                         }else{
                             client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
@@ -61,7 +71,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "收到了!" + "(≧▽≦)"
+                                        "text": "知道了!" + "(≧▽≦)"
                                     }
                                 ]);
                             });
@@ -70,7 +80,7 @@ var bot = linebot({
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
                     client.query("select * from userhabit where type != '' AND userid = $1",[userId] , (err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("update userhabit set type = $1 ,count = '99' where userid = $2",[type,userId], (err, results) =>{
+                            client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,99)",[userId,userName,type], (err, results) =>{
                                 if(err){
                                     console.log('不喜歡新增失敗');
                                 }else{
@@ -83,7 +93,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "原來你不喜歡阿..." + "(￣个￣)"
+                                        "text": "原來你不喜歡阿...我記住了" + "(￣个￣)"
                                     }
                                 ]);
                             });
@@ -104,7 +114,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "原來你不喜歡阿..." + "(￣个￣)"
+                                        "text": "原來你不喜歡阿...我記住了" + "(￣个￣)"
                                     }
                                 ]);
                             });

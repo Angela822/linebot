@@ -1943,9 +1943,9 @@ bot.on('message',function(event) {
                                         var type3=results.rows[4].type; 
                                         var pic3=results.rows[4].picture;
 
-                                        var bookname4=results.rows[5].bookname;
-                                        var type4=results.rows[5].type; 
-                                        var pic4=results.rows[5].picture;
+                                        var bookname4=results.rows[1].bookname;
+                                        var type4=results.rows[1].type; 
+                                        var pic4=results.rows[1].picture;
 
                                         var bookname5=results.rows[3].bookname;
                                         var type5=results.rows[3].type; 

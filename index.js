@@ -1696,12 +1696,12 @@ bot.on('message',function(event) {
                                         ]
                                         },
                                         {
-                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                            "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
                                             "imageAspectRatio": "rectangle",
                                             "imageSize": "cover",
                                             "imageBackgroundColor": "#FFFFFF",
-                                            "title": "<<"+bookname+">>",
-                                            "text": "類別："+type,
+                                            "title": "<<"+bookname2+">>",
+                                            "text": "類別："+type2,
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
@@ -1711,12 +1711,12 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "postback",
                                                     "label": "喜歡",
-                                                    "data": "我喜歡"+type
+                                                    "data": "我喜歡"+type2
                                                 },
                                                 {
                                                     "type": "postback",
                                                     "label": "不喜歡",
-                                                    "data": "不喜歡"+type
+                                                    "data": "不喜歡"+type2
                                                 },
                                                 {
                                                     "type": "uri",

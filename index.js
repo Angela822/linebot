@@ -1640,21 +1640,21 @@ bot.on('message',function(event) {
                             var type=results.rows[0].type; 
                             var pic=results.rows[0].picture;
                             
-                            var bookname2=results.rows[3].bookname;
-                            var type2=results.rows[3].type; 
-                            var pic2=results.rows[3].picture;
+                            var bookname2=results.rows[5].bookname;
+                            var type2=results.rows[5].type; 
+                            var pic2=results.rows[5].picture;
 
-                            var bookname3=results.rows[7].bookname;
-                            var type3=results.rows[7].type; 
-                            var pic3=results.rows[7].picture;
+                            var bookname3=results.rows[4].bookname;
+                            var type3=results.rows[4].type; 
+                            var pic3=results.rows[4].picture;
 
                             var bookname4=results.rows[5].bookname;
                             var type4=results.rows[5].type; 
                             var pic4=results.rows[5].picture;
 
-                            var bookname5=results.rows[4].bookname;
-                            var type5=results.rows[4].type; 
-                            var pic5=results.rows[4].picture;
+                            var bookname5=results.rows[3].bookname;
+                            var type5=results.rows[3].type; 
+                            var pic5=results.rows[3].picture;
 
                             //關閉連線
                             client.end();

@@ -1632,7 +1632,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("SELECT * FROM book where type='生活風格'",[userId],(err, results) => {    
+                        client.query("SELECT bookname, type, picture FROM book where type='生活風格'",(err, results) => {    
                             console.log(err);
                             
                             //回覆查詢結果	

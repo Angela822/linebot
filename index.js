@@ -1632,7 +1632,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY random()",(err, results) => {    
+                        client.query("SELECT book.bookname, book.type, book.picture, userhabit.type FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC",[userId],(err, results) => {    
                             console.log(err);
                             
                             //回覆查詢結果	

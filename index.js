@@ -1633,7 +1633,7 @@ bot.on('message',function(event) {
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("SELECT * FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC",[userId], (err, results) => {    
-                            console.log(results);
+                            console.log(err);
                             
                             //回覆查詢結果	
                             var bookname=results.rows[0].bookname;
@@ -1756,12 +1756,12 @@ bot.on('message',function(event) {
                                                 ]
                                                 },
                                                 {
-                                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic4,
                                                     "imageAspectRatio": "rectangle",
                                                     "imageSize": "cover",
                                                     "imageBackgroundColor": "#FFFFFF",
-                                                    "title": "<<"+bookname+">>",
-                                                    "text": "類別："+type,
+                                                    "title": "<<"+bookname4+">>",
+                                                    "text": "類別："+type4,
                                                     "defaultAction": {
                                                         "type": "uri",
                                                         "label": "View detail",
@@ -1771,12 +1771,12 @@ bot.on('message',function(event) {
                                                         {
                                                             "type": "postback",
                                                             "label": "喜歡",
-                                                            "data": "我喜歡"+type
+                                                            "data": "我喜歡"+type4
                                                         },
                                                         {
                                                             "type": "postback",
                                                             "label": "不喜歡",
-                                                            "data": "不喜歡"+type
+                                                            "data": "不喜歡"+type4
                                                         },
                                                         {
                                                             "type": "uri",

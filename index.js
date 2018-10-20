@@ -1633,16 +1633,16 @@ bot.on('message',function(event) {
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("SELECT * FROM book, userhabit where book.type=userhabit.type AND userid= $1 order by count DESC",[userId], (err, results) => {    
-                            console.log(results.rows[2].bookname);
+                            console.log(err);
                             
                             //回覆查詢結果	
                             var bookname=results.rows[0].bookname;
                             var type=results.rows[0].type; 
                             var pic=results.rows[0].picture;
                             
-                            var bookname2=results.rows[1].bookname;
-                            var type2=results.rows[1].type; 
-                            var pic2=results.rows[1].picture;
+                            var bookname2=results.rows[5].bookname;
+                            var type2=results.rows[5].type; 
+                            var pic2=results.rows[5].picture;
 
                             var bookname3=results.rows[3].bookname;
                             var type3=results.rows[3].type; 

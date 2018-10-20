@@ -1655,7 +1655,10 @@ bot.on('message',function(event) {
                             var bookname5=results.rows[4].bookname;
                             var type5=results.rows[4].type; 
                             var pic5=results.rows[4].picture;
-                            
+
+                            //關閉連線
+                            client.end();
+
                             return event.reply({
                                 "type": "template",
                                 "altText": "推薦給您~",
@@ -1809,11 +1812,10 @@ bot.on('message',function(event) {
                                     "imageSize": "cover"
                                 }
                             });
-
-                            //關閉連線
-                            client.end();
                         });  
                         
+                        
+
                 }
             );
         }else{

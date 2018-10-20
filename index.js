@@ -36,7 +36,7 @@ var bot = linebot({
 
                 //--------------like-----------------
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabit where type != '' AND userid = $1 ",[userId] ,(err, results) =>{
+                    client.query("select * from userhabit where type = $1 AND userid = $2 ",[type,userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
                                 if(err){
@@ -78,7 +78,7 @@ var bot = linebot({
                         }
                     });  
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabit where type != '' AND userid = $1",[userId] , (err, results) =>{
+                    client.query("select * from userhabit where type = $1 AND userid = $2",[type,userId] , (err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,99)",[userId,userName,type], (err, results) =>{
                                 if(err){

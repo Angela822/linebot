@@ -1953,15 +1953,7 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
-        
-                                                var bookname2=results.rows[1].bookname;
-                                                var booktype2=results.rows[1].type; 
-                                                var pic2=results.rows[1].picture;
-        
-                                                var bookname3=results.rows[2].bookname;
-                                                var booktype3=results.rows[2].type; 
-                                                var pic3=results.rows[2].picture;
-        
+               
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
                                                     console.log('查詢DB失敗');
@@ -2005,62 +1997,6 @@ bot.on('message',function(event) {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
                                                                                 "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
-                                                                            }
-                                                                        ]
-                                                                        },
-                                                                        {
-                                                                        "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
-                                                                        "imageBackgroundColor": "#000000",
-                                                                        "title": "<<" + bookname2 + ">>",
-                                                                        "text": "類別：" + booktype2,
-                                                                        "defaultAction": {
-                                                                            "type": "uri",
-                                                                            "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
-                                                                        },
-                                                                        "actions": [
-                                                                            {
-                                                                                "type": "postback",
-                                                                                "label": "喜歡",
-                                                                                "data": "我喜歡" + booktype2
-                                                                            },
-                                                                            {
-                                                                                "type": "postback",
-                                                                                "label": "不喜歡",
-                                                                                "data": "不喜歡" + booktype2
-                                                                            },
-                                                                            {
-                                                                                "type": "uri",
-                                                                                "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
-                                                                            }
-                                                                        ]
-                                                                        },
-                                                                        {
-                                                                        "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
-                                                                        "imageBackgroundColor": "#000000",
-                                                                        "title": "<<" + bookname3 + ">>",
-                                                                        "text": "類別：" + booktype3,
-                                                                        "defaultAction": {
-                                                                            "type": "uri",
-                                                                            "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
-                                                                        },
-                                                                        "actions": [
-                                                                            {
-                                                                                "type": "postback",
-                                                                                "label": "喜歡",
-                                                                                "data": "我喜歡" + booktype3
-                                                                            },
-                                                                            {
-                                                                                "type": "postback",
-                                                                                "label": "不喜歡",
-                                                                                "data": "不喜歡" + booktype3
-                                                                            },
-                                                                            {
-                                                                                "type": "uri",
-                                                                                "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
                                                                             }
                                                                         ]
                                                                         }

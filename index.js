@@ -389,7 +389,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno2
                                                                         }
                                                                     ]
                                                                     },
@@ -417,7 +417,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno3
                                                                         }
                                                                     ]
                                                                     }
@@ -455,10 +455,12 @@ bot.on('message',function(event) {
                                             var bookname2=results.rows[1].bookname;
                                             var booktype2=results.rows[1].type; 
                                             var pic2=results.rows[1].picture;
+                                            var bookno2=results.rows[1].bookno;
 
                                             var bookname3=results.rows[2].bookname;
                                             var booktype3=results.rows[2].type; 
                                             var pic3=results.rows[2].picture;
+                                            var bookno3=results.rows[2].bookno;
 
 
                                             //回覆查詢結果
@@ -531,7 +533,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno2
                                                                         }
                                                                     ]
                                                                     },
@@ -559,7 +561,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno3
                                                                         }
                                                                     ]
                                                                     }
@@ -601,14 +603,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -653,7 +658,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -681,7 +686,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -709,7 +714,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -742,14 +747,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -793,7 +801,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -821,7 +829,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -849,7 +857,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -891,14 +899,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -943,7 +954,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -971,7 +982,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -999,7 +1010,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1183,14 +1194,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -1235,7 +1249,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1263,7 +1277,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -1291,7 +1305,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1324,15 +1338,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
-
+                                                var bookno3=results.rows[2].bookno;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -1376,7 +1392,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1404,7 +1420,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -1432,7 +1448,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1473,14 +1489,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -1525,7 +1544,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1553,7 +1572,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -1581,7 +1600,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1614,14 +1633,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -1666,7 +1688,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1694,7 +1716,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -1722,7 +1744,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1765,14 +1787,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -1817,7 +1842,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1845,7 +1870,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -1873,7 +1898,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -1906,14 +1931,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -1958,7 +1986,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -1986,7 +2014,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2014,7 +2042,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2056,14 +2084,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2108,7 +2139,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2136,7 +2167,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2164,7 +2195,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2197,14 +2228,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2249,7 +2283,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2277,7 +2311,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2305,7 +2339,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2347,14 +2381,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2399,7 +2436,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2427,7 +2464,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2455,7 +2492,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2488,14 +2525,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2540,7 +2580,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2568,7 +2608,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2596,7 +2636,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2637,14 +2677,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2689,7 +2732,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2717,7 +2760,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2745,7 +2788,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2778,14 +2821,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2830,7 +2876,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -2858,7 +2904,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -2886,7 +2932,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -2929,14 +2975,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
 
                                                 //回覆查詢結果
@@ -2981,7 +3030,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -3009,7 +3058,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -3037,7 +3086,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -3070,14 +3119,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -3121,7 +3173,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -3149,7 +3201,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -3177,7 +3229,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -3223,14 +3275,17 @@ bot.on('message',function(event) {
                     var bookname=results.rows[0].bookname;
                     var type=results.rows[0].type; 
                     var pic=results.rows[0].picture;
+                    var bookno=results.rows[0].bookno;
 
                     var bookname2=results.rows[1].bookname;
                     var type2=results.rows[1].type;
                     var pic2=results.rows[1].picture;
+                    var bookno2=results.rows[1].bookno;
 
                     var bookname3=results.rows[2].bookname;
                     var type3=results.rows[2].type;   
-                    var pic3=results.rows[2].picture;                                             
+                    var pic3=results.rows[2].picture;
+                    var bookno3=results.rows[2].bookno;                                             
                                                     
                     return event.reply({
                         "type": "template",
@@ -3264,7 +3319,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "uri",
                                         "label": "看更多...",
-                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                        "uri": "https://www.books.com.tw/products/" + bookno
                                     }
                                 ]
                                 },
@@ -3292,7 +3347,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "uri",
                                         "label": "看更多...",
-                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                        "uri": "https://www.books.com.tw/products/" + bookno2
                                     }
                                 ]
                                 },
@@ -3320,7 +3375,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "uri",
                                         "label": "看更多...",
-                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                        "uri": "https://www.books.com.tw/products/" + bookno3
                                     }
                                 ]
                                 }
@@ -3357,34 +3412,52 @@ bot.on('message',function(event) {
                             var bookname=results.rows[0].bookname;
                             var type=results.rows[0].type; 
                             var picture=results.rows[0].picture;
+                            var bookno=results.rows[0].bookno;
+                            
                             var bookname1=results.rows[1].bookname;
                             var type1=results.rows[1].type;
                             var picture1=results.rows[1].picture;
+                            var bookno1=results.rows[1].bookno;
+
                             var bookname2=results.rows[2].bookname;
                             var type2=results.rows[2].type;  
                             var picture2=results.rows[2].picture;
+                            var bookno2=results.rows[2].bookno;
+
                             var bookname3=results.rows[3].bookname;
                             var type3=results.rows[3].type; 
                             var picture3=results.rows[3].picture;
+                            var bookno3=results.rows[3].bookno;
+
                             var bookname4=results.rows[4].bookname;
                             var type4=results.rows[4].type;
                             var picture4=results.rows[4].picture;
+                            var bookno4=results.rows[4].bookno;
 
                             var bookname5=results.rows[5].bookname;
                             var type5=results.rows[5].type;
                             var picture5=results.rows[5].picture;
+                            var bookno5=results.rows[5].bookno;
+
                             var bookname6=results.rows[6].bookname;
                             var type6=results.rows[6].type;
                             var picture6=results.rows[6].picture;
+                            var bookno6=results.rows[6].bookno;
+
                             var bookname7=results.rows[7].bookname;
                             var type7=results.rows[7].type;
                             var picture7=results.rows[7].picture;
+                            var bookno7=results.rows[7].bookno;
+
                             var bookname8=results.rows[8].bookname;
                             var type8=results.rows[8].type; 
                             var picture8=results.rows[8].picture;
+                            var bookno8=results.rows[8].bookno;
+
                             var bookname9=results.rows[9].bookname;
                             var type9=results.rows[9].type; 
-                            var picture9=results.rows[9].picture;                
+                            var picture9=results.rows[9].picture; 
+                            var bookno9=results.rows[9].bookno;               
                                                           
                             return event.reply([
                                 {
@@ -3423,7 +3496,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "uri",
                                                 "label": "看更多...",
-                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                "uri": "https://www.books.com.tw/products/" + bookno
                                             }
                                         ]
                                         },
@@ -3451,7 +3524,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "uri",
                                                 "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                "uri": "https://www.books.com.tw/products/" + bookno1
                                             }
                                         ]
                                         },
@@ -3479,7 +3552,7 @@ bot.on('message',function(event) {
                                             {
                                                 "type": "uri",
                                                 "label": "看更多...",
-                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                             }
                                         ]
                                         },
@@ -3509,7 +3582,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno3
                                                 }
                                             ]
                                         },
@@ -3539,7 +3612,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno4
                                                 }
                                             ]
                                         },
@@ -3569,7 +3642,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno5
                                                 }
                                             ]
                                         },
@@ -3599,7 +3672,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno6
                                                 }
                                             ]
                                         },
@@ -3629,7 +3702,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno7
                                                 }
                                             ]
                                         },
@@ -3659,7 +3732,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno8
                                                 }
                                             ]
                                         },
@@ -3689,7 +3762,7 @@ bot.on('message',function(event) {
                                                 {
                                                     "type": "uri",
                                                     "label": "看更多...",
-                                                    "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                    "uri": "https://www.books.com.tw/products/" + bookno9
                                                 }
                                             ]
                                         }
@@ -3737,14 +3810,17 @@ bot.on('message',function(event) {
                                         var bookname=results.rows[0].bookname;
                                         var booktype=results.rows[0].type; 
                                         var pic=results.rows[0].picture;
+                                        var bookno=results.rows[0].bookno;
 
                                         var bookname2=results.rows[1].bookname;
                                         var booktype2=results.rows[1].type; 
                                         var pic2=results.rows[1].picture;
+                                        var bookno2=results.rows[1].bookno;
 
                                         var bookname3=results.rows[2].bookname;
                                         var booktype3=results.rows[2].type; 
                                         var pic3=results.rows[2].picture;
+                                        var bookno3=results.rows[2].bookno;
 
                                         //回覆查詢結果
                                         if (err || results.rows.length==0){
@@ -3788,7 +3864,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno
                                                                     }
                                                                 ]
                                                                 },
@@ -3816,7 +3892,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno2
                                                                     }
                                                                 ]
                                                                 },
@@ -3844,7 +3920,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno3
                                                                     }
                                                                 ]
                                                                 }
@@ -3873,14 +3949,17 @@ bot.on('message',function(event) {
                                         var bookname=results.rows[0].bookname;
                                         var booktype=results.rows[0].type; 
                                         var pic=results.rows[0].picture;
+                                        var bookno=results.rows[0].bookno;
 
                                         var bookname2=results.rows[1].bookname;
                                         var booktype2=results.rows[1].type; 
                                         var pic2=results.rows[1].picture;
+                                        var bookno2=results.rows[1].bookno;
 
                                         var bookname3=results.rows[2].bookname;
                                         var booktype3=results.rows[2].type; 
                                         var pic3=results.rows[2].picture;
+                                        var bookno3=results.rows[2].bookno;
 
                                         //回覆查詢結果
                                         if (err || results.rows.length==0){
@@ -3924,7 +4003,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno
                                                                     }
                                                                 ]
                                                                 },
@@ -3952,7 +4031,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno2
                                                                     }
                                                                 ]
                                                                 },
@@ -3980,7 +4059,7 @@ bot.on('message',function(event) {
                                                                     {
                                                                         "type": "uri",
                                                                         "label": "看更多...",
-                                                                        "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                        "uri": "https://www.books.com.tw/products/" + bookno3
                                                                     }
                                                                 ]
                                                                 }
@@ -4004,14 +4083,17 @@ bot.on('message',function(event) {
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
+                                                var bookno=results.rows[0].bookno;
 
                                                 var bookname2=results.rows[1].bookname;
                                                 var booktype2=results.rows[1].type; 
                                                 var pic2=results.rows[1].picture;
+                                                var bookno2=results.rows[1].bookno;
 
                                                 var bookname3=results.rows[2].bookname;
                                                 var booktype3=results.rows[2].type; 
                                                 var pic3=results.rows[2].picture;
+                                                var bookno3=results.rows[2].bookno;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){
@@ -4055,7 +4137,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                                             }
                                                                         ]
                                                                         },
@@ -4083,7 +4165,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                                             }
                                                                         ]
                                                                         },
@@ -4111,7 +4193,7 @@ bot.on('message',function(event) {
                                                                             {
                                                                                 "type": "uri",
                                                                                 "label": "看更多...",
-                                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                                             }
                                                                         ]
                                                                         }
@@ -4133,22 +4215,27 @@ bot.on('message',function(event) {
                                             var bookname=results.rows[0].bookname;
                                             var type=results.rows[0].type; 
                                             var pic=results.rows[0].picture;
+                                            var bookno=results.rows[0].bookno;
                                             
                                             var bookname2=results.rows[5].bookname;
                                             var type2=results.rows[5].type; 
                                             var pic2=results.rows[5].picture;
+                                            var bookno2=results.rows[5].bookno;
 
                                             var bookname3=results.rows[4].bookname;
                                             var type3=results.rows[4].type; 
                                             var pic3=results.rows[4].picture;
+                                            var bookno3=results.rows[4].bookno;
 
                                             var bookname4=results.rows[1].bookname;
                                             var type4=results.rows[1].type; 
                                             var pic4=results.rows[1].picture;
+                                            var bookno4=results.rows[1].bookno;
 
                                             var bookname5=results.rows[3].bookname;
                                             var type5=results.rows[3].type; 
                                             var pic5=results.rows[3].picture;
+                                            var bookno5=results.rows[3].bookno;
                                             
                                             return event.reply({
                                                 "type": "template",
@@ -4182,7 +4269,7 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "uri",
                                                                 "label": "看更多...",
-                                                                "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                "uri": "https://www.books.com.tw/products/" + bookno
                                                             }
                                                         ]
                                                         },
@@ -4210,7 +4297,7 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "uri",
                                                                 "label": "看更多...",
-                                                                "uri": "http://www.books.com.tw/products/0010794498?loc=P_016_0_102"
+                                                                "uri": "https://www.books.com.tw/products/" + bookno2
                                                             }
                                                         ]
                                                         },
@@ -4238,7 +4325,7 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "uri",
                                                                 "label": "看更多...",
-                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                "uri": "https://www.books.com.tw/products/" + bookno3
                                                             }
                                                         ]
                                                         },
@@ -4266,7 +4353,7 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "uri",
                                                                 "label": "看更多...",
-                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                "uri": "https://www.books.com.tw/products/" + bookno4
                                                             }
                                                         ]
                                                         },
@@ -4294,7 +4381,7 @@ bot.on('message',function(event) {
                                                             {
                                                                 "type": "uri",
                                                                 "label": "看更多...",
-                                                                "uri": "http://www.books.com.tw/products/0010794010?loc=P_017_005"
+                                                                "uri": "https://www.books.com.tw/products/" + bookno5
                                                             }
                                                         ]
                                                         }

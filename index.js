@@ -340,7 +340,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '文學小說'", (err, results) =>{            
+                                            client.query("select * from book where type = '文學小說' LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -890,7 +890,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '醫療保健'", (err, results) =>{            
+                                            client.query("select * from book where type = '醫療保健' LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;

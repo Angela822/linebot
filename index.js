@@ -290,7 +290,6 @@ bot.on('message',function(event) {
                         case '藝術設計':
                             
                         //查詢資料
-                        //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                         client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
                                 client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'藝術設計',100)", [userId,userName], (err, results) => {    

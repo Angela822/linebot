@@ -450,6 +450,7 @@ bot.on('message',function(event) {
                                             var bookname=results.rows[0].bookname;
                                             var booktype=results.rows[0].type; 
                                             var pic=results.rows[0].picture;
+                                            var bookno=results.rows[0].bookno;
 
                                             var bookname2=results.rows[1].bookname;
                                             var booktype2=results.rows[1].type; 
@@ -502,7 +503,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno
                                                                         }
                                                                     ]
                                                                     },

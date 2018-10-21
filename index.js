@@ -3805,7 +3805,7 @@ bot.on('message',function(event) {
                                 }else{	
                                     //---並亂數傳書本資訊---					
                                     client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {    
-                                        console.log(results);
+                                        console.log(bookno);
                                         
                                         var bookname=results.rows[0].bookname;
                                         var booktype=results.rows[0].type; 

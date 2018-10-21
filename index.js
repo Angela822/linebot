@@ -432,9 +432,6 @@ bot.on('message',function(event) {
                                             client.end();
                                         });
                                     }
-                    
-                                    //關閉連線
-                                    client.end();
                                 });
                             }else{
                                 client.query("update userhabit set count = count+1 where type = '藝術設計' AND userid = $1", [userId], (err, results) => {    
@@ -576,9 +573,6 @@ bot.on('message',function(event) {
                                             client.end();
                                         });
                                     }
-                    
-                                    //關閉連線
-                                    client.end();
                                 });
                             }
                         });      
@@ -1019,9 +1013,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '商業理財' AND userid = $1", [userId], (err, results) => {    
@@ -1163,9 +1154,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -1317,9 +1305,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '飲食' AND userid = $1", [userId], (err, results) => {    
@@ -1461,9 +1446,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -1613,9 +1595,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '旅遊' AND userid = $1", [userId], (err, results) => {    
@@ -1757,9 +1736,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -1911,9 +1887,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '心理勵志' AND userid = $1", [userId], (err, results) => {    
@@ -2055,9 +2028,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -2208,9 +2178,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '親子教養' AND userid = $1", [userId], (err, results) => {    
@@ -2352,9 +2319,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -2505,9 +2469,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '語言學習' AND userid = $1", [userId], (err, results) => {    
@@ -2649,9 +2610,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -2801,9 +2759,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '生活風格' AND userid = $1", [userId], (err, results) => {    
@@ -2945,9 +2900,6 @@ bot.on('message',function(event) {
                                                 client.end();
                                             });
                                         }
-                        
-                                        //關閉連線
-                                        client.end();
                                     });
                                 }
                             }); 
@@ -3262,7 +3214,7 @@ bot.on('message',function(event) {
 
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                client.query("select * from book order by date DESC", (err, results) => {    
+                client.query("select * from book order by date DESC LIMIT 3", (err, results) => {    
                     
                     //回覆查詢結果		
                     var bookname=results.rows[0].bookname;
@@ -3395,7 +3347,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY rankno ASC", (err, results) => {    
+                        client.query("select * from book ORDER BY rankno ASC LIMIT 10", (err, results) => {    
                             console.log(results);
                             
                             //回覆查詢結果		
@@ -3776,7 +3728,7 @@ bot.on('message',function(event) {
                                     console.log('新增userid,username失敗');
                                 }else{	
                                     //---並亂數傳書本資訊---					
-                                    client.query("select * from book ORDER BY RANDOM()", (err, results) => {    
+                                    client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {    
                                         console.log(results);
                                         
                                         var bookname=results.rows[0].bookname;
@@ -3912,7 +3864,7 @@ bot.on('message',function(event) {
                             //---判斷是否已有書本類型存在---
                             client.query("select * from userhabit where type != ''", (err, results) =>{
                                 if(err || results.rows.length==0){
-                                    client.query("select * from book ORDER BY RANDOM()", (err, results) => {    
+                                    client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {    
                                         console.log(results);
                                         
                                         var bookname=results.rows[0].bookname;
@@ -4043,7 +3995,7 @@ bot.on('message',function(event) {
                                 }else{
                                     client.query("SELECT book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 AND count>100 order by count DESC", [userId], (err, results) => {    
                                         if(err || results.rows.length==0){
-                                            client.query("select * from book ORDER BY RANDOM()", (err, results) => {
+                                            client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {
                                                 console.log(results);
                                         
                                                 var bookname=results.rows[0].bookname;

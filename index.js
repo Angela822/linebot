@@ -891,17 +891,17 @@ bot.on('message',function(event) {
 
                                             //篩選書籍給使用者
                                             client.query("select * from book where type = '醫療保健'", (err, results) =>{            
-                                                var bookname=results.rows[1].bookname;
-                                                var booktype=results.rows[1].type; 
-                                                var pic=results.rows[1].picture;
+                                                var bookname=results.rows[2].bookname;
+                                                var booktype=results.rows[2].type; 
+                                                var pic=results.rows[2].picture;
 
-                                                var bookname2=results.rows[1].bookname;
-                                                var booktype2=results.rows[1].type; 
-                                                var pic2=results.rows[1].picture;
+                                                var bookname2=results.rows[2].bookname;
+                                                var booktype2=results.rows[2].type; 
+                                                var pic2=results.rows[2].picture;
 
-                                                var bookname3=results.rows[1].bookname;
-                                                var booktype3=results.rows[1].type; 
-                                                var pic3=results.rows[1].picture;
+                                                var bookname3=results.rows[2].bookname;
+                                                var booktype3=results.rows[2].type; 
+                                                var pic3=results.rows[2].picture;
 
 
                                                 //回覆查詢結果
@@ -1032,17 +1032,17 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             client.query("select * from book where type = '醫療保健'", (err, results) =>{
-                                                var bookname=results.rows[1].bookname;
-                                                var booktype=results.rows[1].type; 
-                                                var pic=results.rows[1].picture;
+                                                var bookname=results.rows[2].bookname;
+                                                var booktype=results.rows[2].type; 
+                                                var pic=results.rows[2].picture;
 
-                                                var bookname2=results.rows[1].bookname;
-                                                var booktype2=results.rows[1].type; 
-                                                var pic2=results.rows[1].picture;
+                                                var bookname2=results.rows[2].bookname;
+                                                var booktype2=results.rows[2].type; 
+                                                var pic2=results.rows[2].picture;
 
-                                                var bookname3=results.rows[1].bookname;
-                                                var booktype3=results.rows[1].type; 
-                                                var pic3=results.rows[1].picture;
+                                                var bookname3=results.rows[2].bookname;
+                                                var booktype3=results.rows[2].type; 
+                                                var pic3=results.rows[2].picture;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){

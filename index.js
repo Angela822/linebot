@@ -306,14 +306,17 @@ bot.on('message',function(event) {
                                             var bookname=results.rows[0].bookname;
                                             var booktype=results.rows[0].type; 
                                             var pic=results.rows[0].picture;
+                                            var bookno=results.rows[0].bookno;
 
                                             var bookname2=results.rows[1].bookname;
                                             var booktype2=results.rows[1].type; 
                                             var pic2=results.rows[1].picture;
+                                            var bookno2=results.rows[1].bookno;
 
                                             var bookname3=results.rows[2].bookname;
                                             var booktype3=results.rows[2].type; 
                                             var pic3=results.rows[2].picture;
+                                            var bookno3=results.rows[2].bookno;
 
 
                                             //回覆查詢結果
@@ -358,7 +361,7 @@ bot.on('message',function(event) {
                                                                         {
                                                                             "type": "uri",
                                                                             "label": "看更多...",
-                                                                            "uri": "https://www.books.com.tw/products/0010794069?loc=P_011_0_101"
+                                                                            "uri": "https://www.books.com.tw/products/" + bookno
                                                                         }
                                                                     ]
                                                                     },

@@ -895,13 +895,13 @@ bot.on('message',function(event) {
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
 
-                                                var bookname2=results.rows[1].bookname;
-                                                var booktype2=results.rows[1].type; 
-                                                var pic2=results.rows[1].picture;
+                                                var bookname2=results.rows[0].bookname;
+                                                var booktype2=results.rows[0].type; 
+                                                var pic2=results.rows[0].picture;
 
-                                                var bookname3=results.rows[2].bookname;
-                                                var booktype3=results.rows[2].type; 
-                                                var pic3=results.rows[2].picture;
+                                                var bookname3=results.rows[0].bookname;
+                                                var booktype3=results.rows[0].type; 
+                                                var pic3=results.rows[0].picture;
 
 
                                                 //回覆查詢結果
@@ -1036,13 +1036,13 @@ bot.on('message',function(event) {
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
 
-                                                var bookname2=results.rows[1].bookname;
-                                                var booktype2=results.rows[1].type; 
-                                                var pic2=results.rows[1].picture;
+                                                var bookname2=results.rows[0].bookname;
+                                                var booktype2=results.rows[0].type; 
+                                                var pic2=results.rows[0].picture;
 
-                                                var bookname3=results.rows[2].bookname;
-                                                var booktype3=results.rows[2].type; 
-                                                var pic3=results.rows[2].picture;
+                                                var bookname3=results.rows[0].bookname;
+                                                var booktype3=results.rows[0].type; 
+                                                var pic3=results.rows[0].picture;
 
                                                 //回覆查詢結果
                                                 if (err || results.rows.length==0){

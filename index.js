@@ -219,13 +219,13 @@ bot.on('message',function(event) {
                                 var pic=results.rows[0].picture;
                                 event.reply([
                                     {
-                                        type: 'text', 
-                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                        "type": "image",
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg#",
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg#"
                                     },
                                     {
-                                        "type": "image",
-                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg",
-                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg"
+                                        type: 'text', 
+                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
                                     }
                                 ]);  
                             }

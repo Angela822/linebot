@@ -257,10 +257,16 @@ bot.on('message',function(event) {
 
         //-------------用類別找書-提示字詞--------------
         }else if(event.message.text == '用類別找書'){
-            return event.reply({
-                type: 'text',
-                text: 'Ex.我想看 文學,生活風格,藝術設計'
-            });
+            return event.reply([
+                {
+                    type: 'text',
+                    text: '「我想看 類別」 Ex.我想看 文學'
+                },
+                {
+                    type: 'text', 
+                    text: '提醒：「我想看」後面要記得空一格喔!'
+                }
+            ]);
         //--------------------------------------------
 
         //----用類別找書-收集使用者userid && 類別喜好----

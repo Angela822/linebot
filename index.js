@@ -221,6 +221,11 @@ bot.on('message',function(event) {
                                     {
                                         type: 'text', 
                                         text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                    },
+                                    {
+                                        "type": "image",
+                                        "originalContentUrl": "https://example.com/original.jpg",
+                                        "previewImageUrl": "https://example.com/original.jpg"
                                     }
                                 ]);  
                             }

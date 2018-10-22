@@ -224,8 +224,8 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         "type": "image",
-                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
-                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/少年台灣.jpg",
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/少年台灣.jpg"
                                     }
                                 ]);  
                             }

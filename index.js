@@ -224,8 +224,8 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         "type": "image",
-                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/雲上的阿里.jpg",
-                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/雲上的阿里.jpg"
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg",
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/test.jpg"
                                     }
                                 ]);  
                             }

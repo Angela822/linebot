@@ -224,8 +224,8 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         "type": "image",
-                                        "originalContentUrl": "https://example.com/original.jpg",
-                                        "previewImageUrl": "https://example.com/original.jpg"
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic
                                     }
                                 ]);  
                             }

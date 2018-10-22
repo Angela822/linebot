@@ -206,7 +206,7 @@ bot.on('message',function(event) {
                     
                     client.connect();
                     
-                    //查詢資料
+                    //查詢資料，使用LIKE
                         client.query("select * from book where bookname LIKE $1 LIMIT 1",['%'+no+'%'], (err, results) => {    
                             console.log(results);
                             
@@ -216,7 +216,18 @@ bot.on('message',function(event) {
                             }else{						
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
-                                event.reply('書名：<<' + bookname + '>>' +'\n'+ '內容簡介：' +'\n' + content);  
+                                var pic=results.rows[0].picture;
+                                event.reply([
+                                    {
+                                        type: 'text', 
+                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                    },
+                                    {
+                                        "type": "image",
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic
+                                    }
+                                ]);  
                             }
             
                             //關閉連線
@@ -268,7 +279,7 @@ bot.on('message',function(event) {
                 },
                 {
                     type: 'text', 
-                    text: '提醒：「我想看」後面要記得空一格喔!'
+                    text: '提醒：「我想看」後面要記得空一格！'
                 }
             ]);
         //--------------------------------------------

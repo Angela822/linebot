@@ -260,6 +260,10 @@ bot.on('message',function(event) {
             return event.reply([
                 {
                     type: 'text',
+                    text: '看好喽，跟我這樣做'
+                },
+                {
+                    type: 'text',
                     text: '「我想看 類別」 Ex.我想看 文學'
                 },
                 {

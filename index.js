@@ -224,8 +224,8 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         "type": "image",
-                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/山茶花文具店.jpg",
-                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/山茶花文具店.jpg"
+                                        "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/collocation.jpg",
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/collocation.jpg"
                                     }
                                 ]);  
                             }

@@ -4437,7 +4437,7 @@ bot.on('message',function(event) {
             "altText": "快來問問我！",
             "template": {
                 "type": "buttons",
-                "title": "快來問問我！"+'\n'+"Takebook會做什麼",
+                "title": "快來問問我！",
                 "text": "請點選下方按鈕",
                 "actions": [
                     {

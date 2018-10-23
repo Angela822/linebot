@@ -221,7 +221,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "image",
                                         "originalContentUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
-                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/ECO.jpg"
+                                        "previewImageUrl": "https://linebot-takebook.herokuapp.com/imgs/cloud.jpg"
                                     },
                                     {
                                         type: 'text', 

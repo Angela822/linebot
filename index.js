@@ -222,7 +222,7 @@ bot.on('message',function(event) {
                                     {
                                         "type": "image",
                                         "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + "jpg",
-                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/0010760228.jpg"
+                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + "jpg""
                                     },
                                     {
                                         type: 'text', 

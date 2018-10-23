@@ -216,7 +216,7 @@ bot.on('message',function(event) {
                             }else{						
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
-                                var pic=results.rows[0].picture;
+                                var bookno=results.rows[0].bookno;
                                 console.log(pic);
                                 event.reply([
                                     {

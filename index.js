@@ -627,7 +627,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '文學小說' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '文學小說' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -771,7 +771,7 @@ bot.on('message',function(event) {
                                         }else{						
                                             console.log('更新DB成功'); 
 
-                                            client.query("select * from book where type = '文學小說' LIMIT 3", (err, results) =>{
+                                            client.query("select * from book where type = '文學小說' order by random() LIMIT 3", (err, results) =>{
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -923,7 +923,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '商業理財' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '商業理財' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1067,7 +1067,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '商業理財' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '商業理財' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1218,7 +1218,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '飲食' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '飲食' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1362,7 +1362,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '飲食' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '飲食' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1513,7 +1513,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '旅遊' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '旅遊' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1657,7 +1657,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '旅遊' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '旅遊' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1811,7 +1811,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '心理勵志' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '心理勵志' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -1955,7 +1955,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功');
                                             
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '心理勵志' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '心理勵志' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2108,7 +2108,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '親子教養' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '親子教養' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2252,7 +2252,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '親子教養' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '親子教養' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2391,6 +2391,7 @@ bot.on('message',function(event) {
 
                         case '語言':
                         case '辭典':
+                        case '參考書':
                             //查詢資料
                             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
                             client.query("select * from userhabit where type = '語言學習' AND userid = $1", [userId], (err, results) =>{
@@ -2405,7 +2406,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '語言學習' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '語言學習' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2549,7 +2550,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '語言學習' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '語言學習' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2701,7 +2702,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '生活風格' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '生活風格' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2845,7 +2846,7 @@ bot.on('message',function(event) {
                                             console.log('更新DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '生活風格' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '生活風格' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -2999,7 +3000,7 @@ bot.on('message',function(event) {
                                             console.log('新增DB成功'); 
 
                                             //篩選書籍給使用者
-                                            client.query("select * from book where type = '醫療保健' LIMIT 3", (err, results) =>{            
+                                            client.query("select * from book where type = '醫療保健' order by random() LIMIT 3", (err, results) =>{            
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;
@@ -3143,7 +3144,7 @@ bot.on('message',function(event) {
                                         }else{						
                                             console.log('更新DB成功'); 
 
-                                            client.query("select * from book where type = '醫療保健'", (err, results) =>{
+                                            client.query("select * from book where type = '醫療保健' order by random() LIMIT 3", (err, results) =>{
                                                 var bookname=results.rows[0].bookname;
                                                 var booktype=results.rows[0].type; 
                                                 var pic=results.rows[0].picture;

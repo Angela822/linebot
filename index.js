@@ -40,9 +40,9 @@ var bot = linebot({
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
                                 if(err){
-                                    console.log('喜歡新增失敗');
+                                    console.log('喜歡新增失敗'+userName);
                                 }else{
-                                    console.log('喜歡新增成功');
+                                    console.log('喜歡新增成功'+userName);
                                 }
 
                                 //關閉連線
@@ -60,9 +60,9 @@ var bot = linebot({
                                 
                                 //回覆查詢結果
                                 if (err){
-                                    console.log('喜歡更新失敗');
+                                    console.log('喜歡更新失敗'+userName);
                                 }else{						
-                                    console.log('喜歡更新成功'); 
+                                    console.log('喜歡更新成功'+userName); 
                                 }
         
                                 //關閉連線
@@ -84,9 +84,9 @@ var bot = linebot({
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,99)",[userId,userName,type], (err, results) =>{
                                 if(err){
-                                    console.log('不喜歡新增失敗');
+                                    console.log('不喜歡新增失敗'+userName);
                                 }else{
-                                    console.log('不喜歡更新成功');
+                                    console.log('不喜歡更新成功'+userName);
                                 }
 
                                 //關閉連線
@@ -105,9 +105,9 @@ var bot = linebot({
                                 
                                 //回覆查詢結果
                                 if (err){
-                                    console.log('不喜歡更新失敗');
+                                    console.log('不喜歡更新失敗'+userName);
                                 }else{						
-                                    console.log('不喜歡更新成功'); 
+                                    console.log('不喜歡更新成功'+userName); 
                                 }
         
                                 //關閉連線
@@ -208,7 +208,7 @@ bot.on('message',function(event) {
                     
                     //查詢資料，使用LIKE
                         client.query("select * from book where bookname LIKE $1 LIMIT 1",['%'+no+'%'], (err, results) => {    
-                            console.log(results);
+                            console.log(userName);
                             
                             //回覆查詢結果
                             if (err || results.rows.length==0){

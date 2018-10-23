@@ -217,11 +217,16 @@ bot.on('message',function(event) {
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
                                 var pic=results.rows[0].picture;
+                                
                                 event.reply([
                                     {
                                         "type": "image",
                                         "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + pic,
                                         "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + pic
+                                    },
+                                    {
+                                        type: 'text', 
+                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
                                     }
                                 ]);  
                             }

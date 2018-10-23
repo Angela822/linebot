@@ -207,7 +207,7 @@ bot.on('message',function(event) {
                     client.connect();
                     
                     //查詢資料，使用LIKE
-                        client.query("select * from book where bookname LIKE $1",['%'+no+'%'], (err, results) => {    
+                        client.query("select * from book where bookname LIKE $1 ORDER BY random() LIMIT 1",['%'+no+'%'], (err, results) => {    
                             console.log(userName);
                             
                             //回覆查詢結果

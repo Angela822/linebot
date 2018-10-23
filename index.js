@@ -229,7 +229,11 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         type: 'text', 
-                                        text: '書名：<<' + bookname + '>>' +'\n'+ '類別：'+ type +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                        text: '類別：' + type
+                                    },
+                                    {
+                                        type: 'text', 
+                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
                                     }
                                 ]);  
                             }

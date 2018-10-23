@@ -330,7 +330,7 @@ bot.on('message',function(event) {
                                         console.log('新增DB成功'); 
 
                                         //篩選書籍給使用者
-                                        client.query("select * from book where type = '藝術設計' LIMIT 3", (err, results) =>{            
+                                        client.query("select * from book where type = '藝術設計' order by random() LIMIT 3", (err, results) =>{            
                                             var bookname=results.rows[0].bookname;
                                             var booktype=results.rows[0].type; 
                                             var pic=results.rows[0].picture;
@@ -474,7 +474,7 @@ bot.on('message',function(event) {
                                         console.log('更新DB成功'); 
 
                                         //篩選書籍給使用者
-                                        client.query("select * from book where type = '藝術設計' LIMIT 3", (err, results) =>{            
+                                        client.query("select * from book where type = '藝術設計' order by random() LIMIT 3", (err, results) =>{            
                                             var bookname=results.rows[0].bookname;
                                             var booktype=results.rows[0].type; 
                                             var pic=results.rows[0].picture;
@@ -4245,25 +4245,25 @@ bot.on('message',function(event) {
                                             var pic=results.rows[0].picture;
                                             var bookno=results.rows[0].bookno;
                                             
-                                            var bookname2=results.rows[5].bookname;
-                                            var type2=results.rows[5].type; 
-                                            var pic2=results.rows[5].picture;
-                                            var bookno2=results.rows[5].bookno;
+                                            var bookname2=results.rows[1].bookname;
+                                            var type2=results.rows[1].type; 
+                                            var pic2=results.rows[1].picture;
+                                            var bookno2=results.rows[1].bookno;
 
-                                            var bookname3=results.rows[4].bookname;
-                                            var type3=results.rows[4].type; 
-                                            var pic3=results.rows[4].picture;
-                                            var bookno3=results.rows[4].bookno;
+                                            var bookname3=results.rows[2].bookname;
+                                            var type3=results.rows[2].type; 
+                                            var pic3=results.rows[2].picture;
+                                            var bookno3=results.rows[2].bookno;
 
-                                            var bookname4=results.rows[1].bookname;
-                                            var type4=results.rows[1].type; 
-                                            var pic4=results.rows[1].picture;
-                                            var bookno4=results.rows[1].bookno;
+                                            var bookname4=results.rows[3].bookname;
+                                            var type4=results.rows[3].type; 
+                                            var pic4=results.rows[3].picture;
+                                            var bookno4=results.rows[3].bookno;
 
-                                            var bookname5=results.rows[3].bookname;
-                                            var type5=results.rows[3].type; 
-                                            var pic5=results.rows[3].picture;
-                                            var bookno5=results.rows[3].bookno;
+                                            var bookname5=results.rows[4].bookname;
+                                            var type5=results.rows[4].type; 
+                                            var pic5=results.rows[4].picture;
+                                            var bookno5=results.rows[4].bookno;
                                             
                                             return event.reply({
                                                 "type": "template",

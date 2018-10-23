@@ -4430,11 +4430,11 @@ bot.on('message',function(event) {
         }else{
             return event.reply({
                 "type": 'template', 
-                "altText": "你可以試著打",
+                "altText": "快來問問我！",
                 "template": {
                     "type": "buttons",
-                    "title": "你可以試著打",
-                    "text": "請選擇",
+                    "title": "快來問問我！",
+                    "text": "請點選下方按鈕",
                     "actions": [
                         {
                         "type": "message",

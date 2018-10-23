@@ -4261,10 +4261,10 @@ bot.on('message',function(event) {
                                             var pic4=results.rows[1].picture;
                                             var bookno4=results.rows[1].bookno;
 
-                                            var bookname5=results.rows[3].bookname;
-                                            var type5=results.rows[3].type; 
-                                            var pic5=results.rows[3].picture;
-                                            var bookno5=results.rows[3].bookno;
+                                            var bookname5=results.rows[10].bookname;
+                                            var type5=results.rows[10].type; 
+                                            var pic5=results.rows[10].picture;
+                                            var bookno5=results.rows[10].bookno;
                                             
                                             return event.reply({
                                                 "type": "template",

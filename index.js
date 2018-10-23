@@ -4103,7 +4103,7 @@ bot.on('message',function(event) {
                                         client.end();  
                                     });
                                 }else{
-                                    client.query("SELECT book.bookno ,book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 AND count>100 order by count DESC AND order by random()", [userId], (err, results) => {    
+                                    client.query("SELECT book.bookno ,book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 AND count>100 order by random()", [userId], (err, results) => {    
                                         if(err || results.rows.length==0){
                                             client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {
                                                 console.log(results);

@@ -95,7 +95,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "原來你不喜歡阿...我記住了" + "(￣个￣)"
+                                        "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
                                     }
                                 ]);
                             });
@@ -116,7 +116,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "原來你不喜歡阿...我記住了" + "(￣个￣)"
+                                        "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
                                     }
                                 ]);
                             });

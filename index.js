@@ -218,9 +218,11 @@ bot.on('message',function(event) {
                                 var content=results.rows[0].content;
                                 var bookno=results.rows[0].bookno;
                                 console.log(bookno);
+
                                 event.reply([
                                     {
                                         "type": "image",
+                                        //(這裡圖片檔的名稱不能是中文)
                                         "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg",
                                         "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg"
                                     },

@@ -217,7 +217,7 @@ bot.on('message',function(event) {
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
                                 var pic=results.rows[0].picture;
-                                
+                                console.log(pic);
                                 event.reply([
                                     {
                                         "type": "image",

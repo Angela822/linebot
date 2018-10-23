@@ -51,7 +51,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "知道了!" + "(≧▽≦)"
+                                        "text": "知道了！你放心，我記住了" + "(≧▽≦)"
                                     }
                                 ]);
                             });
@@ -71,7 +71,7 @@ var bot = linebot({
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "知道了!" + "(≧▽≦)"
+                                        "text": "知道了！你放心，我記住了" + "(≧▽≦)"
                                     }
                                 ]);
                             });

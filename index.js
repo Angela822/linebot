@@ -172,7 +172,7 @@ bot.on('message',function(event) {
                 return event.reply([
                     {
                         type: 'text', 
-                        text: '好的!'
+                        text: '好的！'
                     },
                     {
                         type: 'text', 
@@ -217,6 +217,7 @@ bot.on('message',function(event) {
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;
                                 var bookno=results.rows[0].bookno;
+                                var type=results.rows[0].type;
                                 console.log(bookno);
 
                                 event.reply([
@@ -228,7 +229,7 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         type: 'text', 
-                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                        text: '書名：<<' + bookname + '>>' +'\n'+ '類別：'+ type +'\n'+'\n'+ '內容簡介：' +'\n' + content
                                     }
                                 ]);  
                             }

@@ -207,12 +207,12 @@ bot.on('message',function(event) {
                     client.connect();
                     
                     //查詢資料，使用LIKE
-                        client.query("select * from book where bookname LIKE $1 LIMIT 1",['%'+no+'%'], (err, results) => {    
+                        client.query("select * from book where bookname LIKE $1 ORDER BY random() LIMIT 1",['%'+no+'%'], (err, results) => {    
                             console.log(userName);
                             
                             //回覆查詢結果
                             if (err || results.rows.length==0){
-                                event.reply('查不到這本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書?');
+                                event.reply('查不到這本書耶( ´ﾟДﾟ`)'+'\n'+'要不要換個關鍵字或乾脆換本書？');
                             }else{						
                                 var bookname=results.rows[0].bookname;
                                 var content=results.rows[0].content;

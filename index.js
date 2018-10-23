@@ -4246,25 +4246,25 @@ bot.on('message',function(event) {
                                             var pic=results.rows[0].picture;
                                             var bookno=results.rows[0].bookno;
                                             
-                                            var bookname2=results.rows[1].bookname;
-                                            var type2=results.rows[1].type; 
-                                            var pic2=results.rows[1].picture;
-                                            var bookno2=results.rows[1].bookno;
+                                            var bookname2=results.rows[5].bookname;
+                                            var type2=results.rows[5].type; 
+                                            var pic2=results.rows[5].picture;
+                                            var bookno2=results.rows[5].bookno;
 
-                                            var bookname3=results.rows[2].bookname;
-                                            var type3=results.rows[2].type; 
-                                            var pic3=results.rows[2].picture;
-                                            var bookno3=results.rows[2].bookno;
+                                            var bookname3=results.rows[4].bookname;
+                                            var type3=results.rows[4].type; 
+                                            var pic3=results.rows[4].picture;
+                                            var bookno3=results.rows[4].bookno;
 
-                                            var bookname4=results.rows[3].bookname;
-                                            var type4=results.rows[3].type; 
-                                            var pic4=results.rows[3].picture;
-                                            var bookno4=results.rows[3].bookno;
+                                            var bookname4=results.rows[1].bookname;
+                                            var type4=results.rows[1].type; 
+                                            var pic4=results.rows[1].picture;
+                                            var bookno4=results.rows[1].bookno;
 
-                                            var bookname5=results.rows[4].bookname;
-                                            var type5=results.rows[4].type; 
-                                            var pic5=results.rows[4].picture;
-                                            var bookno5=results.rows[4].bookno;
+                                            var bookname5=results.rows[3].bookname;
+                                            var type5=results.rows[3].type; 
+                                            var pic5=results.rows[3].picture;
+                                            var bookno5=results.rows[3].bookno;
                                             
                                             return event.reply({
                                                 "type": "template",

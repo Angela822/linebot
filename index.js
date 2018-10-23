@@ -229,12 +229,7 @@ bot.on('message',function(event) {
                                     {
                                         type: 'text', 
                                         text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
-                                    },
-									{
-										"type": "uri",
-										"label": "看更多...",
-										"uri": "https://www.books.com.tw/products/" + bookno
-									}
+                                    }
                                 ]);  
                             }
             

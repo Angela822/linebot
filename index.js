@@ -221,8 +221,8 @@ bot.on('message',function(event) {
                                 event.reply([
                                     {
                                         "type": "image",
-                                        "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + pic,
-                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + pic
+                                        "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + "jpg",
+                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/0010760228.jpg"
                                     },
                                     {
                                         type: 'text', 

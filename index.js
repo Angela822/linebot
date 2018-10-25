@@ -237,7 +237,7 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         type: 'text', 
-                                        text: '還可以試試其他功能喔'
+                                        text: '還可以試試其他找書方式喔(・ω<)'
                                     },
                                     {
                                         "type": "template",

@@ -314,7 +314,7 @@ bot.on('message',function(event) {
             return event.reply([
                 {
                     type: 'text',
-                    text: '看好喽，跟我這樣做'
+                    text: '看好喽，Follow me~'
                 },
                 {
                     type: 'text',
@@ -322,7 +322,7 @@ bot.on('message',function(event) {
                 },
                 {
                     type: 'text', 
-                    text: '提醒：「我想看」後面要記得空一格！'
+                    text: '提醒：「我想看」後面要記得空一格！千萬別打錯啦'
                 }
             ]);
         //--------------------------------------------
@@ -3351,103 +3351,109 @@ bot.on('message',function(event) {
                     var pic3=results.rows[2].picture;
                     var bookno3=results.rows[2].bookno;                                             
                                                     
-                    return event.reply({
-                        "type": "template",
-                        "altText": "新書推薦",
-                        "template": {
-                            "type": "carousel",
-                            "columns": [
-                                {
-                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                    return event.reply([
+                        {
+                            type: 'text', 
+                            text: '新書快報，緊看ㄛ！'
+                        },
+                        {
+                            "type": "template",
+                            "altText": "新書推薦",
+                            "template": {
+                                "type": "carousel",
+                                "columns": [
+                                    {
+                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic,
+                                    "imageAspectRatio": "rectangle",
+                                    "imageSize": "cover",
+                                    "imageBackgroundColor": "#FFFFFF",
+                                    "title": "<<" + bookname + ">>",
+                                    "text": "類別：" + type,
+                                    "defaultAction": {
+                                        "type": "uri",
+                                        "label": "View detail",
+                                        "uri": "http://140.131.114.176/"
+                                    },
+                                    "actions": [
+                                        {
+                                            "type": "postback",
+                                            "label": "喜歡",
+                                            "data": "我喜歡" + type
+                                        },
+                                        {
+                                            "type": "postback",
+                                            "label": "不喜歡",
+                                            "data": "不喜歡" + type
+                                        },
+                                        {
+                                            "type": "uri",
+                                            "label": "看更多...",
+                                            "uri": "https://www.books.com.tw/products/" + bookno
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
+                                    "imageBackgroundColor": "#000000",
+                                    "title": "<<" + bookname2 + ">>",
+                                    "text": "類別：" + type2,
+                                    "defaultAction": {
+                                        "type": "uri",
+                                        "label": "View detail",
+                                        "uri": "http://140.131.114.176/"
+                                    },
+                                    "actions": [
+                                        {
+                                            "type": "postback",
+                                            "label": "喜歡",
+                                            "data": "我喜歡" + type2
+                                        },
+                                        {
+                                            "type": "postback",
+                                            "label": "不喜歡",
+                                            "data": "不喜歡" + type2
+                                        },
+                                        {
+                                            "type": "uri",
+                                            "label": "看更多...",
+                                            "uri": "https://www.books.com.tw/products/" + bookno2
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
+                                    "imageBackgroundColor": "#000000",
+                                    "title": "<<" + bookname3 + ">>",
+                                    "text": "類別：" + type3,
+                                    "defaultAction": {
+                                        "type": "uri",
+                                        "label": "View detail",
+                                        "uri": "http://140.131.114.176/"
+                                    },
+                                    "actions": [
+                                        {
+                                            "type": "postback",
+                                            "label": "喜歡",
+                                            "data": "我喜歡" + type3
+                                        },
+                                        {
+                                            "type": "postback",
+                                            "label": "不喜歡",
+                                            "data": "不喜歡" + type3
+                                        },
+                                        {
+                                            "type": "uri",
+                                            "label": "看更多...",
+                                            "uri": "https://www.books.com.tw/products/" + bookno3
+                                        }
+                                    ]
+                                    }
+                                ],
                                 "imageAspectRatio": "rectangle",
-                                "imageSize": "cover",
-                                "imageBackgroundColor": "#FFFFFF",
-                                "title": "<<" + bookname + ">>",
-                                "text": "類別：" + type,
-                                "defaultAction": {
-                                    "type": "uri",
-                                    "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
-                                },
-                                "actions": [
-                                    {
-                                        "type": "postback",
-                                        "label": "喜歡",
-                                        "data": "我喜歡" + type
-                                    },
-                                    {
-                                        "type": "postback",
-                                        "label": "不喜歡",
-                                        "data": "不喜歡" + type
-                                    },
-                                    {
-                                        "type": "uri",
-                                        "label": "看更多...",
-                                        "uri": "https://www.books.com.tw/products/" + bookno
-                                    }
-                                ]
-                                },
-                                {
-                                "thumbnailImageUrl": "https://linebot-takebook.herokuapp.com/imgs/" + pic2,
-                                "imageBackgroundColor": "#000000",
-                                "title": "<<" + bookname2 + ">>",
-                                "text": "類別：" + type2,
-                                "defaultAction": {
-                                    "type": "uri",
-                                    "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
-                                },
-                                "actions": [
-                                    {
-                                        "type": "postback",
-                                        "label": "喜歡",
-                                        "data": "我喜歡" + type2
-                                    },
-                                    {
-                                        "type": "postback",
-                                        "label": "不喜歡",
-                                        "data": "不喜歡" + type2
-                                    },
-                                    {
-                                        "type": "uri",
-                                        "label": "看更多...",
-                                        "uri": "https://www.books.com.tw/products/" + bookno2
-                                    }
-                                ]
-                                },
-                                {
-                                "thumbnailImageUrl":  "https://linebot-takebook.herokuapp.com/imgs/" + pic3,
-                                "imageBackgroundColor": "#000000",
-                                "title": "<<" + bookname3 + ">>",
-                                "text": "類別：" + type3,
-                                "defaultAction": {
-                                    "type": "uri",
-                                    "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
-                                },
-                                "actions": [
-                                    {
-                                        "type": "postback",
-                                        "label": "喜歡",
-                                        "data": "我喜歡" + type3
-                                    },
-                                    {
-                                        "type": "postback",
-                                        "label": "不喜歡",
-                                        "data": "不喜歡" + type3
-                                    },
-                                    {
-                                        "type": "uri",
-                                        "label": "看更多...",
-                                        "uri": "https://www.books.com.tw/products/" + bookno3
-                                    }
-                                ]
-                                }
-                            ],
-                            "imageAspectRatio": "rectangle",
-                            "imageSize": "cover"
+                                "imageSize": "cover"
+                            }
                         }
-                    }); 
+                    ]); 
                     
                     //關閉連線
                     client.end();

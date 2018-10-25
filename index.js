@@ -234,6 +234,41 @@ bot.on('message',function(event) {
                                     {
                                         type: 'text', 
                                         text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                    },
+                                    {
+                                        type: 'text', 
+                                        text: '還可以試試其他功能喔'
+                                    },
+                                    {
+                                        "type": "template",
+                                        "altText": "我會做這些事...",
+                                        "template": {
+                                            "type": "buttons",
+                                            "title": "我會做這些事",
+                                            "text": "請選擇",
+                                            "actions": [
+                                                {
+                                                "type": "message",
+                                                "label": "我要查詢書本！",
+                                                "text": "我要查詢書本！"
+                                                },
+                                                {
+                                                "type": "message",
+                                                "label": "好想找本書看ㄚ～",
+                                                "text": "好想找本書看ㄚ～"
+                                                },
+                                                {
+                                                "type": "message",
+                                                "label": "讓機器人推薦給你吧",
+                                                "text": "讓機器人推薦給你吧"
+                                                },
+                                                {
+                                                "type": "uri",
+                                                "label": "快來看看Take Book網站",
+                                                "uri": "http://140.131.114.176/"
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]);  
                             }

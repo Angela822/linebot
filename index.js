@@ -373,7 +373,7 @@ bot.on('message',function(event) {
                                                                     "defaultAction": {
                                                                         "type": "uri",
                                                                         "label": "View detail",
-                                                                        "uri": "http://140.131.114.176/"
+                                                                        "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                     },
                                                                     "actions": [
                                                                         {
@@ -401,7 +401,7 @@ bot.on('message',function(event) {
                                                                     "defaultAction": {
                                                                         "type": "uri",
                                                                         "label": "View detail",
-                                                                        "uri": "http://140.131.114.176/"
+                                                                        "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                     },
                                                                     "actions": [
                                                                         {
@@ -429,7 +429,7 @@ bot.on('message',function(event) {
                                                                     "defaultAction": {
                                                                         "type": "uri",
                                                                         "label": "View detail",
-                                                                        "uri": "http://140.131.114.176/"
+                                                                        "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                     },
                                                                     "actions": [
                                                                         {
@@ -517,7 +517,7 @@ bot.on('message',function(event) {
                                                                     "defaultAction": {
                                                                         "type": "uri",
                                                                         "label": "View detail",
-                                                                        "uri": "http://140.131.114.176/"
+                                                                        "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                     },
                                                                     "actions": [
                                                                         {
@@ -573,7 +573,7 @@ bot.on('message',function(event) {
                                                                     "defaultAction": {
                                                                         "type": "uri",
                                                                         "label": "View detail",
-                                                                        "uri": "http://140.131.114.176/"
+                                                                        "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                     },
                                                                     "actions": [
                                                                         {
@@ -670,7 +670,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -698,7 +698,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -726,7 +726,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -813,7 +813,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -841,7 +841,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -869,7 +869,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -966,7 +966,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -994,7 +994,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1022,7 +1022,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1107,7 +1107,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1135,7 +1135,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1163,7 +1163,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1261,7 +1261,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1289,7 +1289,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1317,7 +1317,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1404,7 +1404,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1432,7 +1432,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1460,7 +1460,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1556,7 +1556,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1584,7 +1584,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1612,7 +1612,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1700,7 +1700,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1728,7 +1728,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1756,7 +1756,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1854,7 +1854,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1882,7 +1882,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1910,7 +1910,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -1998,7 +1998,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2026,7 +2026,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2054,7 +2054,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2151,7 +2151,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2179,7 +2179,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2207,7 +2207,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2295,7 +2295,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2323,7 +2323,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2351,7 +2351,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2449,7 +2449,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2477,7 +2477,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2505,7 +2505,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2593,7 +2593,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2621,7 +2621,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2649,7 +2649,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2745,7 +2745,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2773,7 +2773,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2801,7 +2801,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2889,7 +2889,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2917,7 +2917,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -2945,7 +2945,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3043,7 +3043,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3071,7 +3071,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3099,7 +3099,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3186,7 +3186,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3214,7 +3214,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3242,7 +3242,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -3332,7 +3332,7 @@ bot.on('message',function(event) {
                                 "defaultAction": {
                                     "type": "uri",
                                     "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
+                                    "uri": "http://140.131.114.176/discuss3?" + bookname
                                 },
                                 "actions": [
                                     {
@@ -3360,7 +3360,7 @@ bot.on('message',function(event) {
                                 "defaultAction": {
                                     "type": "uri",
                                     "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
+                                    "uri": "http://140.131.114.176/discuss3?" + bookname2
                                 },
                                 "actions": [
                                     {
@@ -3388,7 +3388,7 @@ bot.on('message',function(event) {
                                 "defaultAction": {
                                     "type": "uri",
                                     "label": "View detail",
-                                    "uri": "http://140.131.114.176/"
+                                    "uri": "http://140.131.114.176/discuss3?" + bookname3
                                 },
                                 "actions": [
                                     {
@@ -3509,7 +3509,7 @@ bot.on('message',function(event) {
                                         "defaultAction": {
                                             "type": "uri",
                                             "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
+                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                         },
                                         "actions": [
                                             {
@@ -3537,7 +3537,7 @@ bot.on('message',function(event) {
                                         "defaultAction": {
                                             "type": "uri",
                                             "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
+                                            "uri": "http://140.131.114.176/discuss3?" + bookname1
                                         },
                                         "actions": [
                                             {
@@ -3565,7 +3565,7 @@ bot.on('message',function(event) {
                                         "defaultAction": {
                                             "type": "uri",
                                             "label": "View detail",
-                                            "uri": "http://140.131.114.176/"
+                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                         },
                                         "actions": [
                                             {
@@ -3595,7 +3595,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname3
                                             },
                                             "actions": [
                                                 {
@@ -3625,7 +3625,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname4
                                             },
                                             "actions": [
                                                 {
@@ -3655,7 +3655,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname5
                                             },
                                             "actions": [
                                                 {
@@ -3685,7 +3685,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname6
                                             },
                                             "actions": [
                                                 {
@@ -3715,7 +3715,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname7
                                             },
                                             "actions": [
                                                 {
@@ -3745,7 +3745,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname8
                                             },
                                             "actions": [
                                                 {
@@ -3775,7 +3775,7 @@ bot.on('message',function(event) {
                                             "defaultAction": {
                                                 "type": "uri",
                                                 "label": "View detail",
-                                                "uri": "http://140.131.114.176/"
+                                                "uri": "http://140.131.114.176/discuss3?" + bookname9
                                             },
                                             "actions": [
                                                 {
@@ -3877,7 +3877,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -3905,7 +3905,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -3933,7 +3933,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4016,7 +4016,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4044,7 +4044,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4072,7 +4072,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/"
+                                                                    "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4150,7 +4150,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -4178,7 +4178,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -4206,7 +4206,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/"
+                                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -4282,7 +4282,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/"
+                                                            "uri": "http://140.131.114.176/discuss3?" + bookname
                                                         },
                                                         "actions": [
                                                             {
@@ -4310,7 +4310,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/"
+                                                            "uri": "http://140.131.114.176/discuss3?" + bookname2
                                                         },
                                                         "actions": [
                                                             {
@@ -4338,7 +4338,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/"
+                                                            "uri": "http://140.131.114.176/discuss3?" + bookname3
                                                         },
                                                         "actions": [
                                                             {
@@ -4366,7 +4366,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/"
+                                                            "uri": "http://140.131.114.176/discuss3?" + bookname4
                                                         },
                                                         "actions": [
                                                             {
@@ -4394,7 +4394,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/"
+                                                            "uri": "http://140.131.114.176/discuss3?" + bookname5
                                                         },
                                                         "actions": [
                                                             {

@@ -3877,7 +3877,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/discuss3?bookName=" + bookname
+                                                                    "uri": "http://140.131.114.176/discuss3?bookName=情緒勒索：那些在伴侶、親子、職場間，最讓人窒息的相處"
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4016,7 +4016,7 @@ bot.on('message',function(event) {
                                                                 "defaultAction": {
                                                                     "type": "uri",
                                                                     "label": "View detail",
-                                                                    "uri": "http://140.131.114.176/discuss3?bookName=" + bookname
+                                                                    "uri": "http://140.131.114.176/discuss3?bookName=情緒勒索：那些在伴侶、親子、職場間，最讓人窒息的相處"
                                                                 },
                                                                 "actions": [
                                                                     {
@@ -4150,7 +4150,7 @@ bot.on('message',function(event) {
                                                                         "defaultAction": {
                                                                             "type": "uri",
                                                                             "label": "View detail",
-                                                                            "uri": "http://140.131.114.176/discuss3?bookName=" + bookname
+                                                                            "uri": "http://140.131.114.176/discuss3?bookName=情緒勒索：那些在伴侶、親子、職場間，最讓人窒息的相處"
                                                                         },
                                                                         "actions": [
                                                                             {
@@ -4282,7 +4282,7 @@ bot.on('message',function(event) {
                                                         "defaultAction": {
                                                             "type": "uri",
                                                             "label": "View detail",
-                                                            "uri": "http://140.131.114.176/discuss3?bookName=" + bookname
+                                                            "uri": "http://140.131.114.176/discuss3?bookName=情緒勒索：那些在伴侶、親子、職場間，最讓人窒息的相處"
                                                         },
                                                         "actions": [
                                                             {

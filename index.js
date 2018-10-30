@@ -130,6 +130,12 @@ var bot = linebot({
 //--------------------------
 // 處理event.message
 //--------------------------
+allKnownUsers=["U7a99de34b530b81b9de8a83be619aad3",
+"U123d3f5ae0d8fa83e494effe5e103dbd",
+"Ua7b0c9180a6594fee04f5bf27a1046b0",
+"Ueda05a37850a28b09cf8692f2b0c203d"
+];
+
 bot.on('message',function(event) {           
     if (event.message.type == 'text'){ 
         //-------------主選單-----------------    
@@ -356,7 +362,7 @@ bot.on('message',function(event) {
                         client.query("select * from userhabit where type = '藝術設計' AND userid = $1", [userId], (err, results) =>{
                             if(err || results.rows.length==0){
                                 client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'藝術設計',100)", [userId,userName], (err, results) => {    
-                                    console.log(results);
+                                    console.log(userName);
                                     
                                     //回覆查詢結果
                                     if (err){
@@ -500,7 +506,7 @@ bot.on('message',function(event) {
                                 });
                             }else{
                                 client.query("update userhabit set count = count+1 where type = '藝術設計' AND userid = $1", [userId], (err, results) => {    
-                                    console.log(results);
+                                    console.log(userName);
                                     
                                     //回覆查詢結果
                                     if (err){
@@ -653,7 +659,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '文學小說' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'文學小說',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -798,7 +804,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '文學小說' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -949,7 +955,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '商業理財' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'商業理財',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1093,7 +1099,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '商業理財' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1244,7 +1250,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '飲食' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'飲食',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1388,7 +1394,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '飲食' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1539,7 +1545,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '旅遊' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'旅遊',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1683,7 +1689,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '旅遊' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1837,7 +1843,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '心理勵志' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'心理勵志',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -1981,7 +1987,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '心理勵志' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2134,7 +2140,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '親子教養' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'親子教養',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2278,7 +2284,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '親子教養' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2432,7 +2438,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '語言學習' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'語言學習',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2576,7 +2582,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '語言學習' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2728,7 +2734,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '生活風格' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'生活風格',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -2872,7 +2878,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '生活風格' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -3026,7 +3032,7 @@ bot.on('message',function(event) {
                             client.query("select * from userhabit where type = '醫療保健' AND userid = $1", [userId], (err, results) =>{
                                 if(err || results.rows.length==0){
                                     client.query("insert into userhabit(userid,username,type,count)values ($1,$2,'醫療保健',100)", [userId,userName], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -3171,7 +3177,7 @@ bot.on('message',function(event) {
                                     });
                                 }else{
                                     client.query("update userhabit set count = count+1 where type = '醫療保健' AND userid = $1", [userId], (err, results) => {    
-                                        console.log(results);
+                                        console.log(userName);
                                         
                                         //回覆查詢結果
                                         if (err){
@@ -3875,7 +3881,7 @@ bot.on('message',function(event) {
                                 }else{	
                                     //---並亂數傳書本資訊---					
                                     client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {    
-                                        console.log(bookno);
+                                        console.log(userName);
                                         
                                         var bookname=results.rows[0].bookname;
                                         var booktype=results.rows[0].type; 
@@ -4477,11 +4483,21 @@ bot.on('message',function(event) {
             );
         //--------------------------------------------
         }else if (event.message.text == '推播'){
-            return event.push({
-                "type": "sticker",
-                "packageId": "3",
-                "stickerId": "1"
-            })
+            event.source.profile().then(
+                function (profile) {			
+                    //將訊息推給所有使用者
+                    return bot.push(
+                        allKnownUsers, 
+                        [
+                            {
+                                "type": "sticker",
+                                "packageId": "3",
+                                "stickerId": "1"
+                            }
+                        ]
+                    );	
+                }
+            );
         }else{
             return event.reply({
                 "type": 'template', 

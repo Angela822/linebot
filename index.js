@@ -4485,7 +4485,7 @@ bot.on('message',function(event) {
         }else if (event.message.text .substring(0,2) == '推播'){
             event.source.profile().then(
                 function (profile) {
-                    var no = event.message.text.substring(2);
+                    var no = event.message.text.substring(3);
 
                     //將訊息推給所有使用者
                     return bot.push(

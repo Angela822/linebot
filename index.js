@@ -4490,9 +4490,13 @@ bot.on('message',function(event) {
                         allKnownUsers, 
                         [
                             {
+                                type: 'text', 
+                                text: '伶醬,佛卡夏你們在幹嘛呀'
+                            },
+                            {
                                 "type": "sticker",
                                 "packageId": "1",
-                                "stickerId": "3"
+                                "stickerId": "10"
                             }
                         ]
                     );	

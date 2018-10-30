@@ -4482,28 +4482,27 @@ bot.on('message',function(event) {
                 }
             );
         //--------------------------------------------
-        }else if (event.message.text .substring(0,2) == '推播'){
-            event.source.profile().then(
-                function (profile) {
-                    var no = event.message.text.substring(3);
 
-                    //將訊息推給所有使用者
-                    return bot.push(
-                        allKnownUsers, 
-                        [
-                            {
-                                type: 'text', 
-                                text: no
-                            },
-                            {
-                                "type": "sticker",
-                                "packageId": "1",
-                                "stickerId": "10"
-                            }
-                        ]
-                    );	
-                }
-            );
+        //-------管理者推播訊息給所有使用者------------
+        }else if (event.message.text.substring(0,2) == '推播'){
+            var pushMessage = event.message.text.substring(3);
+
+            //將訊息推給所有使用者
+            return bot.push(
+                allKnownUsers, 
+                [
+                    {
+                        type: 'text', 
+                        text: pushMessage
+                    },
+                    {
+                        "type": "sticker",
+                        "packageId": "1",
+                        "stickerId": "10"
+                    }
+                ]
+            );	
+        //--------------------------------------------        
         }else{
             return event.reply({
                 "type": 'template', 

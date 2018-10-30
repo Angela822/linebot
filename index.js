@@ -4498,7 +4498,7 @@ bot.on('message',function(event) {
                     {
                         "type": "sticker",
                         "packageId": "1",
-                        "stickerId": "10"
+                        "stickerId": "5"
                     }
                 ]
             );	

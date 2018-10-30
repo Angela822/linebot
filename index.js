@@ -4482,16 +4482,18 @@ bot.on('message',function(event) {
                 }
             );
         //--------------------------------------------
-        }else if (event.message.text == '推播'){
+        }else if (event.message.text .substring(0,2) == '推播'){
             event.source.profile().then(
-                function (profile) {			
+                function (profile) {
+                    var no = event.message.text.substring(2);
+
                     //將訊息推給所有使用者
                     return bot.push(
                         allKnownUsers, 
                         [
                             {
                                 type: 'text', 
-                                text: '伶醬,佛卡夏你們在幹嘛呀'
+                                text: no
                             },
                             {
                                 "type": "sticker",

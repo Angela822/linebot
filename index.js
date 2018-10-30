@@ -4476,6 +4476,12 @@ bot.on('message',function(event) {
                 }
             );
         //--------------------------------------------
+        }else if (event.message.text == '推播'){
+            return event.push({
+                "type": "sticker",
+                "packageId": "3",
+                "stickerId": "1"
+            })
         }else{
             return event.reply({
                 "type": 'template', 

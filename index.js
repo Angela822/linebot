@@ -243,38 +243,7 @@ bot.on('message',function(event) {
                                     },
                                     {
                                         type: 'text', 
-                                        text: '還可以試試其他找書方式喔(・ω<)'
-                                    },
-                                    {
-                                        "type": "template",
-                                        "altText": "我會做這些事...",
-                                        "template": {
-                                            "type": "buttons",
-                                            "title": "我會做這些事",
-                                            "text": "請選擇",
-                                            "actions": [
-                                                {
-                                                "type": "message",
-                                                "label": "我要查詢書本！",
-                                                "text": "我要查詢書本！"
-                                                },
-                                                {
-                                                "type": "message",
-                                                "label": "好想找本書看ㄚ～",
-                                                "text": "好想找本書看ㄚ～"
-                                                },
-                                                {
-                                                "type": "message",
-                                                "label": "讓機器人推薦給你吧",
-                                                "text": "讓機器人推薦給你吧"
-                                                },
-                                                {
-                                                "type": "uri",
-                                                "label": "快來看看Take Book網站",
-                                                "uri": "http://140.131.114.176/"
-                                                }
-                                            ]
-                                        }
+                                        text: '還可以試試其他找書方式喔(・ω<)，快點開功能選單吧'
                                     }
                                 ]);  
                             }
@@ -4501,6 +4470,64 @@ bot.on('message',function(event) {
                     }
                 ]
             );	
+        //--------------------------------------------        
+        }else if (event.message.text.substring(0,4) == '推播書本'){
+            event.source.profile().then(
+                function (profile) {
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+                    var userName = profile.displayName;
+
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+
+                    client.query("SELECT book.bookno ,book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 AND count>100 order by count DESC,random()", [userId], (err, results) => {
+                        //回覆查詢結果
+                        if (err || results.rows.length==0){
+                            econsole.log(results + 'push失敗');
+                        }else{						
+                            var bookname=results.rows[0].bookname;
+                            var content=results.rows[0].content;
+                            var bookno=results.rows[0].bookno;
+                            var type=results.rows[0].type;
+                            console.log(bookno);
+
+                            return bot.push(
+                                allKnownUsers,
+                                [
+                                    {
+                                        type: 'text', 
+                                        text: '今日推薦你'
+                                    },
+                                    {
+                                        "type": "image",
+                                        //(這裡圖片檔的名稱不能是中文)
+                                        "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg",
+                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg"
+                                    },
+                                    {
+                                        type: 'text', 
+                                        text: '類別：' + type
+                                    },
+                                    {
+                                        type: 'text', 
+                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                                    }
+                                ]
+                            );  
+                        }
+                        //關閉連線
+                        client.end();
+
+                    });    
+                    	
+                }
+            );   	
         //--------------------------------------------        
         }else if (event.message.text == '書本清單'){
             return event.reply({

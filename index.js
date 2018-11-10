@@ -4471,7 +4471,7 @@ bot.on('message',function(event) {
                 ]
             );	
         //--------------------------------------------        
-        }else if (event.message.text.substring(0,4) == '推播書本'){
+        }else if (event.message.text.substring(0,4) == '書本推播'){
             event.source.profile().then(
                 function (profile) {
                     //取得使用者資料及傳回文字

@@ -316,7 +316,7 @@ bot.on('message',function(event) {
         //--------------------------------------------
 
         //-------------用類別找書-提示字詞--------------
-        }else if(event.message.text == '用類別找書'){
+        }else if (event.message.text == '用類別找書'){
             return event.reply([
                 {
                     type: 'text',
@@ -334,7 +334,7 @@ bot.on('message',function(event) {
         //--------------------------------------------
 
         //----用類別找書-收集使用者userid && 類別喜好----
-        }else if(event.message.text.substring(0,3) == '我想看'){
+        }else if (event.message.text.substring(0,3) == '我想看'){
             event.source.profile().then(
                 function (profile) {
                     //取得使用者資料及傳回文字
@@ -3328,7 +3328,7 @@ bot.on('message',function(event) {
         //--------------------------------------------
 
         //-------------------新書---------------------
-        }else if(event.message.text == '新書'){	        
+        }else if (event.message.text == '新書'){	        
             //建立資料庫連線           
             var client = new Client({
                 connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
@@ -3467,7 +3467,7 @@ bot.on('message',function(event) {
         //--------------------------------------------
 
         //----------------書本排行榜-------------------
-        }else if(event.message.text == '書本排行榜'){
+        }else if (event.message.text == '書本排行榜'){
             event.source.profile().then(
                 function (profile) {	
                            
@@ -4486,7 +4486,6 @@ bot.on('message',function(event) {
         //-------管理者推播訊息給所有使用者------------
         }else if (event.message.text.substring(0,2) == '推播'){
             var pushMessage = event.message.text.substring(3);
-
             //將訊息推給所有使用者
             return bot.push(
                 allKnownUsers, 
@@ -4503,6 +4502,53 @@ bot.on('message',function(event) {
                 ]
             );	
         //--------------------------------------------        
+        }else if (event.message.text == '書本清單'){
+            return event.reply({
+                "type": "template",
+                "altText": "書本清單",
+                "template": {
+                    "type": "buttons",
+                    "title": "書本清單",
+                    "text": "請選擇",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "新增",
+                            "text": "新增"
+                        },
+                        {
+                            "type": "message",
+                            "label": "刪除",
+                            "text": "刪除"
+                        },
+                        {
+                            "type": "message",
+                            "label": "檢視",
+                            "text": "檢視"
+                        },
+                        {
+                            "type": "message",
+                            "label": "抽籤",
+                            "text": "抽籤"
+                        }
+                    ]
+                }
+            });
+        }else if (event.message.text == '新增'){
+            return event.reply([
+                {
+                    type: 'text', 
+                    text: '請先打"加入"，接著輸入書名，再輸入您對於這本書的註解或感想'
+                },
+                {
+                    type: 'text', 
+                    text: '「加入哈利波特 魔法的世界給予我們無限的想像」'
+                },
+                {
+                    type: 'text', 
+                    text: '提醒：「書名」後面要記得空一格喔!'
+                }
+            ]);
         }else{
             return event.reply({
                 "type": 'template', 

@@ -4486,7 +4486,7 @@ bot.on('message',function(event) {
                     
                     client.connect();
 
-                    client.query("select * from book ORDER BY RANDOM() LIMIT 3", (err, results) => {
+                    client.query("select * from book ORDER BY RANDOM()", (err, results) => {
                         //回覆查詢結果
                         if (err || results.rows.length==0){
                             econsole.log(results + 'push失敗');

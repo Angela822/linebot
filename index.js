@@ -4486,7 +4486,7 @@ bot.on('message',function(event) {
                     
                     client.connect();
 
-                    client.query("SELECT book.bookno ,book.bookname, book.type, book.picture FROM book, userhabit where book.type=userhabit.type AND userid= $1 AND count>100 order by count DESC,random()", [userId], (err, results) => {
+                    client.query("select * from book ORDER BY RANDOM() LIMIT 3", [userId], (err, results) => {
                         //回覆查詢結果
                         if (err || results.rows.length==0){
                             econsole.log(results + 'push失敗');
@@ -4502,7 +4502,7 @@ bot.on('message',function(event) {
                                 [
                                     {
                                         type: 'text', 
-                                        text: '今日推薦你'
+                                        text: '今日推薦給你(✿╹◡╹)'
                                     },
                                     {
                                         "type": "image",

@@ -4561,7 +4561,7 @@ bot.on('message',function(event) {
                     ]
                 }
             });
-        }else if (event.message.text == '新增'){
+        }else if (event.message.text == '新增清單'){
             return event.reply([
                 {
                     type: 'text', 
@@ -4576,7 +4576,7 @@ bot.on('message',function(event) {
                     text: '提醒：「加入」及「書名」後面要記得空一格喔!'
                 }
             ]);
-        }else if (event.message.text == '刪除'){
+        }else if (event.message.text == '刪除清單'){
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
@@ -4603,7 +4603,7 @@ bot.on('message',function(event) {
                             return event.reply([
                                 {
                                     type: 'text', 
-                                    text: '請先打"刪除"，接著輸入預刪除清單的書名'
+                                    text: '請先打"刪除"，接著輸入欲刪除清單的書名'
                                 },
                                 {
                                     type: 'text', 
@@ -4649,6 +4649,56 @@ bot.on('message',function(event) {
                                     "text": "加入成功!快去看看吧~" + "(≧▽≦)"
                                 }
                             ]);
+                        }
+                        //關閉連線
+                        client.end();
+                    });
+                }
+            );
+        }else if (event.message.text.substring(0,2) == '刪除'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+                    var splits = event.message.text.split(" ");
+                    var title = splits[1];
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    //console.log(title+content);
+                    client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
+                        if(err){
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
+                                }
+                            ]);
+                        }else{
+                            client.query("delete from booklist where userid = $1 AND title = $2",[userId,title], (err, results) =>{
+                                if(err){
+                                    console.log('清單刪除失敗');
+                                    return event.reply([
+                                        {
+                                            "type": "text",
+                                            "text": "刪除失敗了~檢查看看有沒有錯字喔!" + "(◞‸◟)"
+                                        }
+                                    ]);
+                                }else{
+                                    console.log('清單刪除成功'+title);
+                                    return event.reply([
+                                        {
+                                            "type": "text",
+                                            "text": "成功刪掉了啦啦啦~" + "(≧▽≦)"
+                                        }
+                                    ]);
+                                }
+                            });
                         }
                         //關閉連線
                         client.end();

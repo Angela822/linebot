@@ -4672,7 +4672,7 @@ bot.on('message',function(event) {
                     client.connect();
                     //console.log(title+content);
                     client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
-                        if(err){
+                        if(err ||　results.rows.length==0){
                             return event.reply([
                                 {
                                     "type": "text",

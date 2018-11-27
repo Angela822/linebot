@@ -4593,7 +4593,24 @@ bot.on('message',function(event) {
                     })
                     
                     client.connect();
-                    console.log("!!!!!我的id!!!"+userId+" "+title+content);
+                    //console.log(title+content);
+                    client.query("insert into booklist(userid,title,content)values($1,$2,$3)",[userId,title,content], (err, results) =>{
+                        if(err){
+                            console.log('清單新增失敗'+title);
+                        }else{
+                            console.log('清單新增成功'+title);
+                        }
+
+                        //關閉連線
+                        client.end();
+
+                        return event.reply([
+                            {
+                                "type": "text",
+                                "text": "知道了！你放心，我記住了" + "(≧▽≦)"
+                            }
+                        ]);
+                    });
                 }
             );
         }else{

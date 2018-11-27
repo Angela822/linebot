@@ -4599,17 +4599,16 @@ bot.on('message',function(event) {
                             console.log('清單新增失敗'+title);
                         }else{
                             console.log('清單新增成功'+title);
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "加入成功!快去看看吧~" + "(≧▽≦)"
+                                }
+                            ]);
                         }
 
                         //關閉連線
                         client.end();
-
-                        return event.reply([
-                            {
-                                "type": "text",
-                                "text": "加入成功!快去看看吧~" + "(≧▽≦)"
-                            }
-                        ]);
                     });
                 }
             );

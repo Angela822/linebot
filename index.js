@@ -4730,9 +4730,7 @@ bot.on('message',function(event) {
                         }else{                      
                             var array=[];   
                             
-                            for(var i = 0;i<results.rows.length;i++){                                  
-                                //var title = results.rows[i].title;
-                                //var content = results.rows[i].content;      
+                            for(var i = 0;i<results.rows.length;i++){         
                                 array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
                             }
                             return event.reply([
@@ -4742,6 +4740,40 @@ bot.on('message',function(event) {
                                 }
                             ]);
                         }
+                        //關閉連線
+                        client.end();
+                    });
+                }
+            );
+        }else if (event.message.text== '抽籤'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    //console.log(title+content);
+                    client.query("select userid from booklist where userid!=$1 order by random() LIMIT 1",[userId], (err, results) =>{
+                        var randomuser = results.rows[0].userid;
+                    });
+                    client.query("select * from booklist where userid= $1 AND userid!=$2 order by serno",[randomuser,userId], (err, results) =>{
+                        var array=[];   
+                            
+                        for(var i = 0;i<results.rows.length;i++){         
+                            array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
+                        }
+                        return event.reply([
+                            {
+                                "type": "text",
+                                "text": "我的書本清單"+array
+                            }
+                        ]);
                         //關閉連線
                         client.end();
                     });

@@ -4728,14 +4728,17 @@ bot.on('message',function(event) {
                                 }
                             ]);
                         }else{
-                            var title = results.rows[0].title;
-                            var content = results.rows[0].content;
-                            return event.reply([
-                                {
-                                    "type": "text",
-                                    "text": "＊"+title+"  "+content
-                                }
-                            ]);
+                            var title = results.rows[i].title;
+                            var content = results.rows[i].content;
+                            
+                            for(var i = 0;i<=results.rows.length;i++){                                
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "＊"+title+"  "+content
+                                    }
+                                ]);
+                            }
                         }
                         //關閉連線
                         client.end();

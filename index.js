@@ -4731,13 +4731,13 @@ bot.on('message',function(event) {
                             for(var i = 0;i<=results.rows.length;i++){                                  
                             var title = results.rows[i].title;
                             var content = results.rows[i].content;                              
-                                return event.reply([
+                                event.reply([
                                     {
                                         "type": "text",
                                         "text": "＊"+title+"  "+content
                                     }
-                                ]);
-                            }
+                                ]);                                
+                            }return event.reply();
                         }
                         //關閉連線
                         client.end();

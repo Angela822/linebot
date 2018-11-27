@@ -4682,7 +4682,7 @@ bot.on('message',function(event) {
                         }else{
                             client.query("delete from booklist where userid = $1 AND title = $2",[userId,title], (err, results) =>{
                                 if(err){
-                                    console.log('清單刪除失敗');
+                                    console.log('清單刪除失敗'+title);
                                     return event.reply([
                                         {
                                             "type": "text",

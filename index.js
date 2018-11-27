@@ -4582,7 +4582,7 @@ bot.on('message',function(event) {
                     //取得使用者資料及傳回文字
                     var userId = profile.userId;
                     var userName = profile.displayName;		
-                    var splits = myString.split(" ");
+                    var splits = event.message.text.split(" ");
                     var title = splits[1];
                     var content = splits[2];
         

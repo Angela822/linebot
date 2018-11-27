@@ -4727,17 +4727,19 @@ bot.on('message',function(event) {
                                     "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
                                 }
                             ]);
-                        }else{                            
-                            for(var i = 0;i<=results.rows.length;i++){                                  
-                            var title = results.rows[i].title;
-                            var content = results.rows[i].content;                              
-                                event.reply([
-                                    {
-                                        "type": "text",
-                                        "text": "＊"+title+"  "+content
-                                    }
-                                ]);                                
-                            }return event.reply();
+                        }else{   
+                            var i = 0;                         
+                            while(i<=results.rows.length+1){                                  
+                                var title = results.rows[i].title;
+                                var content = results.rows[i].content;                              
+                                    return event.reply([
+                                        {
+                                            "type": "text",
+                                            "text": "＊"+title+"  "+content
+                                        }
+                                    ]);
+                                i++;
+                            }
                         }
                         //關閉連線
                         client.end();

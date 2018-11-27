@@ -4733,7 +4733,7 @@ bot.on('message',function(event) {
                             for(var i = 0;i<results.rows.length;i++){                                  
                                 //var title = results.rows[i].title;
                                 //var content = results.rows[i].content;      
-                                array[i]= results.rows[i].title + " " + results.rows[i].content;
+                                array[i]= +results.rows[i].title + "  " + results.rows[i].content+'\n';
                             }
                             return event.reply([
                                 {

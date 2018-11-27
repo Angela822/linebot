@@ -4576,6 +4576,26 @@ bot.on('message',function(event) {
                     text: '提醒：「書名」後面要記得空一格喔!'
                 }
             ]);
+        }else if (event.message.text.substring(0,2) == '加入'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+                    var userName = profile.displayName;		
+                    var splits = myString.split(" ");
+                    var title = splits[1];
+                    var content = splits[2];
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    console.log(userId+" "+title);
+                }
+            );
         }else{
             return event.reply({
                 "type": 'template', 

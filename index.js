@@ -4607,7 +4607,7 @@ bot.on('message',function(event) {
                         return event.reply([
                             {
                                 "type": "text",
-                                "text": "知道了！你放心，我記住了" + "(≧▽≦)"
+                                "text": "加入成功!快去看看吧~" + "(≧▽≦)"
                             }
                         ]);
                     });

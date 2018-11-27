@@ -4540,18 +4540,18 @@ bot.on('message',function(event) {
                     "actions": [
                         {
                             "type": "message",
-                            "label": "新增",
-                            "text": "新增"
+                            "label": "新增清單",
+                            "text": "新增清單"
                         },
                         {
                             "type": "message",
-                            "label": "刪除",
-                            "text": "刪除"
+                            "label": "刪除清單",
+                            "text": "刪除清單"
                         },
                         {
                             "type": "message",
-                            "label": "檢視",
-                            "text": "檢視"
+                            "label": "檢視清單",
+                            "text": "檢視清單"
                         },
                         {
                             "type": "message",
@@ -4590,7 +4590,7 @@ bot.on('message',function(event) {
                     client.connect();
                     
                     client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
-                        if(err){
+                        if(err　||　results.rows.length){
                             console.log('這人沒有清單可以刪');
                             return event.reply([
                                 {

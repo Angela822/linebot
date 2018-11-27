@@ -4730,9 +4730,9 @@ bot.on('message',function(event) {
                         }else{                      
                             var array=[];     
                             for(var i = 0;i<=results.rows.length;i++){                                  
-                                var title = results.rows[i].title;
+                                //var title = results.rows[i].title;
                                 //var content = results.rows[i].content;      
-                                array[i]= title;     
+                                array[i]= results.rows[i].title;
                             }
                             return event.reply([
                                 {

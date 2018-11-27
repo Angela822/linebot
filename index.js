@@ -4732,14 +4732,14 @@ bot.on('message',function(event) {
                             for(var i = 0;i<=results.rows.length;i++){                                  
                                 var title = results.rows[i].title;
                                 //var content = results.rows[i].content;      
-                                array[i]= title;        
-                                    return event.reply([
-                                        {
-                                            "type": "text",
-                                            "text": "＊"+array
-                                        }
-                                    ]);
+                                array[i]= title;     
                             }
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "＊"+array
+                                }
+                            ]);
                         }
                         //關閉連線
                         client.end();

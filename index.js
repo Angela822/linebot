@@ -4683,7 +4683,7 @@ bot.on('message',function(event) {
                             client.connect();
                             client.query("DELETE FROM booklist WHERE title = $1 AND userid = $2",[title,userId], (err, results) =>{
                                 if(err){
-                                    console.log(err);
+                                    console.log(Error);
                                     return event.reply([
                                         {
                                             "type": "text",

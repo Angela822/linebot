@@ -4593,7 +4593,7 @@ bot.on('message',function(event) {
                     })
                     
                     client.connect();
-                    console.log("!!!!!我的id!!!"+userId+" "+title);
+                    console.log("!!!!!我的id!!!"+userId+" "+title+content);
                 }
             );
         }else{

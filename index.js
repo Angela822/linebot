@@ -4590,7 +4590,7 @@ bot.on('message',function(event) {
                     client.connect();
                     
                     client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
-                        if(err　||　results.rows.length){
+                        if(err　||　results.rows.length==0){
                             console.log('這人沒有清單可以刪');
                             return event.reply([
                                 {

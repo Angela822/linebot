@@ -4569,13 +4569,57 @@ bot.on('message',function(event) {
                 },
                 {
                     type: 'text', 
-                    text: '「加入哈利波特 魔法的世界給予我們無限的想像」'
+                    text: '「加入 哈利波特 魔法的世界給予我們無限的想像」'
                 },
                 {
                     type: 'text', 
-                    text: '提醒：「書名」後面要記得空一格喔!'
+                    text: '提醒：「加入」及「書名」後面要記得空一格喔!'
                 }
             ]);
+        }else if (event.message.text == '刪除'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    client.connect();
+                    
+                    client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
+                        if(err){
+                            console.log('這人沒有清單可以刪');
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
+                                }
+                            ]);
+                        }else{
+                            console.log('可以刪!');
+                            return event.reply([
+                                {
+                                    type: 'text', 
+                                    text: '請先打"刪除"，接著輸入預刪除清單的書名'
+                                },
+                                {
+                                    type: 'text', 
+                                    text: '「刪除 哈利波特」'
+                                },
+                                {
+                                    type: 'text', 
+                                    text: '提醒：「刪除」後面要記得空一格喔!'
+                                }
+                            ]);
+                        }
+                        //關閉連線
+                        client.end();
+                    });
+                }
+            );
         }else if (event.message.text.substring(0,2) == '加入'){
             event.source.profile().then(
                 function (profile) {	
@@ -4606,7 +4650,6 @@ bot.on('message',function(event) {
                                 }
                             ]);
                         }
-
                         //關閉連線
                         client.end();
                     });

@@ -4705,6 +4705,43 @@ bot.on('message',function(event) {
                     });
                 }
             );
+        }else if (event.message.text== '檢視清單'){
+            event.source.profile().then(
+                function (profile) {	
+                    //取得使用者資料及傳回文字
+                    var userId = profile.userId;
+        
+                    //建立資料庫連線           
+                    var client = new Client({
+                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                        ssl: true,
+                    })
+                    
+                    client.connect();
+                    //console.log(title+content);
+                    client.query("select * from booklist where userid = $1 order by serno",[userId], (err, results) =>{
+                        if(err ||　results.rows.length==0){
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
+                                }
+                            ]);
+                        }else{
+                            var title = results.rows[0].title;
+                            var content = results.rows[0].content;
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "＊"+title+"  "+content
+                                }
+                            ]);
+                        }
+                        //關閉連線
+                        client.end();
+                    });
+                }
+            );
         }else{
             return event.reply({
                 "type": 'template', 

@@ -4738,7 +4738,7 @@ bot.on('message',function(event) {
                             return event.reply([
                                 {
                                     "type": "text",
-                                    "text": array
+                                    "text": +array
                                 }
                             ]);
                         }

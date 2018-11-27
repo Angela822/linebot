@@ -4729,9 +4729,12 @@ bot.on('message',function(event) {
                             ]);
                         }else{                      
                             var array=[];   
-
-                            array[0]=results.rows[0].title;
-                            array[1]=results.rows[1].title;
+                            
+                            for(var i = 0;i<=results.rows.length;i++){                                  
+                                //var title = results.rows[i].title;
+                                //var content = results.rows[i].content;      
+                                array[i]= results.rows[i].title;
+                            }
                             return event.reply([
                                 {
                                     "type": "text",

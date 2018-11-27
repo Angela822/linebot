@@ -4729,7 +4729,7 @@ bot.on('message',function(event) {
                             ]);
                         }else{   
                             var i = 0;                         
-                            while(i<=results.rows.length+1){                                  
+                            while(i<=results.rows.length){                                  
                                 var title = results.rows[i].title;
                                 var content = results.rows[i].content;                              
                                     return event.reply([

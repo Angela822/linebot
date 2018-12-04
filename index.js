@@ -4733,10 +4733,10 @@ bot.on('message',function(event) {
                             for(var i = 0;i<results.rows.length;i++){      
                                 var contentnull = results.rows[i].content;
                                 if(contentnull != null){
-                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n    " + contentnull;
+                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
                                 }else{
                                     contentnull = '沒有註解喔~~';
-                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n    " + contentnull;
+                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
                                 }                                
                             }
                             return event.reply([
@@ -4782,16 +4782,16 @@ bot.on('message',function(event) {
                                 for(var i = 0;i<results.rows.length;i++){      
                                     var contentnull = results.rows[i].content;
                                     if(contentnull != null){
-                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n    " + contentnull;                                 
+                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;                                 
                                     }else{
                                         contentnull = '沒有註解喔~~';                                        
-                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n    " + contentnull; 
+                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull; 
                                     }                                
                                 }
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "恭喜你抽到了!!!\n<"+username+"的書本清單"+array+">"
+                                        "text": "恭喜你抽到了!!!\n<"+username+"的書本清單"+">"+array
                                     }
                                 ]);
                             }

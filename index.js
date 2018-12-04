@@ -4733,7 +4733,7 @@ bot.on('message',function(event) {
                             for(var i = 0;i<results.rows.length;i++){      
                                 var contentnull = results.rows[i].content;                                    
                                 var boolean = results.rows[i].delete;
-                                if(boolean == FALSE){
+                                if(boolean == 'FALSE'){
                                     console.log("刪過了嗎"+boolean);                                
                                 }else if(contentnull != null){
                                     array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
@@ -4785,7 +4785,7 @@ bot.on('message',function(event) {
                                 for(var i = 0;i<results.rows.length;i++){      
                                     var contentnull = results.rows[i].content;                                    
                                     var boolean = results.rows[i].delete;
-                                    if(boolean == FALSE){
+                                    if(boolean == 'FALSE'){
                                         console.log("刪過了嗎"+boolean);                                
                                     }else if(contentnull != null){
                                         array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;

@@ -149,11 +149,6 @@ client.query("select userid from users", (err, results) =>{
     client.end();
     
 });
-/*allKnownUsers=["U7a99de34b530b81b9de8a83be619aad3",
-"U123d3f5ae0d8fa83e494effe5e103dbd",
-"Ua7b0c9180a6594fee04f5bf27a1046b0",
-"Ueda05a37850a28b09cf8692f2b0c203d"
-];*/
 
 bot.on('message',function(event) {           
     if (event.message.type == 'text'){ 

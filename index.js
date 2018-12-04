@@ -4765,8 +4765,9 @@ bot.on('message',function(event) {
                     
                     client.connect();
                     //console.log(title+content);
-                    client.query("select userid from booklist where userid!=$1 order by random() LIMIT 1",[userId], (err, results) =>{
+                    client.query("select * from booklist a, users b where a.userid = b.userid AND a.userid != $1 order by random() LIMIT 1",[userId], (err, results) =>{
                         var randomuser = results.rows[0].userid;
+                        var username = results.rows[0].username;
                         client.query("select * from booklist where userid= $1 order by serno",[randomuser], (err, results) =>{
                             if(err ||　results.rows.length==0){
                                 return event.reply([
@@ -4790,7 +4791,7 @@ bot.on('message',function(event) {
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "<"+randomuser+"的書本清單"+array+">"
+                                        "text": "恭喜你抽到了!!!\n<"+username+"的書本清單"+array+">"
                                     }
                                 ]);
                             }

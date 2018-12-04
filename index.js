@@ -4671,7 +4671,7 @@ bot.on('message',function(event) {
                     
                     client.connect();
 
-                    client.query("select * from booklist where userid = $1",[userId] ,(err, results) =>{
+                    /*client.query("select * from booklist where userid = $1",[userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
                                 return event.reply([
                                     {
@@ -4704,8 +4704,8 @@ bot.on('message',function(event) {
                         }
                     }); 
                     //關閉連線
-                    client.end();
-                    /*client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
+                    client.end();*/
+                    client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
                         if(err ||　results.rows.length==0){
                             return event.reply([
                                 {
@@ -4732,13 +4732,14 @@ bot.on('message',function(event) {
                                         }
                                     ]);
                                 }
+                                //關閉連線
+                                client.end();
                             });
-                            //關閉連線
-                            client.end();
+                            
                         }
-                        //關閉連線
-                        client.end();
-                    });*/
+                        //關閉連線   
+                        client.end();                     
+                    });
                 }
             );
         }else if (event.message.text== '檢視清單'){

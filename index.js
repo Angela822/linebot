@@ -4791,7 +4791,7 @@ bot.on('message',function(event) {
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "恭喜你抽到了!!!\n<"+username+"的書本清單"+">"+array
+                                        "text": "恭喜你抽到了!!!ヽ(✿ﾟ▽ﾟ)ノ\n<"+username+"的書本清單"+">"+array
                                     }
                                 ]);
                             }

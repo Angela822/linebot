@@ -4731,14 +4731,12 @@ bot.on('message',function(event) {
                                             "text": "成功刪掉了啦啦啦~" + "(≧▽≦)"
                                         }
                                     ]);
-                                }
+                                }                                
                                 //關閉連線
                                 client.end();
                             });
                             
-                        }
-                        //關閉連線   
-                        client.end();                     
+                        }                
                     });
                 }
             );

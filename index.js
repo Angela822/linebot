@@ -4733,16 +4733,16 @@ bot.on('message',function(event) {
                             for(var i = 0;i<results.rows.length;i++){      
                                 var contentnull = results.rows[i].content;
                                 if(contentnull != null){
-                                   array[i]= "\n●"+results.rows[i].title + "  " + contentnull;
+                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n" + contentnull;
                                 }else{
                                     contentnull = '沒有註解喔~~';
-                                    array[i]= "\n●"+results.rows[i].title + "  " + contentnull;
+                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n" + contentnull;
                                 }                                
                             }
                             return event.reply([
                                 {
                                     "type": "text",
-                                    "text": "我的書本清單"+array
+                                    "text": "<我的書本清單>"+array
                                 }
                             ]);
                         }
@@ -4781,16 +4781,16 @@ bot.on('message',function(event) {
                                 for(var i = 0;i<results.rows.length;i++){      
                                     var contentnull = results.rows[i].content;
                                     if(contentnull != null){
-                                       array[i]= "\n●"+results.rows[i].title + "  " + contentnull;                                        
+                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n" + contentnull;                                   
                                     }else{
                                         contentnull = '沒有註解喔~~';                                        
-                                        array[i]= "\n●"+results.rows[i].title + "  " + contentnull;
+                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n" + contentnull;   
                                     }                                
                                 }
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "我的書本清單"+array
+                                        "text": "<"+randomuser+"的書本清單"+array+">"
                                     }
                                 ]);
                             }

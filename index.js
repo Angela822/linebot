@@ -4683,6 +4683,7 @@ bot.on('message',function(event) {
                             client.query("UPDATE booklist SET delete=TRUE WHERE userid=$1 AND title=$2 ;",[userId,title], (err, results) =>{
                                 if(err){
                                     console.log("!!!!!!!!!!!!!!!!"+err);
+                                    console.log("results  "+results);
                                     return event.reply([
                                         {
                                             "type": "text",

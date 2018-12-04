@@ -4680,7 +4680,7 @@ bot.on('message',function(event) {
                                 }
                             ]);
                         }else{
-                            client.query("DELETE FROM booklist WHERE title = $1 AND userid = $2",[title,userId], (err, results) =>{
+                            client.query("UPDATE booklist SET delete=TRUE WHERE userid=$1 AND title=$2 ;",[userId,title], (err, results) =>{
                                 if(err){
                                     console.log("!!!!!!!!!!!!!!!!"+err);
                                     return event.reply([

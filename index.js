@@ -4732,11 +4732,9 @@ bot.on('message',function(event) {
                             
                             for(var i = 0;i<results.rows.length;i++){      
                                 if(results.rows[i].content == ''){
-                                    var content = '沒有註解喔~~';
-                                }else{
-                                    var content = results.rows[i].content;
+                                    results.rows[i].content = '沒有註解喔~~';
                                 }   
-                                array[i]= "\n＊"+results.rows[i].title + "  " + content;
+                                array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
                             }
                             return event.reply([
                                 {

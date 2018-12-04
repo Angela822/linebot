@@ -4734,6 +4734,7 @@ bot.on('message',function(event) {
                                 var c = results.rows[i].content;
                                 if(c == ''){
                                     c = '沒有註解喔~~';
+                                    console.log('進來了?'+c);
                                 }   
                                 array[i]= "\n＊"+results.rows[i].title + "  " + c;
                             }

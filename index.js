@@ -4783,11 +4783,9 @@ bot.on('message',function(event) {
                                 for(var i = 0;i<results.rows.length;i++){      
                                     var contentnull = results.rows[i].content;
                                     if(contentnull != null){
-                                       array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
-                                        console.log('進來');
+                                       array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;                                        
                                     }else{
-                                        contentnull = '沒有註解喔~~';
-                                        console.log('進來了?'+c);
+                                        contentnull = '沒有註解喔~~';                                        
                                         array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
                                     }                                
                                 }

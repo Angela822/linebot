@@ -4670,29 +4670,41 @@ bot.on('message',function(event) {
                     })
                     
                     client.connect();
-                    
-                    client.query("UPDATE booklist SET delete=TRUE WHERE userid=$1 AND title=$2 ;",[userId,title], (err, results) =>{
-                        if(err){
-                            console.log("!!!!!!!!!!!!!!!!"+err);
-                            return event.reply([
-                                {
-                                    "type": "text",
-                                    "text": "刪除失敗了~檢查看看有沒有錯字喔!" + "(◞‸◟)"
-                                }
-                            ]);
+
+                    client.query("select * from booklist where userid = $1",[userId] ,(err, results) =>{
+                        if(err || results.rows.length==0){
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
+                                    }
+                                ]);
                         }else{
-                            console.log('清單刪除成功'+title);
-                            return event.reply([
-                                {
-                                    "type": "text",
-                                    "text": "成功刪掉了啦啦啦~" + "(≧▽≦)"
+                            client.query("update booklist SET delete=TRUE WHERE userid=$1 AND title=$2 ;",[userId,title], (err, results) =>{
+                                if(err){
+                                    console.log("!!!!!!!!!!!!!!!!"+err);
+                                    return event.reply([
+                                        {
+                                            "type": "text",
+                                            "text": "刪除失敗了~檢查看看有沒有錯字喔!" + "(◞‸◟)"
+                                        }
+                                    ]);
+                                }else{
+                                    console.log('清單刪除成功'+title);
+                                    return event.reply([
+                                        {
+                                            "type": "text",
+                                            "text": "成功刪掉了啦啦啦~" + "(≧▽≦)"
+                                        }
+                                    ]);
                                 }
-                            ]);
+                            });
+                            //關閉連線
+                            client.end();
                         }
-                    });
+                    }); 
                     //關閉連線
                     client.end();
-                    //console.log(title+content);
                     /*client.query("select * from booklist where userid = $1",[userId], (err, results) =>{
                         if(err ||　results.rows.length==0){
                             return event.reply([

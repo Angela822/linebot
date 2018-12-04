@@ -4761,18 +4761,27 @@ bot.on('message',function(event) {
                     //console.log(title+content);
                     client.query("select userid from booklist where userid!=$1 order by random() LIMIT 1",[userId], (err, results) =>{
                         var randomuser = results.rows[0].userid;
-                        client.query("select * from booklist where userid= $1 order by serno",[randomuser,userId], (err, results) =>{
-                            var array=[];   
+                        client.query("select * from booklist where userid= $1 order by serno",[randomuser], (err, results) =>{
+                            if(err ||　results.rows.length==0){
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "你還沒有新增過清單喔~" + "(ﾉ∀`*)"
+                                    }
+                                ]);
+                            }else{                      
+                                var array=[];   
                                 
-                            for(var i = 0;i<results.rows.length;i++){         
-                                array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
-                            }
-                            return event.reply([
-                                {
-                                    "type": "text",
-                                    "text": "我的書本清單"+array
+                                for(var i = 0;i<results.rows.length;i++){         
+                                    array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
                                 }
-                            ]);
+                                return event.reply([
+                                    {
+                                        "type": "text",
+                                        "text": "我的書本清單"+array
+                                    }
+                                ]);
+                            }
                             //關閉連線
                             client.end();
                         });

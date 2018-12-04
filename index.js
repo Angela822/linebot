@@ -4736,8 +4736,9 @@ bot.on('message',function(event) {
                                    array[i]= "\n＊"+results.rows[i].title + "  " + c;
                                     console.log('進來');
                                 }else{
-                                     c = '沒有註解喔~~';
+                                    c = '沒有註解喔~~';
                                     console.log('進來了?'+c);
+                                    array[i]= "\n＊"+results.rows[i].title + "  " + c;
                                 }                                
                             }
                             return event.reply([

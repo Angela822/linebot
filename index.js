@@ -4731,12 +4731,15 @@ bot.on('message',function(event) {
                             var array=[];   
                             
                             for(var i = 0;i<results.rows.length;i++){      
-                                var contentnull = results.rows[i].content;
-                                if(contentnull != null){
+                                var contentnull = results.rows[i].content;                                    
+                                var boolean = results.rows[i].delete;
+                                if(boolean == FALSE){
+                                    console.log("刪過了嗎"+boolean);                                
+                                }else if(contentnull != null){
                                     array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
                                 }else{
-                                    contentnull = '沒有註解喔~~';
-                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
+                                    contentnull = '沒有註解喔~~';                                        
+                                    array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull; 
                                 }                                
                             }
                             return event.reply([
@@ -4780,9 +4783,12 @@ bot.on('message',function(event) {
                                 var array=[];   
                                 
                                 for(var i = 0;i<results.rows.length;i++){      
-                                    var contentnull = results.rows[i].content;
-                                    if(contentnull != null){
-                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;                                 
+                                    var contentnull = results.rows[i].content;                                    
+                                    var boolean = results.rows[i].delete;
+                                    if(boolean == FALSE){
+                                        console.log("刪過了嗎"+boolean);                                
+                                    }else if(contentnull != null){
+                                        array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull;
                                     }else{
                                         contentnull = '沒有註解喔~~';                                        
                                         array[i]= "\n●"+ "《" +results.rows[i].title + "》  \n      " + contentnull; 
@@ -4791,7 +4797,7 @@ bot.on('message',function(event) {
                                 return event.reply([
                                     {
                                         "type": "text",
-                                        "text": "恭喜你抽到了!!!\(　˙▿˙ )/\n<"+username+"的書本清單"+">"+array
+                                        "text": "恭喜你抽到了!!!٩(ˊᗜˋ*)و\n<"+username+"的書本清單"+">"+array
                                     }
                                 ]);
                             }

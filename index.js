@@ -4732,11 +4732,12 @@ bot.on('message',function(event) {
                             
                             for(var i = 0;i<results.rows.length;i++){      
                                 var c = results.rows[i].content;
-                                if(c == ' '){
+                                if(c == ''){
                                     c = '沒有註解喔~~';
                                     console.log('進來了?'+c);
                                 }   
                                 array[i]= "\n＊"+results.rows[i].title + "  " + c;
+                                console.log('進來');
                             }
                             return event.reply([
                                 {

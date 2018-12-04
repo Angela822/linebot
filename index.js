@@ -4731,7 +4731,7 @@ bot.on('message',function(event) {
                             var array=[];   
                             
                             for(var i = 0;i<results.rows.length;i++){      
-                                if(results.rows[i].content == 'null'){
+                                if(results.rows[i].content == null){
                                     results.rows[i].content == '沒有註解喔~~'
                                 }   
                                 array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;

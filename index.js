@@ -4732,7 +4732,7 @@ bot.on('message',function(event) {
                             
                             for(var i = 0;i<results.rows.length;i++){      
                                 var c = results.rows[i].content;
-                                if(c != ''){
+                                if(c != null){
                                    array[i]= "\n＊"+results.rows[i].title + "  " + c;
                                     console.log('進來');
                                 }else{

@@ -4731,14 +4731,14 @@ bot.on('message',function(event) {
                             var array=[];   
                             
                             for(var i = 0;i<results.rows.length;i++){      
-                                var c = results.rows[i].content;
-                                if(c != null){
-                                   array[i]= "\n＊"+results.rows[i].title + "  " + c;
+                                var contentnull = results.rows[i].content;
+                                if(contentnull != null){
+                                   array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
                                     console.log('進來');
                                 }else{
-                                    c = '沒有註解喔~~';
+                                    contentnull = '沒有註解喔~~';
                                     console.log('進來了?'+c);
-                                    array[i]= "\n＊"+results.rows[i].title + "  " + c;
+                                    array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
                                 }                                
                             }
                             return event.reply([
@@ -4780,8 +4780,16 @@ bot.on('message',function(event) {
                             }else{                      
                                 var array=[];   
                                 
-                                for(var i = 0;i<results.rows.length;i++){         
-                                    array[i]= "\n＊"+results.rows[i].title + "  " + results.rows[i].content;
+                                for(var i = 0;i<results.rows.length;i++){      
+                                    var contentnull = results.rows[i].content;
+                                    if(contentnull != null){
+                                       array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
+                                        console.log('進來');
+                                    }else{
+                                        contentnull = '沒有註解喔~~';
+                                        console.log('進來了?'+c);
+                                        array[i]= "\n＊"+results.rows[i].title + "  " + contentnull;
+                                    }                                
                                 }
                                 return event.reply([
                                     {

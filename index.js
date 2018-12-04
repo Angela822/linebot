@@ -15,10 +15,10 @@ var bot = linebot({
     channelAccessToken: 'g93gFjGS2nxtZtwdGYwFg2Sd+i7eO7C1imlK96heyVGV76dLwRPXO1qseNi4R7poSpv3P1KnNsQle4MStyTrTgd8O2eGK+6yUnJkTELfeQPp1y9hj/MB+S03z99VpKL3IO8JUbuS2G7jRwJ8WqmKSgdB04t89/1O/w1cDnyilFU='
   });
 
-  //-----------------------------------------
-  // 處理event.postback，喜歡/不喜歡button的資訊收集
-  //-----------------------------------------
-  bot.on('postback', function(event) { 
+//-----------------------------------------
+// 處理event.postback，喜歡/不喜歡button的資訊收集
+//-----------------------------------------
+bot.on('postback', function(event) { 
         var type = event.postback.data.substring(3); //type
         var userId = event.source.userId;
   
@@ -128,28 +128,27 @@ var bot = linebot({
 });
 
 //--------------------------
-// 處理event.message
+// 撈userid--推播功能使用
 //--------------------------
 //建立資料庫連線           
 var client = new Client({
     connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
     ssl: true,
 })
-
 client.connect();
 //console.log(title+content);
 var allKnownUsers=[];
-client.query("select userid from users", (err, results) =>{
-                                
+client.query("select userid from users", (err, results) =>{                    
     for(var i = 0;i<results.rows.length;i++){
         allKnownUsers[i]=results.rows[i].userid;                               
     }    
-    console.log(allKnownUsers);
     //關閉連線
     client.end();
-    
 });
 
+//--------------------------
+// 處理event.message
+//--------------------------
 bot.on('message',function(event) {           
     if (event.message.type == 'text'){ 
         //-------------主選單-----------------    
@@ -4486,62 +4485,49 @@ bot.on('message',function(event) {
             );	
         //--------------------------------------------        
         }else if (event.message.text.substring(0,4) == '書本推播'){
-            event.source.profile().then(
-                function (profile) {
-                    //取得使用者資料及傳回文字
-                    var userId = profile.userId;
-                    var userName = profile.displayName;
+            //建立資料庫連線           
+            var client = new Client({
+                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                ssl: true,
+            })  
+            client.connect();
+            client.query("select * from book ORDER BY RANDOM()", (err, results) => {
+                //回覆查詢結果
+                if (err || results.rows.length==0){
+                    econsole.log(results + 'push失敗');
+                }else{						
+                    var bookname=results.rows[0].bookname;
+                    var content=results.rows[0].content;
+                    var bookno=results.rows[0].bookno;
+                    var type=results.rows[0].type;
 
-                    //建立資料庫連線           
-                    var client = new Client({
-                        connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                        ssl: true,
-                    })
-                    
-                    client.connect();
-
-                    client.query("select * from book ORDER BY RANDOM()", (err, results) => {
-                        //回覆查詢結果
-                        if (err || results.rows.length==0){
-                            econsole.log(results + 'push失敗');
-                        }else{						
-                            var bookname=results.rows[0].bookname;
-                            var content=results.rows[0].content;
-                            var bookno=results.rows[0].bookno;
-                            var type=results.rows[0].type;
-                            console.log(bookno);
-
-                            return bot.push(
-                                allKnownUsers,
-                                [
-                                    {
-                                        type: 'text', 
-                                        text: '今日推薦給你(✿╹◡╹)'
-                                    },
-                                    {
-                                        "type": "image",
-                                        //(這裡圖片檔的名稱不能是中文)
-                                        "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg",
-                                        "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg"
-                                    },
-                                    {
-                                        type: 'text', 
-                                        text: '類別：' + type
-                                    },
-                                    {
-                                        type: 'text', 
-                                        text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
-                                    }
-                                ]
-                            );  
-                        }
-                        //關閉連線
-                        client.end();
-
-                    });    
-                    	
+                    return bot.push(
+                        allKnownUsers,
+                        [
+                            {
+                                type: 'text', 
+                                text: '今日推薦給你(✿╹◡╹)'
+                            },
+                            {
+                                "type": "image",
+                                //(這裡圖片檔的名稱不能是中文)
+                                "originalContentUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg",
+                                "previewImageUrl":"https://linebot-takebook.herokuapp.com/imgs/" + bookno + ".jpg"
+                            },
+                            {
+                                type: 'text', 
+                                text: '類別：' + type
+                            },
+                            {
+                                type: 'text', 
+                                text: '書名：<<' + bookname + '>>' +'\n'+'\n'+ '內容簡介：' +'\n' + content
+                            }
+                        ]
+                    );  
                 }
-            );   	
+                //關閉連線
+                client.end();
+            });     	
         //--------------------------------------------        
         }else if (event.message.text == '書本清單'){
             return event.reply({
@@ -4638,8 +4624,7 @@ bot.on('message',function(event) {
             event.source.profile().then(
                 function (profile) {	
                     //取得使用者資料及傳回文字
-                    var userId = profile.userId;
-                    var userName = profile.displayName;		
+                    var userId = profile.userId;	
                     var splits = event.message.text.split(" ");
                     var title = splits[1];
                     var content = splits[2];
@@ -4660,7 +4645,7 @@ bot.on('message',function(event) {
                             return event.reply([
                                 {
                                     "type": "text",
-                                    "text": "加入成功!快去看看吧~" + "(≧▽≦)"
+                                    "text": "加入成功！'快去檢視清單'看看吧~" + "(≧▽≦)"
                                 }
                             ]);
                         }
@@ -4695,11 +4680,10 @@ bot.on('message',function(event) {
                         }else{
                             client.query("UPDATE booklist SET delete=TRUE WHERE userid=$1 AND title=$2 ;",[userId,title], (err, results) =>{
                                 if(err){
-                                    console.log("!!!!!!!!!!!!!!!!"+err);
                                     return event.reply([
                                         {
                                             "type": "text",
-                                            "text": "刪除失敗了~檢查看看有沒有錯字喔!" + "(◞‸◟)"
+                                            "text": "刪除失敗了~檢查看看有沒有錯字喔！" + "(◞‸◟)"
                                         }
                                     ]);
                                 }else{
@@ -4707,14 +4691,13 @@ bot.on('message',function(event) {
                                     return event.reply([
                                         {
                                             "type": "text",
-                                            "text": "成功刪掉了啦啦啦~" + "(≧▽≦)"
+                                            "text": "成功刪掉啦~" + "(≧▽≦)"
                                         }
                                     ]);
                                 }                                
                                 //關閉連線
                                 client.end();
-                            });
-                            
+                            });  
                         }                
                     });
                 }

@@ -424,7 +424,7 @@ bot.on('message',function(event) {
                                     console.log('新增DB成功'); 
 
                                     //篩選書籍給使用者
-                                    client.query("select * from book where typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
+                                    client.query("select * from book a,type b where a.typeno=b.typeno AND typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
                                         var bookname=results.rows[0].bookname;
                                         var booktype=results.rows[0].b.type; 
                                         var pic=results.rows[0].picture;

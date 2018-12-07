@@ -21,6 +21,15 @@ var bot = linebot({
 bot.on('follow', function (event){
     event.source.profile().then(
         function (profile) {
+
+            //建立資料庫連線           
+            var client = new Client({
+                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                ssl: true,
+            })
+            
+            client.connect();
+
             var userId = event.source.userId;
             userName = profile.displayName;
             client.query("INSERT INTO users(userid, username)VALUES ($1, $2)",[userId,userName] ,(err, results) =>{
@@ -29,6 +38,8 @@ bot.on('follow', function (event){
                 }else{
                     console.log('Gooooooooooooooooooooood');
                 }
+                //關閉連線
+                client.end();
             });
         }
     );

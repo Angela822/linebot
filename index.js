@@ -58,7 +58,6 @@ bot.on('postback', function(event) {
         case '商業':
         case '理財':
             typeno=1;
-            return typeno;
             break;
         case '心理勵志':
         case '心理':
@@ -69,7 +68,6 @@ bot.on('postback', function(event) {
         case '設計':
         case '藝術設計':
             typeno=6;
-            return typeno;
             break;
         case '親子教養':
         case '親子':
@@ -93,7 +91,7 @@ bot.on('postback', function(event) {
 
             //--------------like-----------------
             if(event.postback.data.substring(0,3) == '我喜歡'){
-                console.log(typeno+'!!!!!!!!!!!!!!!!!!!')
+                console.log(typeno+'!!!!!!!!!!!!!!!!!!!'+type)
                 client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typename = $1 AND a.userid = $2 ",[type,userId] ,(err, results) =>{
                     if(err || results.rows.length==0){
                         client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{
@@ -138,7 +136,7 @@ bot.on('postback', function(event) {
             //--------------------------------------------
             //-----------------dislike--------------------
             }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                console.log(typeno+'!!!!!!!!!!!!!!!!!!!')
+                console.log(typeno+'!!!!!!!!!!!!!!!!!!!'+type)
                 client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typename = $1 AND a.userid = $2 ",[type,userId] , (err, results) =>{
                     if(err || results.rows.length==0){
                         client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{

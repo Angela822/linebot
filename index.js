@@ -425,20 +425,20 @@ bot.on('message',function(event) {
 
                                     //篩選書籍給使用者
                                     client.query("select * from book a,type b where a.typeno=b.typeno AND typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
-                                        var bookname=results.rows[0].bookname;
+                                        var bookname=results.rows[0].a.bookname;
                                         var booktype=results.rows[0].b.type; 
-                                        var pic=results.rows[0].picture;
-                                        var bookno=results.rows[0].bookno;
+                                        var pic=results.rows[0].a.picture;
+                                        var bookno=results.rows[0].a.bookno;
 
-                                        var bookname2=results.rows[1].bookname;
+                                        var bookname2=results.rows[1].a.bookname;
                                         var booktype2=results.rows[1].b.type; 
-                                        var pic2=results.rows[1].picture;
-                                        var bookno2=results.rows[1].bookno;
+                                        var pic2=results.rows[1].a.picture;
+                                        var bookno2=results.rows[1].a.bookno;
 
-                                        var bookname3=results.rows[2].bookname;
+                                        var bookname3=results.rows[2].a.bookname;
                                         var booktype3=results.rows[2].b.type; 
-                                        var pic3=results.rows[2].picture;
-                                        var bookno3=results.rows[2].bookno;
+                                        var pic3=results.rows[2].a.picture;
+                                        var bookno3=results.rows[2].a.bookno;
 
 
                                         //回覆查詢結果
@@ -569,20 +569,20 @@ bot.on('message',function(event) {
 
                                     //篩選書籍給使用者
                                     client.query("select * from book a,type b where a.typeno=b.typeno AND typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
-                                        var bookname=results.rows[0].bookname;
+                                        var bookname=results.rows[0].a.bookname;
                                         var booktype=results.rows[0].b.type; 
-                                        var pic=results.rows[0].picture;
-                                        var bookno=results.rows[0].bookno;
+                                        var pic=results.rows[0].a.picture;
+                                        var bookno=results.rows[0].a.bookno;
 
-                                        var bookname2=results.rows[1].bookname;
+                                        var bookname2=results.rows[1].a.bookname;
                                         var booktype2=results.rows[1].b.type; 
-                                        var pic2=results.rows[1].picture;
-                                        var bookno2=results.rows[1].bookno;
+                                        var pic2=results.rows[1].a.picture;
+                                        var bookno2=results.rows[1].a.bookno;
 
-                                        var bookname3=results.rows[2].bookname;
+                                        var bookname3=results.rows[2].a.bookname;
                                         var booktype3=results.rows[2].b.type; 
-                                        var pic3=results.rows[2].picture;
-                                        var bookno3=results.rows[2].bookno;
+                                        var pic3=results.rows[2].a.picture;
+                                        var bookno3=results.rows[2].a.bookno;
 
 
                                         //回覆查詢結果

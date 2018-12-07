@@ -15,12 +15,51 @@ var bot = linebot({
     channelAccessToken: 'g93gFjGS2nxtZtwdGYwFg2Sd+i7eO7C1imlK96heyVGV76dLwRPXO1qseNi4R7poSpv3P1KnNsQle4MStyTrTgd8O2eGK+6yUnJkTELfeQPp1y9hj/MB+S03z99VpKL3IO8JUbuS2G7jRwJ8WqmKSgdB04t89/1O/w1cDnyilFU='
   });
 
+//--------------------------------
+// 加入或封鎖後再加入
+//--------------------------------
+bot.on('follow', function (event){
+    event.source.profile().then(
+        function (profile) {
+            var userId = event.source.userId;
+            userName = profile.displayName;
+            client.query("INSERT INTO users(userid, username)VALUES ($1, $2)",[userId,userName] ,(err, results) =>{
+                if(err){
+                    console.log('錯了!!!!!!!!!!!!!!!!!!'+err);
+                }else{
+                    console.log('Gooooooooooooooooooooood');
+                }
+            });
+        }
+    );
+});
+
 //-----------------------------------------
 // 處理event.postback，喜歡/不喜歡button的資訊收集
 //-----------------------------------------
 bot.on('postback', function(event) { 
         var type = event.postback.data.substring(3); //type
         var userId = event.source.userId;
+        var typeno;
+
+        switch(type){
+            case '商業理財':
+            case '商業':
+            case '理財':
+                typeno=1;
+                break;
+            case '心理勵志':
+            case '心理':
+            case '勵志':
+                typeno=2;
+                break;
+            case '藝術':
+            case '設計':
+            case '藝術設計':
+                typeno=6;
+                break;
+        }
+
   
         event.source.profile().then(
             function (profile) {
@@ -36,7 +75,7 @@ bot.on('postback', function(event) {
 
                 //--------------like-----------------
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabit where type = $1 AND userid = $2 ",[type,userId] ,(err, results) =>{
+                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.type = $1 AND a.userid = $2 ",[type,userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
                                 if(err){

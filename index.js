@@ -135,9 +135,9 @@ bot.on('postback', function(event) {
                 //--------------------------------------------
                 //-----------------dislike--------------------
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabit where type = $1 AND userid = $2",[type,userId] , (err, results) =>{
+                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.type = $1 AND a.userid = $2 ",[type,userId] , (err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,99)",[userId,userName,type], (err, results) =>{
+                            client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{
                                 if(err){
                                     console.log('不喜歡新增失敗'+userName);
                                 }else{
@@ -155,7 +155,7 @@ bot.on('postback', function(event) {
                                 ]);
                             });
                         }else{
-                            client.query("update userhabit set count = count - 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
+                            client.query("update userhabits set count = count - 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
                                 console.log(results);
                                 
                                 //回覆查詢結果

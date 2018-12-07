@@ -558,7 +558,7 @@ bot.on('message',function(event) {
                                 }
                             });
                         }else{
-                            client.query("update userhabits set count = count + 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
+                            client.query("update userhabits set count = count + 1 where a.typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
                                 console.log(userName);
                                 
                                 //回覆查詢結果
@@ -568,7 +568,8 @@ bot.on('message',function(event) {
                                     console.log('更新DB成功'); 
 
                                     //篩選書籍給使用者
-                                    client.query("select * from book a,type b where a.typeno=b.typeno AND typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
+                                    client.query("select * from book a,type b where a.typeno=b.typeno AND a.typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
+                                                                                
                                         var bookname=results.rows[0].a.bookname;
                                         var booktype=results.rows[0].b.type; 
                                         var pic=results.rows[0].a.picture;

@@ -399,6 +399,19 @@ bot.on('message',function(event) {
                         case '勵志':
                             typeno=2;
                             break;
+                        case '文學':
+                        case '小說':
+                        case '文學小說':
+                            typeno=3;
+                            break;
+                        case '旅遊':
+                            typeno=4;
+                            break; 
+                        case '生活': 
+                        case '風格': 
+                        case '生活風格':
+                            typeno=5;
+                            break;
                         case '藝術':
                         case '設計':
                         case '藝術設計':
@@ -406,8 +419,23 @@ bot.on('message',function(event) {
                             break;
                         case '親子教養':
                         case '親子':
-                        case '教養':
+                        case '教育':
                             typeno=7;
+                            break;
+                        case '語言':
+                        case '辭典':
+                        case '參考書':
+                            typeno=8;
+                            break;
+                        case '醫療保健':
+                        case '醫療':
+                        case '保健':
+                            typeno=9;
+                            break
+                        case '飲食':
+                        case '料理':
+                        case '飲食料理':
+                            typeno=10;
                             break;
                     }
 

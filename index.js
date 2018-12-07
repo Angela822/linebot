@@ -49,37 +49,35 @@ bot.on('follow', function (event){
 // 處理event.postback，喜歡/不喜歡button的資訊收集
 //-----------------------------------------
 bot.on('postback', function(event) { 
-    var type = event.postback.data.substring(3); //type
-    var userId = event.source.userId;
-    var typeno;
-
-    switch(type){
-        case '商業理財':
-        case '商業':
-        case '理財':
-            typeno=1;
-            break;
-        case '心理勵志':
-        case '心理':
-        case '勵志':
-            typeno=2;
-            break;
-        case '藝術':
-        case '設計':
-        case '藝術設計':
-            var typeno=6;
-            break;
-        case '親子教養':
-        case '親子':
-        case '教養':
-            typeno=7;
-            break;
-    }
-
-
     event.source.profile().then(
         function (profile) {
             userName = profile.displayName;
+            var type = event.postback.data.substring(3); //type
+            var userId = event.source.userId;
+            var typeno;
+        
+            switch(type){
+                case '商業理財':
+                case '商業':
+                case '理財':
+                    typeno=1;
+                    break;
+                case '心理勵志':
+                case '心理':
+                case '勵志':
+                    typeno=2;
+                    break;
+                case '藝術':
+                case '設計':
+                case '藝術設計':
+                    typeno=6;
+                    break;
+                case '親子教養':
+                case '親子':
+                case '教養':
+                    typeno=7;
+                    break;
+            }
 
             //建立資料庫連線           
             var client = new Client({

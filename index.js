@@ -55,6 +55,15 @@ bot.on('postback', function(event) {
         event.source.profile().then(
             function (profile) {
                 userName = profile.displayName;
+                
+                //建立資料庫連線           
+                var client = new Client({
+                    connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                    ssl: true,
+                })
+                
+                client.connect();
+
                 var typeno;
 
                 //將類別文字轉成數值(typeno)
@@ -108,19 +117,11 @@ bot.on('postback', function(event) {
                         typeno=10;
                         break;
                 }
-                //建立資料庫連線           
-                var client = new Client({
-                    connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                    ssl: true,
-                })
-                
-                client.connect();
-
                 //--------------like-----------------
                 if(event.postback.data.substring(0,3) == '我喜歡'){
                     client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND a.typeno = $1 AND a.userid = $2 ",[typeno,userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
-                            console.log(results);
+                            console.log(typeno+"!!!!!!!!!!!!!!!!!!!!!11");
                             client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{
                                 if(err){
                                     console.log('喜歡新增失敗'+userName);

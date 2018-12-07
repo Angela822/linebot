@@ -16,7 +16,7 @@ var bot = linebot({
   });
 
 //--------------------------------
-// 加入或封鎖後再加入
+// 加入
 //--------------------------------
 bot.on('follow', function (event){
     event.source.profile().then(

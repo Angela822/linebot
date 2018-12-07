@@ -161,7 +161,7 @@ bot.on('postback', function(event) {
                 //--------------------------------------------
                 //-----------------dislike--------------------
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.type = $1 AND a.userid = $2 ",[type,userId] , (err, results) =>{
+                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typeno = $1 AND a.userid = $2 ",[typeno,userId] , (err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{
                                 if(err){
@@ -1317,17 +1317,17 @@ bot.on('message',function(event) {
                                 console.log(userName);
                                 
                                 var bookname=results.rows[0].bookname;
-                                var booktype=results.rows[0].b.type; 
+                                var booktype=results.rows[0].typename; 
                                 var pic=results.rows[0].picture;
                                 var bookno=results.rows[0].bookno;
 
                                 var bookname2=results.rows[1].bookname;
-                                var booktype2=results.rows[1].b.type; 
+                                var booktype2=results.rows[1].typename; 
                                 var pic2=results.rows[1].picture;
                                 var bookno2=results.rows[1].bookno;
 
                                 var bookname3=results.rows[2].bookname;
-                                var booktype3=results.rows[2].b.type; 
+                                var booktype3=results.rows[2].typename; 
                                 var pic3=results.rows[2].picture;
                                 var bookno3=results.rows[2].bookno;
 

@@ -118,7 +118,7 @@ bot.on('postback', function(event) {
 
                 //--------------like-----------------
                 if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typeno = $1 AND a.userid = $2 ",[typeno,userId] ,(err, results) =>{
+                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND a.typeno = $1 AND a.userid = $2 ",[typeno,userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
                             console.log(results);
                             client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{

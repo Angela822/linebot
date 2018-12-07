@@ -558,7 +558,7 @@ bot.on('message',function(event) {
                                 }
                             });
                         }else{
-                            client.query("update userhabits set count = count + 1 where a.typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
+                            client.query("update userhabits set count = count + 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
                                 console.log(userName);
                                 
                                 //回覆查詢結果

@@ -161,7 +161,7 @@ bot.on('postback', function(event) {
                 //--------------------------------------------
                 //-----------------dislike--------------------
                 }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typeno = $1 AND a.userid = $2 ",[typeno,userId] , (err, results) =>{
+                    client.query("select * from userhabits a, type b where a.typeno = b.typeno AND b.typeno = $1 AND a.userid = $2",[typeno,userId] , (err, results) =>{
                         if(err || results.rows.length==0){
                             client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{
                                 if(err){

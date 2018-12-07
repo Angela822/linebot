@@ -426,17 +426,17 @@ bot.on('message',function(event) {
                                     //篩選書籍給使用者
                                     client.query("select * from book where typeno = $1 order by random() LIMIT 3",[typeno], (err, results) =>{            
                                         var bookname=results.rows[0].bookname;
-                                        var booktype=results.rows[0].type; 
+                                        var booktype=results.rows[0].b.type; 
                                         var pic=results.rows[0].picture;
                                         var bookno=results.rows[0].bookno;
 
                                         var bookname2=results.rows[1].bookname;
-                                        var booktype2=results.rows[1].type; 
+                                        var booktype2=results.rows[1].b.type; 
                                         var pic2=results.rows[1].picture;
                                         var bookno2=results.rows[1].bookno;
 
                                         var bookname3=results.rows[2].bookname;
-                                        var booktype3=results.rows[2].type; 
+                                        var booktype3=results.rows[2].b.type; 
                                         var pic3=results.rows[2].picture;
                                         var bookno3=results.rows[2].bookno;
 

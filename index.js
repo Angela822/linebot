@@ -49,167 +49,139 @@ bot.on('follow', function (event){
 // 處理event.postback，喜歡/不喜歡button的資訊收集
 //-----------------------------------------
 bot.on('postback', function(event) { 
-        var type = event.postback.data.substring(3); //type
-        var userId = event.source.userId;
+    var type = event.postback.data.substring(3); //type
+    var userId = event.source.userId;
+    var typeno;
 
-        event.source.profile().then(
-            function (profile) {
-                userName = profile.displayName;
-                
-                //建立資料庫連線           
-                var client = new Client({
-                    connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
-                    ssl: true,
-                })
-                
-                client.connect();
+    switch(type){
+        case '商業理財':
+        case '商業':
+        case '理財':
+            typeno=1;
+            break;
+        case '心理勵志':
+        case '心理':
+        case '勵志':
+            typeno=2;
+            break;
+        case '藝術':
+        case '設計':
+        case '藝術設計':
+            typeno=6;
+            break;
+        case '親子教養':
+        case '親子':
+        case '教養':
+            typeno=7;
+            break;
+    }
 
-                var typeno;
 
-                //將類別文字轉成數值(typeno)
-                switch(type){
-                    case '商業理財':
-                    case '商業':
-                    case '理財':
-                        typeno=1;
-                        break;
-                    case '心理勵志':
-                    case '心理':
-                    case '勵志':
-                        typeno=2;
-                        break;
-                    case '文學':
-                    case '小說':
-                    case '文學小說':
-                        typeno=3;
-                        break;
-                    case '旅遊':
-                        typeno=4;
-                        break; 
-                    case '生活': 
-                    case '風格': 
-                    case '生活風格':
-                        typeno=5;
-                        break;
-                    case '藝術':
-                    case '設計':
-                    case '藝術設計':
-                        typeno=6;
-                        break;
-                    case '親子教養':
-                    case '親子':
-                    case '教育':
-                        typeno=7;
-                        break;
-                    case '語言':
-                    case '辭典':
-                    case '參考書':
-                        typeno=8;
-                        break;
-                    case '醫療保健':
-                    case '醫療':
-                    case '保健':
-                        typeno=9;
-                        break
-                    case '飲食':
-                    case '料理':
-                    case '飲食料理':
-                        typeno=10;
-                        break;
-                }
-                //--------------like-----------------
-                if(event.postback.data.substring(0,3) == '我喜歡'){
-                    client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND a.typeno = $1 AND a.userid = $2 ",[typeno,userId] ,(err, results) =>{
-                        if(err || results.rows.length==0){
-                            console.log(typeno+"!!!!!!!!!!!!!!!!!!!!!11");
-                            client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{
-                                if(err){
-                                    console.log('喜歡新增失敗'+userName);
-                                }else{
-                                    console.log('喜歡新增成功'+userName);
+    event.source.profile().then(
+        function (profile) {
+            userName = profile.displayName;
+
+            //建立資料庫連線           
+            var client = new Client({
+                connectionString: 'postgres://jwolwdzesbpqji:cd36854742157046461ec01de62e7d851db4cce0e16e6dbaa2a32aea21fa0059@ec2-54-221-210-97.compute-1.amazonaws.com:5432/d36fj3m41rcrr7',
+                ssl: true,
+            })
+            
+            client.connect();
+
+            //--------------like-----------------
+            if(event.postback.data.substring(0,3) == '我喜歡'){
+                console.log(typeno+'!!!!!!!!!!!!!!!!!!!')
+                client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typename = $1 AND a.userid = $2 ",[type,userId] ,(err, results) =>{
+                    if(err || results.rows.length==0){
+                        client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{
+                            if(err){
+                                console.log('喜歡新增失敗'+userName);
+                            }else{
+                                console.log('喜歡新增成功'+userName);
+                            }
+
+                            //關閉連線
+                            client.end();
+    
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "知道了！你放心，我記住了" + "(≧▽≦)"
                                 }
+                            ]);
+                        });
+                    }else{
+                        client.query("update userhabits set count = count + 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
+                            
+                            //回覆查詢結果
+                            if (err){
+                                console.log('喜歡更新失敗'+userName);
+                            }else{						
+                                console.log('喜歡更新成功'+userName); 
+                            }
+    
+                            //關閉連線
+                            client.end();
+    
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "知道了！你放心，我記住了" + "(≧▽≦)"
+                                }
+                            ]);
+                        });
+                    }
+                });  
+            //--------------------------------------------
+            //-----------------dislike--------------------
+            }else if(event.postback.data.substring(0,3) == '不喜歡'){
+                console.log(typeno+'!!!!!!!!!!!!!!!!!!!')
+                client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.typename = $1 AND a.userid = $2 ",[type,userId] , (err, results) =>{
+                    if(err || results.rows.length==0){
+                        client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{
+                            if(err){
+                                console.log('不喜歡新增失敗'+userName);
+                            }else{
+                                console.log('不喜歡更新成功'+userName);
+                            }
 
-                                //關閉連線
-                                client.end();
-        
-                                return event.reply([
-                                    {
-                                        "type": "text",
-                                        "text": "知道了！你放心，我記住了" + "(≧▽≦)"
-                                    }
-                                ]);
-                            });
-                        }else{
-                            client.query("update userhabits set count = count + 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('喜歡更新失敗'+userName);
-                                }else{						
-                                    console.log('喜歡更新成功'+userName); 
+                            //關閉連線
+                            client.end();
+    
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
                                 }
-        
-                                //關閉連線
-                                client.end();
-        
-                                return event.reply([
-                                    {
-                                        "type": "text",
-                                        "text": "知道了！你放心，我記住了" + "(≧▽≦)"
-                                    }
-                                ]);
-                            });
-                        }
-                    });  
-                //--------------------------------------------
-                //-----------------dislike--------------------
-                }else if(event.postback.data.substring(0,3) == '不喜歡'){
-                    client.query("select * from userhabits a, type b where a.typeno = b.typeno AND a.typeno = $1 AND a.userid = $2",[typeno,userId] , (err, results) =>{
-                        console.log(typeno);
-                        if(err || results.rows.length==0){
-                            client.query("insert into userhabits(userid,typeno,count)values($1,$2,99)",[userId,typeno], (err, results) =>{
-                                if(err){
-                                    console.log('不喜歡新增失敗'+userName);
-                                }else{
-                                    console.log('不喜歡更新成功'+userName);
+                            ]);
+                        });
+                    }else{
+                        client.query("update userhabits set count = count - 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
+                            console.log(results);
+                            
+                            //回覆查詢結果
+                            if (err){
+                                console.log('不喜歡更新失敗'+userName);
+                            }else{						
+                                console.log('不喜歡更新成功'+userName); 
+                            }
+    
+                            //關閉連線
+                            client.end();
+    
+                            return event.reply([
+                                {
+                                    "type": "text",
+                                    "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
                                 }
-
-                                //關閉連線
-                                client.end();
-        
-                                return event.reply([
-                                    {
-                                        "type": "text",
-                                        "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
-                                    }
-                                ]);
-                            });
-                        }else{
-                            client.query("update userhabits set count = count - 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
-                                console.log(results);
-                                
-                                //回覆查詢結果
-                                if (err){
-                                    console.log('不喜歡更新失敗'+userName);
-                                }else{						
-                                    console.log('不喜歡更新成功'+userName); 
-                                }
-        
-                                //關閉連線
-                                client.end();
-        
-                                return event.reply([
-                                    {
-                                        "type": "text",
-                                        "text": "原來你不喜歡阿...我知道了" + "(￣个￣)"
-                                    }
-                                ]);
-                            });
-                        }
-                    });        
-                }	
-                //--------------------------------------------	
-        });
+                            ]);
+                        });
+                    }
+                });        
+            }	
+            //--------------------------------------------	
+    });
 });
 
 //--------------------------

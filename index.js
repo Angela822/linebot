@@ -407,7 +407,7 @@ bot.on('message',function(event) {
                     var userId = profile.userId;
                     //擷取使用者空格後的資料
                     var type = event.message.text.substring(4);
-                    
+                    var typeno;
                     //將類別文字轉成數值(typeno)
                     switch(type){
                         case '商業理財':

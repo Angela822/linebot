@@ -58,6 +58,7 @@ bot.on('postback', function(event) {
         case '商業':
         case '理財':
             typeno=1;
+            return typeno;
             break;
         case '心理勵志':
         case '心理':
@@ -68,6 +69,7 @@ bot.on('postback', function(event) {
         case '設計':
         case '藝術設計':
             typeno=6;
+            return typeno;
             break;
         case '親子教養':
         case '親子':

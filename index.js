@@ -88,7 +88,7 @@ bot.on('postback', function(event) {
                 if(event.postback.data.substring(0,3) == '我喜歡'){
                     client.query("select * from userhabits a, type b  where a.typeno = b.typeno AND b.type = $1 AND a.userid = $2 ",[type,userId] ,(err, results) =>{
                         if(err || results.rows.length==0){
-                            client.query("insert into userhabit(userid,username,type,count)values($1,$2,$3,101)",[userId,userName,type], (err, results) =>{
+                            client.query("insert into userhabits(userid,typeno,count)values($1,$2,101)",[userId,typeno], (err, results) =>{
                                 if(err){
                                     console.log('喜歡新增失敗'+userName);
                                 }else{
@@ -106,7 +106,7 @@ bot.on('postback', function(event) {
                                 ]);
                             });
                         }else{
-                            client.query("update userhabit set count = count + 1 where type = $1 AND userid = $2", [type,userId], (err, results) => {    
+                            client.query("update userhabits set count = count + 1 where typeno = $1 AND userid = $2", [typeno,userId], (err, results) => {    
                                 
                                 //回覆查詢結果
                                 if (err){

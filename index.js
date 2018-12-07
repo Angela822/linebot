@@ -67,7 +67,7 @@ bot.on('postback', function(event) {
         case '藝術':
         case '設計':
         case '藝術設計':
-            typeno=6;
+            var typeno=6;
             break;
         case '親子教養':
         case '親子':

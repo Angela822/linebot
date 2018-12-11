@@ -781,21 +781,21 @@ bot.on('message',function(event) {
 
             //查詢資料
             //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                client.query("select * from book order by date DESC LIMIT 3", (err, results) => {    
+                client.query("SELECT bookname, typename, picture, bookno FROM book a, type b where a.typeno = b.typeno order by date DESC LIMIT 3", (err, results) => {    
                     
                     //回覆查詢結果		
                     var bookname=results.rows[0].bookname;
-                    var type=results.rows[0].type; 
+                    var type=results.rows[0].typename; 
                     var pic=results.rows[0].picture;
                     var bookno=results.rows[0].bookno;
 
                     var bookname2=results.rows[1].bookname;
-                    var type2=results.rows[1].type;
+                    var type2=results.rows[1].typename;
                     var pic2=results.rows[1].picture;
                     var bookno2=results.rows[1].bookno;
 
                     var bookname3=results.rows[2].bookname;
-                    var type3=results.rows[2].type;   
+                    var type3=results.rows[2].typename;   
                     var pic3=results.rows[2].picture;
                     var bookno3=results.rows[2].bookno;                                             
                                                     

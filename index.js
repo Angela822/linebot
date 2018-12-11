@@ -923,57 +923,57 @@ bot.on('message',function(event) {
                     
                     //查詢資料
                     //(資料庫欄位名稱不使用駝峰命名, 否則可能出錯)
-                        client.query("select * from book ORDER BY rankno ASC LIMIT 10", (err, results) => {    
+                        client.query("SELECT bookname, typename, picture, bookno FROM book a, type b where a.typeno = b.typeno ORDER BY rankno ASC LIMIT 10;", (err, results) => {    
                             console.log(results);
                             
                             //回覆查詢結果		
                             var bookname=results.rows[0].bookname;
-                            var type=results.rows[0].type; 
+                            var type=results.rows[0].typename; 
                             var picture=results.rows[0].picture;
                             var bookno=results.rows[0].bookno;
                             
                             var bookname1=results.rows[1].bookname;
-                            var type1=results.rows[1].type;
+                            var type1=results.rows[1].typename;
                             var picture1=results.rows[1].picture;
                             var bookno1=results.rows[1].bookno;
 
                             var bookname2=results.rows[2].bookname;
-                            var type2=results.rows[2].type;  
+                            var type2=results.rows[2].typename;  
                             var picture2=results.rows[2].picture;
                             var bookno2=results.rows[2].bookno;
 
                             var bookname3=results.rows[3].bookname;
-                            var type3=results.rows[3].type; 
+                            var type3=results.rows[3].typename; 
                             var picture3=results.rows[3].picture;
                             var bookno3=results.rows[3].bookno;
 
                             var bookname4=results.rows[4].bookname;
-                            var type4=results.rows[4].type;
+                            var type4=results.rows[4].typename;
                             var picture4=results.rows[4].picture;
                             var bookno4=results.rows[4].bookno;
 
                             var bookname5=results.rows[5].bookname;
-                            var type5=results.rows[5].type;
+                            var type5=results.rows[5].typename;
                             var picture5=results.rows[5].picture;
                             var bookno5=results.rows[5].bookno;
 
                             var bookname6=results.rows[6].bookname;
-                            var type6=results.rows[6].type;
+                            var type6=results.rows[6].typename;
                             var picture6=results.rows[6].picture;
                             var bookno6=results.rows[6].bookno;
 
                             var bookname7=results.rows[7].bookname;
-                            var type7=results.rows[7].type;
+                            var type7=results.rows[7].typename;
                             var picture7=results.rows[7].picture;
                             var bookno7=results.rows[7].bookno;
 
                             var bookname8=results.rows[8].bookname;
-                            var type8=results.rows[8].type; 
+                            var type8=results.rows[8].typename; 
                             var picture8=results.rows[8].picture;
                             var bookno8=results.rows[8].bookno;
 
                             var bookname9=results.rows[9].bookname;
-                            var type9=results.rows[9].type; 
+                            var type9=results.rows[9].typename; 
                             var picture9=results.rows[9].picture; 
                             var bookno9=results.rows[9].bookno;               
                                                           

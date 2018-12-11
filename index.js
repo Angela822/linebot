@@ -52,7 +52,8 @@ bot.on('postback', function(event) {
     event.source.profile().then(
         function (profile) {
             userName = profile.displayName;
-            var type = event.postback.data.substring(3); //type
+            //var type = event.postback.data.substring(3); //type
+            var type='商業理財';
             var userId = event.source.userId;
             var typeno;
             //將類別文字轉成數值(typeno)

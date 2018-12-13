@@ -1872,8 +1872,8 @@ bot.on('message',function(event) {
                         },
                         {
                             "type": "message",
-                            "label": "抽籤",
-                            "text": "抽籤(抽看看別人的書單吧)"
+                            "label": "抽籤(抽看看別人的書單吧)",
+                            "text": "抽籤"
                         }
                     ]
                 }

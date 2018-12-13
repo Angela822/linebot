@@ -1853,7 +1853,7 @@ bot.on('message',function(event) {
                 "template": {
                     "type": "buttons",
                     "title": "書本清單",
-                    "text": "請選擇",
+                    "text": "快來新增自己的書單吧",
                     "actions": [
                         {
                             "type": "message",
